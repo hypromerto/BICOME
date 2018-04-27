@@ -1,3 +1,4 @@
 #this file stages the directories to be ignored
 #ignore the file under the out directory
 out/
+*~
