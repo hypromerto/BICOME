@@ -1,0 +1,14 @@
+package feature;
+/**
+ * @author Ege Balcýoðlu
+ * @version 23.4.2018
+ */
+import attribute.*;
+import java.util.HashMap;
+public class Fur extends Feature
+{
+   public Fur( Genotype genotype )
+   {
+      super( genotype );
+   }
+}

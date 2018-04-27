@@ -1,0 +1,9 @@
+package attribute;
+
+public class Speed extends Attribute
+{
+   public Speed()
+   {
+      super();
+   }
+}
