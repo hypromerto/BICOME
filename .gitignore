@@ -1,11 +1,9 @@
 #this file stages the directories to be ignored
 #ignore the file under the out directory
-<<<<<<< HEAD
 out/*
-=======
 out/
+#ignore files that end with "~" sign
 *~
->>>>>>> f06cfff01074eeab79fcf18e244e8847707a4c1a
-/bin/
+#ignore files under the bin directory
 bin/
 bin/*
