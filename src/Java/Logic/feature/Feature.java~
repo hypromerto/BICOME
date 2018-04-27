@@ -86,12 +86,12 @@ public abstract class Feature
       return false;
    }
    
-   public void multiply( Double environmentalConditionMultiplier )
+   public void multiply( Double externalMultiplier )
    {
       this.getMultipliers().replaceAll( new BiFunction< Attribute, Double, Double >() {
-         public Double apply( Attribute a, Double featureMultiplier )
+         public Double apply( Attribute a, Double internalMultiplier )
          {
-            return featureMultiplier * environmentalConditionMultiplier;
+            return internalMultiplier * externalMultiplier;
          }
       } );
    }

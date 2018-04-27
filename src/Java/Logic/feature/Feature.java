@@ -12,9 +12,9 @@ public abstract class Feature
 {
    // properties
    private Genotype genotype;
-   protected HashMap< Attribute, Double > dominantMultipliers;
-   protected HashMap< Attribute, Double > recessiveMultipliers;
-   protected HashMap< Attribute, Double > noneMultipliers;
+   protected HashMap< String, Double > dominantMultipliers;
+   protected HashMap< String, Double > recessiveMultipliers;
+   protected HashMap< String, Double > noneMultipliers;
    
    // constructors
    public Feature( Genotype genotype )
@@ -32,7 +32,7 @@ public abstract class Feature
       return this.genotype;
    }
    
-   public final HashMap< Attribute, Double > getMultipliers()
+   public final HashMap< String, Double > getMultipliers()
    {
       if ( this.getGenotype() == Genotype.RECESSIVE_HOMOZYGOTE )
       {
@@ -88,8 +88,8 @@ public abstract class Feature
    
    public void multiply( Double externalMultiplier )
    {
-      this.getMultipliers().replaceAll( new BiFunction< Attribute, Double, Double >() {
-         public Double apply( Attribute a, Double internalMultiplier )
+      this.getMultipliers().replaceAll( new BiFunction< String, Double, Double >() {
+         public Double apply( String attributeType, Double internalMultiplier )
          {
             return internalMultiplier * externalMultiplier;
          }

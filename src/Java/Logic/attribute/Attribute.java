@@ -8,6 +8,7 @@ public abstract class Attribute
    // properties
    protected static final double INITIAL = 50.0;
    private double value;
+   // type Strings will be used as Keys in the Maps of Feature class.
    protected String type;
    
    // constructors
@@ -29,4 +30,9 @@ public abstract class Attribute
    }
    
    protected abstract void setType();
+   
+   public String getType()
+   {
+      return type;
+   }
 }
