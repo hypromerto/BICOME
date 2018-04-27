@@ -1,5 +1,9 @@
 package feature;
 /**
+ * Determines fur thickness
+ * Dominant: Thin Fur
+ * Recessive: Thick Fur
+ * None: No Fur
  * @author Ege Balcioglu
  * @version 23.4.2018
  */
@@ -15,6 +19,7 @@ public final class Fur extends Feature
    
    protected void setMultipliers()
    {
+      // TBA
       // this.dominantMultipliers.put( , 0.25 );
       // this.recessiveMultipliers.put();
       // this.noneMultipliers.put();

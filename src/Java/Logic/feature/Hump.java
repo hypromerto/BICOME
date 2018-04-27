@@ -1,5 +1,9 @@
 package feature;
 /**
+ * Determines "hump" size, humps are those things that camels have on their back
+ * Dominant: Small Hump
+ * Recessive: Big Hump
+ * None: No Hump
  * @author Ege Balcioglu
  * @version 23.4.2018
  */
@@ -15,6 +19,7 @@ public final class Hump extends Feature
    
    protected void setMultipliers()
    {
+      // TBA
       // this.dominantMultipliers.put( , 0.25 );
       // this.recessiveMultipliers.put();
       // this.noneMultipliers.put();

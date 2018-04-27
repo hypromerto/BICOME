@@ -1,5 +1,9 @@
 package feature;
 /**
+ * Determines the number of extra food storage organs
+ * Dominant: Four extra food storage organs (a total of 5)
+ * Recessive: One extra food storage organ (a total of 2)
+ * None: No extra food storage organs (a total of 1)
  * @author Ege Balcioglu
  * @version 23.4.2018
  */
