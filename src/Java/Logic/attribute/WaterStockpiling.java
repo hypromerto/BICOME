@@ -3,15 +3,15 @@ package attribute;
  * @author Ege Balcýoðlu
  * @version 23.4.2018
  */
-public class Power extends Attribute
+public class WaterStockpiling extends Attribute
 {
-   public Power()
+   public WaterStockpiling()
    {
       super();
    }
    
    protected void setType()
    {
-      type = "power";
+      type = "water_stockpiling";
    }
 }

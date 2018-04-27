@@ -12,6 +12,6 @@ public class Speed extends Attribute
    
    protected void setType()
    {
-      type = "Speed";
+      type = "speed";
    }
 }

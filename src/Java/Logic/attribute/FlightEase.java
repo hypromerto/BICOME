@@ -3,15 +3,15 @@ package attribute;
  * @author Ege Balcýoðlu
  * @version 23.4.2018
  */
-public class Power extends Attribute
+public class FlightEase extends Attribute
 {
-   public Power()
+   public FlightEase()
    {
       super();
    }
    
    protected void setType()
    {
-      type = "power";
+      type = "flight_ease";
    }
 }
