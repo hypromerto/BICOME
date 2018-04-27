@@ -31,7 +31,7 @@ public class Organism
    
    public void increaseCooldown()
    {
-      if ( cooldown % 3 == 0 && cooldown != 0)
+      if ( cooldown % 3 == 0 && cooldown != 0 )
       {
          cooldown = 0;
          setReproductionCooldown( false );
@@ -77,10 +77,21 @@ public class Organism
    
    public void setAttributesFromEnvironment( Environment env )
    {
-      // set proper multipliers in Features
+      // set proper multipliers in Feature classes
       for ( int i = 0; i < features.size(); i++ )
       {
          env.filter( features.get(i) );
+      }
+      
+      // apply multipliers to Attributes
+      for ( Feature f : features )
+      {
+         for ( int i = 0; i < attributes.length; i++ )
+         {
+            attributes[i].calculate( f.getMultipliers()
+                                       .getOrDefault( attributes[i]
+                                                        .getType(), 1.0 ) );
+         }
       }
    }
 }

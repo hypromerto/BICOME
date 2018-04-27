@@ -1,6 +1,6 @@
 package feature;
 /**
- * @author Ege Balcýoðlu
+ * @author Ege Balcioglu
  * @version 23.4.2018
  */
 import genotype.Genotype;

@@ -1,6 +1,6 @@
 package attribute;
 /**
- * @author Ege Balcýoðlu
+ * @author Ege Balcioglu
  * @version 23.4.2018
  */
 public class NutritionStockpiling extends Attribute

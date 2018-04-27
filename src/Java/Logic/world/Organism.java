@@ -1,6 +1,6 @@
 package world;
 /**
- * @author Mert Aslan, Ege Balcýoðlu
+ * @author Mert Aslan, Ege Balcioglu
  * @version 27.4.2018
  */
 import java.util.*;

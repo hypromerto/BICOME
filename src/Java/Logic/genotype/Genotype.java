@@ -1,7 +1,7 @@
 package genotype;
 /**
  * lists of possible genotypes of a feature of an organism
- * @author Ege Balcýoðlu
+ * @author Ege Balcioglu
  * @version 23.4.2018
  */
 public enum Genotype

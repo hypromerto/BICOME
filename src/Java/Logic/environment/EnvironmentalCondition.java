@@ -1,6 +1,6 @@
 package environment;
 /**
- * @author Ege Balcýoðlu
+ * @author Ege Balcioglu
  * @version 24.4.2018
  */
 import java.util.HashMap;
