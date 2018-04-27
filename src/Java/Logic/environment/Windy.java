@@ -6,7 +6,7 @@ package environment;
 import genotype.Genotype;
 import java.util.HashMap;
 import feature.*;
-public final class Windy extends EnvironmentCondition
+public final class Windy extends EnvironmentalCondition
 {
    public Windy()
    {

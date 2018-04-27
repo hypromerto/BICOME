@@ -1,4 +1,8 @@
 package world;
+/**
+ * @author Mert Aslan, Ege Balcýoðlu
+ * @version 27.4.2018
+ */
 public class Organism 
 {
    private int cooldown;
@@ -36,11 +40,7 @@ public class Organism
    
    public boolean canReproduce()
    {
-      if ( !pregnant )
-         return true;
-      
-      return false;
-      
+      return !pregnant;      
    }
    
    public Organism reproduce(Organism o)
@@ -50,8 +50,9 @@ public class Organism
       this.setReproductionCooldown( true );
       o.setReproductionCooldown( true );
       
-      offspring = new Organism();
+      offspring = new Organism( /* stub */ );
       
+      // stub
       
       return offspring;
       

@@ -8,5 +8,6 @@ public class Age extends Attribute
    public Age()
    {
       super();
+      type = "Age";
    }
 }

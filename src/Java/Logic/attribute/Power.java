@@ -9,4 +9,9 @@ public class Power extends Attribute
    {
       super();
    }
+   
+   protected void setType()
+   {
+      type = "Power";
+   }
 }

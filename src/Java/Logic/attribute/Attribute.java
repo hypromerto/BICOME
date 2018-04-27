@@ -8,18 +8,13 @@ public abstract class Attribute
    // properties
    protected static final double INITIAL = 50.0;
    private double value;
-   private Attribute.Type type;
+   protected String type;
    
    // constructors
    public Attribute()
    {
       this.value = INITIAL;
-   }
-   
-   // inner classes
-   public enum Type
-   {
-      POWER, SPEED, FLIGHT_EASE, AGE, NUTRITION_STOCKPILING, WATER_STOCKPILING;
+      setType();
    }
    
    // methods
@@ -32,4 +27,6 @@ public abstract class Attribute
    {
       value *= multiplier;
    }
+   
+   protected abstract void setType();
 }

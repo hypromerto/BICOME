@@ -1,4 +1,8 @@
 package world;
+/**
+ * @author Mert Aslan
+ * @version 27.4.2018
+ */
 import java.util.ArrayList;
 import environment.Environment;
 public class World 
@@ -101,7 +105,8 @@ public class World
                   }
                   else
                   {
-                     //die without reproducing
+                     // die without reproducing
+                     // stub
                   }
                   
                   
@@ -124,9 +129,9 @@ public class World
                
                if ( offsprings[i][j] instanceof Organism )
                {
-                  organisms[i][j] = offsprings[i][j]; //porting our offsprings back to original organisms array
+                  organisms[i][j] = offsprings[i][j]; // porting our offsprings back to original organisms array
                   
-                  offsprings[i][j] = null; //flushing offsprings
+                  offsprings[i][j] = null; // flushing offsprings
                }
             }
          }

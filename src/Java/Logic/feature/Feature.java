@@ -2,6 +2,7 @@ package feature;
 
 import genotype.Genotype;
 import java.util.HashMap;
+import java.util.function.*;
 import attribute.Attribute;
 /**
  * @author Ege Balcýoðlu
@@ -50,7 +51,7 @@ public abstract class Feature
     * Unorthodox equals method to be used implicitly in Organism class's 
     * setAttributesFromEnvironment() method, and Environment's filter() method.
     * It ensures that the multipliers that is returned by the getMultipliers() 
-    * method of EnvironmentCondition class is properly multiplied with the 
+    * method of EnvironmentalCondition class is properly multiplied with the 
     * organism's correct features' multipliers. To do this, this method 
     * implicitly converts the genotype into a phenotype and then compares 
     * the phenotypes of the two features in question.
@@ -60,7 +61,7 @@ public abstract class Feature
     * @see world.Organism Organism
     * @see world.World World
     * @see environment.Environment Environment
-    * @see environment.EnvironmentCondition EnvironmentCondition
+    * @see environment.EnvironmentalCondition EnvironmentalCondition
     */
    @Override
    public boolean equals( Object other )
@@ -83,6 +84,16 @@ public abstract class Feature
             return true;
       }
       return false;
+   }
+   
+   public void multiply( Double environmentalConditionMultiplier )
+   {
+      this.getMultipliers().replaceAll( new BiFunction< Attribute, Double, Double >() {
+         public Double apply( Attribute a, Double featureMultiplier )
+         {
+            return featureMultiplier * environmentalConditionMultiplier;
+         }
+      } );
    }
    
    protected abstract void setMultipliers();

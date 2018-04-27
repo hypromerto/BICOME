@@ -9,4 +9,9 @@ public class Speed extends Attribute
    {
       super();
    }
+   
+   protected void setType()
+   {
+      type = "Speed";
+   }
 }

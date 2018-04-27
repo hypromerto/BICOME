@@ -5,11 +5,11 @@ package environment;
  */
 import java.util.HashMap;
 import feature.Feature;
-public abstract class EnvironmentCondition
+public abstract class EnvironmentalCondition
 {
    protected HashMap< Feature, Double > multipliers;
    
-   public EnvironmentCondition()
+   public EnvironmentalCondition()
    {
       multipliers = new HashMap<>();
       setMultipliers();
