@@ -7,3 +7,5 @@ out/
 *~
 >>>>>>> f06cfff01074eeab79fcf18e244e8847707a4c1a
 /bin/
+bin/
+bin/*
