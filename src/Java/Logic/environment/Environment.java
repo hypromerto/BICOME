@@ -1,6 +1,6 @@
 package environment;
 /**
- * @author Ege Balcýoðlu, Ýlter Sezan
+ * @author Ege BalcÃ½oÃ°lu, Ismail Ilter Sezan
  * @version 27.4.2018
  */
 import java.util.*;
@@ -42,8 +42,34 @@ public class Environment
     */
    private void setName()
    {
-      // stub
       assert conditionsSet; // be sure to make this statement the first line of this method
+      
+      boolean andCheck;
+      andCheck = false;
+      
+      // equals method will be used while checking containment. If the class names are same equals return true. 
+      if ( environmentalConditions.contains( new Windy() ) )
+      {
+         name = "Windy";
+         andCheck = true;
+      }
+      
+      if ( andCheck && ( environmentalConditions.contains( new HotTemperature() )  ||
+          environmentalConditions.contains( new ColdTemperature() ) ) )
+      {
+         name = name + "and";
+      }
+      
+      if ( environmentalConditions.contains( new HotTemperature() ) )
+      {
+         name = name + "Hot";
+      }
+      else if ( environmentalConditions.contains( new ColdTemperature() ) )
+      {
+         name = name + "Cold";
+      }
+      
+      name = name + "Environment";
    }
    
    /**
