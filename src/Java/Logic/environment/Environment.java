@@ -23,7 +23,7 @@ public class Environment
          {
             return e1.getClass().getName().compareTo( e2.getClass().getName() );
          }
-      });
+      } );
       setRandomConditions();
       setName();
    }
@@ -46,20 +46,20 @@ public class Environment
       assert conditionsSet; // be sure to make this statement the first line of this method
    }
    
-   public void filter( Feature... featuresOfOrganism )
+   /**
+    * Filters a single Feature.
+    */
+   public void filter( Feature featureOfOrganism )
    {
       EnvironmentalCondition envCod;
       for ( Iterator<EnvironmentalCondition> iterator = environmentalConditions.iterator(); iterator.hasNext(); )
       {
          envCod = iterator.next();
-         for ( int f = 0; f < featuresOfOrganism.length; f++ )
+         // check if the feature is affected by said EnvironmentalCondition - god that is a long name
+         if ( envCod.getMultipliers().containsKey( featureOfOrganism ) )
          {
-            // check if the feature is affected by said EnvironmentalCondition - god that is a long name
-            if ( envCod.getMultipliers().containsKey( featuresOfOrganism[f] ) )
-            {
-               // multiply every multiplier value inside each feature with the corresponding multiplier of the envCod
-               featuresOfOrganism[f].multiply( envCod.getMultipliers().get( featuresOfOrganism[f] ) );
-            }
+            // multiply every multiplier value inside each feature with the corresponding multiplier of the envCod
+            featureOfOrganism.multiply( envCod.getMultipliers().get( featureOfOrganism ) );
          }
       }
    }

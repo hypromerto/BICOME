@@ -147,4 +147,9 @@ public class World
       // stub
       return false;
    }
+   
+   public Environment getEnvironment()
+   {
+      return environment;
+   }
 }
