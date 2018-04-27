@@ -2,8 +2,15 @@
 #ignore the file under the out directory
 out/*
 out/
+<<<<<<< HEAD
 #ignore files that end with "~" sign
 *~
 #ignore files under the bin directory
 bin/
 bin/*
+||||||| merged common ancestors
+*~
+=======
+#ignore the files that end with "~" sign
+*~
+>>>>>>> small edit
