@@ -26,7 +26,7 @@ public class Tile
    
    public void killOrganism()
    {
-	   o = null;
+      o = null;
    }
    
    public Organism getOrganism()
@@ -41,12 +41,12 @@ public class Tile
    
    public int getRow()
    {
-	   return row;
+      return row;
    }
    
    public int getCol()
    {
-	   return col;
+      return col;
    }
    
    public void setSelected( boolean state )
