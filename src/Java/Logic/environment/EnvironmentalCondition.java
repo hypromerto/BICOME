@@ -20,5 +20,23 @@ public abstract class EnvironmentalCondition
       return multipliers;
    }
    
+   public boolean equals( Object other )
+   {
+      String thisClassName;
+      String otherClassName;
+      if ( other != null && other instanceof EnvironmentalCondition )
+      {
+         thisClassName = this.getClass().getName();
+         otherClassName = other.getClass().getName();
+         if ( thisClassName.substring( thisClassName.lastIndexOf( '.' ) )
+                .equals(
+         otherClassName.substring( otherClassName.lastIndexOf( '.' ) ) ) )
+         {
+            return true;
+         }
+      }
+      return false;
+   }
+   
    protected abstract void setMultipliers();
 }

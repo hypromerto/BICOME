@@ -66,7 +66,7 @@ public abstract class Feature
    @Override
    public boolean equals( Object other )
    {
-      if ( other != null && 
+      if ( other != null && other instanceof Feature &&
           this.getClass().getName().equals( other.getClass().getName() ) )
       {
          Genotype g1;
