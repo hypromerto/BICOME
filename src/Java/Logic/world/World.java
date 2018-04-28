@@ -1,7 +1,7 @@
 package world;
 /**
  * @author Mert Aslan
- * @version 27.04.2018
+ * @version 28.04.2018
  */
 
 import java.util.ArrayList;
@@ -42,16 +42,17 @@ public class World
    
    public void nextTurn()
    {
-      int totalCell;
-      ArrayList<Organism> neighbors;
-      Organism[][] offsprings;
-      Boolean[][] emptySpaces;
+      int             totalNeighbourCell;
+      ArrayList<Tile> aliveNeighbours;
+      ArrayList<Tile> emptyNeighbours;
+      Organism[][]    offsprings;
       
       
-      emptySpaces = new Boolean[9][9];
-      offsprings = new Organism[50][50];
-      neighbors = new ArrayList<Organism>();
-      totalCell = 0;
+      offsprings         = new Organism[50][50];
+      aliveNeighbours    = new ArrayList<Tile>();
+      emptyNeighbours    = new ArrayList<Tile>();
+      totalNeighbourCell = 0;
+      
       
       if ( !isGameOver() )
       {
@@ -67,47 +68,49 @@ public class World
                      int col = j + (k / 3) - 1;
                      
                      if (row >= 0 && row <= tiles.length && col >= 0 && col <= tiles.length && !(row == i && col == j))
-                     {
-                        totalCell++;
+                     { // Looking for neighbours
+                        totalNeighbourCell++;
                         
                         if ( !tiles[row][col].isEmpty() ) 
                         {
-                           neighbors.add(  tiles[row][col].getOrganism() );
+                           aliveNeighbours.add(  tiles[row][col] );
                         }
                         else
                         {
+                           emptyNeighbours.add( tiles[row][col] );
                            tiles[row][col].setSelected( true ); //needs a better implementation or a way to find row col indexes with respect to center organism
                         }
                      }
                      
                   }
                   
-                  if ( !( neighbors.size() < 2 || neighbors.size() > 3 ) )
+                  if ( !( aliveNeighbours.size() < 2 || aliveNeighbours.size() > 3 ) )
                   {
-                     //if  suitable amount of neighbors, reproduce after calculating reproduction chance
+                     //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
                      
-                     if( totalCell > neighbors.size() ) //if there are spaces left for offspring
+                     if( totalNeighbourCell > aliveNeighbours.size() ) //if there are spaces left for offspring
                      {
-                        if ( neighbors.size() == 2 && 2 * Math.random() > REPR_THRESHOLD )
+                        if ( aliveNeighbours.size() == 2 && 2 * Math.random() > REPR_THRESHOLD )
                         {
+                           // stub... read below!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
                            int toDo;
                            
                            toDo = (int) Math.round( Math.random() );
                            
-                           if ( tiles[i][j].getOrganism().canReproduce() && neighbors.get( toDo ).canReproduce() )
-                           {
-                              //randomly select a location from emptySpaces array and fill its corresponding index in
-                              //offsprings multi array
-                              
-                              
-                              
-                              offsprings[i][j] = tiles[i][j].getOrganism().reproduce(neighbors.get( toDo ) );
+                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( toDo ).getOrganism().canReproduce() )
+                           {    
+                        	  Tile offspring;
+                        	  
+                        	  offspring = emptyNeighbours.get( (int) (Math.random() * 6) + 1 );
+                        	   
+                              offsprings[offspring.getRow()][offspring.getCol()] = tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( toDo ).getOrganism() );
                               
                            }  
                         }
-                        else if ( neighbors.size() == 3 &&  3 * Math.random() > REPR_THRESHOLD )
+                        else if ( aliveNeighbours.size() == 3 &&  3 * Math.random() > REPR_THRESHOLD )
                         {
+                           // stub... read below!!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
                            
                         }
@@ -119,7 +122,8 @@ public class World
                   else
                   {
                      //die without reproducing
-                     //stub
+                	  
+                	  tiles[i][j].killOrganism();
                   }
                   
                   
