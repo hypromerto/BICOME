@@ -20,11 +20,10 @@ public final class Hump extends Feature
    protected void setMultipliers()
    {
       // TBA
-      // this.dominantMultipliers.put( , 0.25 );
-      // this.recessiveMultipliers.put();
-      // this.noneMultipliers.put();
-      // this.dominantMultipliers.put();
-      // this.recessiveMultipliers.put();
+      this.dominantMultipliers.put( "water_stockpiling", 1.4 );
+      this.recessiveMultipliers.put( "water_stockpiling", 1.8 );
+      this.dominantMultipliers.put( "nutrition_stockpiling", 1.1 );
+      this.recessiveMultipliers.put( "nutrition_stockpiling", 1.4 );
       // this.noneMultipliers.put();
    }
 }
