@@ -138,7 +138,7 @@ public class World
             {
                if ( !tiles[i][j].isEmpty() )
                {
-                  if ( tiles[i][j].getOrganism().canReproduce() ) //incrementing the organisms with cooldown active
+                  if ( !tiles[i][j].getOrganism().canReproduce() ) //incrementing the organisms with cooldown active
                      tiles[i][j].getOrganism().increaseCooldown();
                   
                   tiles[i][j].getOrganism().age();
