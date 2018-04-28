@@ -24,6 +24,11 @@ public class Tile
       this.o = o;
    }
    
+   public void killOrganism()
+   {
+	   o = null;
+   }
+   
    public Organism getOrganism()
    {
       return o;
@@ -32,6 +37,16 @@ public class Tile
    public boolean isEmpty()
    {
       return o == null;
+   }
+   
+   public int getRow()
+   {
+	   return row;
+   }
+   
+   public int getCol()
+   {
+	   return col;
    }
    
    public void setSelected( boolean state )
