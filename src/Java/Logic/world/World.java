@@ -43,6 +43,7 @@ public class World
    public void nextTurn()
    {
       int             totalNeighbourCell;
+      int             selectedTiles;
       ArrayList<Tile> aliveNeighbours;
       ArrayList<Tile> emptyNeighbours;
       Organism[][]    offsprings;
@@ -52,6 +53,7 @@ public class World
       aliveNeighbours    = new ArrayList<Tile>();
       emptyNeighbours    = new ArrayList<Tile>();
       totalNeighbourCell = 0;
+      selectedTiles      = 0;
       
       
       if ( !isGameOver() )
@@ -67,13 +69,18 @@ public class World
                      int row = i + (k % 3) - 1;
                      int col = j + (k / 3) - 1;
                      
-                     if (row >= 0 && row <= tiles.length && col >= 0 && col <= tiles.length && !(row == i && col == j))
-                     { // Looking for neighbours
+                     if (row >= 0 && row <= tiles.length && col >= 0 && col <= tiles.length && !(row == i && col == j) && !tiles[i][j].getSelected() )
+                     { // Looking for neighbours, also checks for new-born organisms by checking a tile's selected status,
+                       // if the tile is selected, it does not enter this if statement
                         totalNeighbourCell++;
                         
                         if ( !tiles[row][col].isEmpty() ) 
                         {
                            aliveNeighbours.add(  tiles[row][col] );
+                        }
+                        else if ( tiles[i][j].getSelected() )
+                        {
+                        	selectedTiles++;
                         }
                         else
                         {
@@ -88,8 +95,8 @@ public class World
                   {
                      //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
                      
-                     if( totalNeighbourCell > aliveNeighbours.size() ) //if there are spaces left for offspring
-                     {
+                     if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
+                     {                                                                 //also considering the selected tiles
                         if ( aliveNeighbours.size() == 2 && 2 * Math.random() > REPR_THRESHOLD )
                         {
                            // stub... read below!!
@@ -102,8 +109,9 @@ public class World
                            {    
                         	  Tile offspring;
                         	  
-                        	  offspring = emptyNeighbours.get( (int) (Math.random() * 6) + 1 );
-                        	   
+                        	  //MUST DO! READ THE COMMENT TO THE RIGHT!
+                        	  offspring = emptyNeighbours.get( (int) (Math.random() * 6) + 1 ); //DOES NOT WORK! DOESN'T DYNAMICALLY RANDOMIZE 
+                        	                                                                    //WHEN THE SIZE OF THE ARRAYLIST ALTERNATES!!
                               offsprings[offspring.getRow()][offspring.getCol()] = tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( toDo ).getOrganism() );
                               
                            }  
@@ -142,6 +150,8 @@ public class World
                      tiles[i][j].getOrganism().increaseCooldown();
                   
                   tiles[i][j].getOrganism().age();
+                  tiles[i][j].setSelected( false ); //setting the new-borns to unselected state so that 
+                                                    //they will be counted as a neighbour next round
                }
                
                if ( offsprings[i][j] instanceof Organism )

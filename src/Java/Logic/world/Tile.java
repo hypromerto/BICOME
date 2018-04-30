@@ -15,6 +15,7 @@ public class Tile
    public Tile( int row, int col )
    {
       this.row = row;
+      selected = false;
       this.col = col;
       o = null;
    }
