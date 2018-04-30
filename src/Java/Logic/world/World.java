@@ -69,9 +69,8 @@ public class World
                      int row = i + (k % 3) - 1;
                      int col = j + (k / 3) - 1;
                      
-                     if (row >= 0 && row <= tiles.length && col >= 0 && col <= tiles.length && !(row == i && col == j) && !tiles[i][j].getSelected() )
-                     { // Looking for neighbours, also checks for new-born organisms by checking a tile's selected status,
-                       // if the tile is selected, it does not enter this if statement
+                     if (row >= 0 && row <= tiles.length && col >= 0 && col <= tiles.length && !(row == i && col == j) )
+                     { // Looking for neighbours
                         totalNeighbourCell++;
                         
                         if ( !tiles[row][col].isEmpty() ) 
