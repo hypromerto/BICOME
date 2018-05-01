@@ -1,4 +1,4 @@
-package world;
+package src.Java.Logic.world;
 /**
  * @author Mert Aslan
  * @version 28.04.2018

@@ -1,6 +1,6 @@
-package environment;
+package src.Java.Logic.environment;
 /**
- * @author Ege Balcýoðlu
+ * @author Ege Balcï¿½oï¿½lu
  * @version 24.4.2018
  */
 import genotype.Genotype;

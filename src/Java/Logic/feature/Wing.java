@@ -1,4 +1,4 @@
-package feature;
+package src.Java.Logic.environment.feature;
 /**
  * Determines wingspan
  * Dominant: Big Wing

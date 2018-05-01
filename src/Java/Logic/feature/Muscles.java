@@ -1,4 +1,4 @@
-package feature;
+package src.Java.Logic.feature;
 /**
  * Determines muscle amount & size
  * Dominant: Heavy Muscles

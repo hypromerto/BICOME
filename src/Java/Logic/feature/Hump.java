@@ -1,4 +1,4 @@
-package feature;
+package src.Java.Logic.feature;
 /**
  * Determines "hump" size, humps are those things that camels have on their back
  * Dominant: Small Hump
