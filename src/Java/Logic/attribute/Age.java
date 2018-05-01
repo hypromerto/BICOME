@@ -1,6 +1,6 @@
-package attribute;
+package src.Java.Logic.attribute;
 /**
- * @author Ege Balcýoðlu
+ * @author Ege Balcï¿½oï¿½lu
  * @version 23.4.2018
  */
 public class Age extends Attribute
