@@ -1,4 +1,4 @@
-package sample;
+package Java.Controllers;
 
 import com.jfoenix.controls.*;
 import javafx.collections.ObservableList;
@@ -21,7 +21,7 @@ import javafx.event.ActionEvent;
 
 import javax.swing.*;
 
-public class Controller {
+public class GameController {
 
     @FXML
     private ImageView imageOfAnimal;
@@ -49,12 +49,12 @@ public class Controller {
     private JFXSlider speedSlider;
 
 
-boolean paused;
-Timer timer;
-int elapsedTime;
-this.timer = new Timer(100, new game());
-
-paused = false;
+    /*boolean paused;
+    Timer timer;
+    int elapsedTime;
+    this.timer = new Timer(100, new game());
+    */  //What is this?
+    boolean paused = false;
 
     @FXML
     void goHome(ActionEvent event){

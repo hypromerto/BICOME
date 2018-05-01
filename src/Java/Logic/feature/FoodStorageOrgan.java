@@ -1,4 +1,4 @@
-package src.Java.Logic.feature;
+package Java.Logic.feature;
 /**
  * Determines the number of extra food storage organs
  * Dominant: Four extra food storage organs (a total of 5)

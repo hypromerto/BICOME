@@ -1,4 +1,4 @@
-package src.Java.Logic.environment;
+package Java.Logic.environment;
 /**
  * @author Ege Balc�o�lu
  * @version 24.4.2018

@@ -1,4 +1,4 @@
-package sample;
+package Java.Controllers;
 
 import com.jfoenix.controls.*;
 import javafx.collections.ObservableList;
@@ -20,7 +20,7 @@ import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 
 
-public class Controller { //implements Initializable {
+public class ReflectionController { //implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;

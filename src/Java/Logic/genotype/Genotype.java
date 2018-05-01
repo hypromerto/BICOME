@@ -1,4 +1,4 @@
-package src.Java.Logic.genotype;
+package Java.Logic.genotype;
 /**
  * lists of possible genotypes of a feature of an organism
  * @author Ege Balcioglu

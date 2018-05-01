@@ -1,4 +1,4 @@
-package src.Java.Logic.world;
+package Java.Logic.world;
 
 /**
  * 

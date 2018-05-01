@@ -1,4 +1,4 @@
-package src.Java.Logic.attribute;
+package Java.Logic.attribute;
 /**
  * @author Ege Balc�o�lu
  * @version 23.4.2018

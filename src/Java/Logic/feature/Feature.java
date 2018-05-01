@@ -1,4 +1,4 @@
-package src.Java.Logic.feature;
+package Java.Logic.feature;
 
 import genotype.Genotype;
 import java.util.HashMap;

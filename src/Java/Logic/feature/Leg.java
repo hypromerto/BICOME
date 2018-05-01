@@ -1,4 +1,4 @@
-package src.Java.Logic.feature;
+package Java.Logic.feature;
 /**
  * Determines the leg length
  * Dominant: Long Leg
