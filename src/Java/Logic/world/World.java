@@ -62,7 +62,7 @@ public class World
          {
             for ( int j = 0; j < tiles.length; j++ )
             {
-               if ( !tiles[i][j].isEmpty() )
+               if ( !tiles[i][j].isEmpty() )  // maybe also check for isGameOver here for the possibility of game being over mid round?
                {
                   for ( int k = 0; k < 9; k++) 
                   {
@@ -84,7 +84,7 @@ public class World
                         else
                         {
                            emptyNeighbours.add( tiles[row][col] );
-                           tiles[row][col].setSelected( true ); //needs a better implementation or a way to find row col indexes with respect to center organism
+                           tiles[row][col].setSelected( true );
                         }
                      }
                      
