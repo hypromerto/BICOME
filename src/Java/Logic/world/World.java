@@ -100,17 +100,21 @@ public class World
                         {
                            // stub... read below!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
+                        	
+                        	
                            int toDo;
                            
-                           toDo = (int) Math.round( Math.random() );
+                           toDo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
                            
+                           
+                           //This makes it so that first a random partner will be selected then it will be checked for reproduction
+                           //This might change as it skips reproduction if the randomly selected partner can't reproduce while the other one can
                            if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( toDo ).getOrganism().canReproduce() )
                            {    
                         	  Tile offspring;
                         	  
-                        	  //MUST DO! READ THE COMMENT TO THE RIGHT!
-                        	  offspring = emptyNeighbours.get( (int) (Math.random() * 6) + 1 ); //DOES NOT WORK! DOESN'T DYNAMICALLY RANDOMIZE 
-                        	                                                                    //WHEN THE SIZE OF THE ARRAYLIST ALTERNATES!!
+                        	  offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
+                        	  
                               offsprings[offspring.getRow()][offspring.getCol()] = tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( toDo ).getOrganism() );
                               
                            }  
@@ -135,6 +139,8 @@ public class World
                   
                   
                }
+               // stub... flushings of some variables will be done here
+               //end of for loops, therefore end of checks for a single organism
                
             }
          }
