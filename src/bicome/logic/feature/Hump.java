@@ -10,13 +10,23 @@ package bicome.logic.feature;
 import bicome.logic.genotype.Genotype;
 import bicome.logic.attribute.*;
 import java.util.HashMap;
-public final class Hump extends Feature
+public final class Hump extends FeatureBase
 {
-   public Hump( Genotype genotype )
+   private static Hump instance;
+   
+   private Hump()
    {
-      super( genotype );
+      super();
    }
    
+   public static FeatureBase getInstance()
+   {
+      if ( instance == null )
+         instance = new Hump();
+      return instance;
+   }
+   
+   @Override
    protected void setMultipliers()
    {
       // TBA

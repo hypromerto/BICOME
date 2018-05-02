@@ -10,13 +10,23 @@ package bicome.logic.feature;
 import bicome.logic.genotype.Genotype;
 import bicome.logic.attribute.*;
 import java.util.HashMap;
-public final class Muscles extends Feature
+public final class Muscles extends FeatureBase
 {
-   public Muscles( Genotype genotype )
+   private static Muscles instance;
+   
+   private Muscles()
    {
-      super( genotype );
+      super();
    }
    
+   public static FeatureBase getInstance()
+   {
+      if ( instance == null )
+         instance = new Muscles();
+      return instance;
+   }
+   
+   @Override
    protected void setMultipliers()
    {
       this.dominantMultipliers.put( "water_stockpiling", 0.78 );

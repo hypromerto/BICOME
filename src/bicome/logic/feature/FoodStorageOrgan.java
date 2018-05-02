@@ -7,16 +7,23 @@ package bicome.logic.feature;
  * @author Ege Balcioglu
  * @version 23.4.2018
  */
-import bicome.logic.genotype.Genotype;
-import bicome.logic.attribute.*;
-import java.util.HashMap;
-public final class FoodStorageOrgan extends Feature
+public final class FoodStorageOrgan extends FeatureBase
 {
-   public FoodStorageOrgan( Genotype genotype )
+   private static FoodStorageOrgan instance;
+   
+   private FoodStorageOrgan()
    {
-      super( genotype );
+      super();
    }
    
+   public static FeatureBase getInstance()
+   {
+      if ( instance == null )
+         instance = new FoodStorageOrgan();
+      return instance;
+   }
+   
+   @Override
    protected void setMultipliers()
    {
       this.dominantMultipliers.put( "nutrition_stockpiling", 1.7 );
@@ -27,4 +34,6 @@ public final class FoodStorageOrgan extends Feature
       this.dominantMultipliers.put( "flight_ease", 1.05 );
       this.recessiveMultipliers.put( "flight_ease", 1.02 );
    }
+   
+   
 }

@@ -15,6 +15,6 @@ public final class HotTemperature extends EnvironmentalCondition
    
    protected void setMultipliers()
    {
-      multipliers.put( new Fur( Genotype.NONE ), 1.55 );
+      multipliers.put( new Feature( Fur.getInstance(), Genotype.NONE ), 1.55 );
    }
 }

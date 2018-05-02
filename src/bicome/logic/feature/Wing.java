@@ -10,13 +10,23 @@ package bicome.logic.feature;
 import bicome.logic.genotype.Genotype;
 import bicome.logic.attribute.*;
 import java.util.HashMap;
-public final class Wing extends Feature
+public final class Wing extends FeatureBase
 {
-   public Wing( Genotype genotype )
+   private static Wing instance;
+   
+   private Wing()
    {
-      super( genotype );
+      super();
    }
    
+   public static FeatureBase getInstance()
+   {
+      if ( instance == null )
+         instance = new Wing();
+      return instance;
+   }
+   
+   @Override
    protected void setMultipliers()
    {
       this.dominantMultipliers.put( "flight_ease", 1.55 );

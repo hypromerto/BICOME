@@ -10,13 +10,23 @@ package bicome.logic.feature;
 import bicome.logic.genotype.Genotype;
 import bicome.logic.attribute.*;
 import java.util.HashMap;
-public final class Fur extends Feature
+public final class Fur extends FeatureBase
 {
-   public Fur( Genotype genotype )
+   private static Fur instance;
+   
+   private Fur()
    {
-      super( genotype );
+      super();
    }
    
+   public static FeatureBase getInstance()
+   {
+      if ( instance == null )
+         instance = new Fur();
+      return instance;
+   }
+   
+   @Override
    protected void setMultipliers()
    {
       // TBA

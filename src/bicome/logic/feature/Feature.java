@@ -1,29 +1,26 @@
 package bicome.logic.feature;
-
-import bicome.logic.genotype.Genotype;
-import java.util.HashMap;
-import java.util.function.*;
-import bicome.logic.attribute.Attribute;
 /**
  * @author Ege Balcioglu
  * @version 23.4.2018
  */
-public abstract class Feature
+import bicome.logic.genotype.Genotype;
+import java.util.HashMap;
+import java.util.function.*;
+import bicome.logic.attribute.Attribute;
+
+public class Feature
 {
    // properties
    private Genotype genotype;
-   protected HashMap< String, Double > dominantMultipliers;
-   protected HashMap< String, Double > recessiveMultipliers;
-   protected HashMap< String, Double > noneMultipliers;
+   private FeatureBase base;
+   private HashMap< String, Double > multipliers;
    
    // constructors
-   public Feature( Genotype genotype )
+   public Feature( FeatureBase base, Genotype genotype )
    {
       this.genotype = genotype;
-      dominantMultipliers = new HashMap<>();
-      recessiveMultipliers = new HashMap<>();
-      noneMultipliers = new HashMap<>();
-      setMultipliers();
+      this.base = base;
+      this.multipliers = base.getMultipliers( this.genotype );
    }
    
    // methods
@@ -34,17 +31,12 @@ public abstract class Feature
    
    public final HashMap< String, Double > getMultipliers()
    {
-      if ( this.getGenotype() == Genotype.RECESSIVE_HOMOZYGOTE )
-      {
-         return recessiveMultipliers;
-      }
-      
-      if ( this.getGenotype() == Genotype.NONE )
-      {
-         return noneMultipliers;
-      }
-      
-      return dominantMultipliers; 
+      return multipliers; 
+   }
+   
+   public FeatureBase getBase()
+   {
+      return base;
    }
    
    /**
@@ -67,7 +59,7 @@ public abstract class Feature
    public boolean equals( Object other )
    {
       if ( other != null && other instanceof Feature &&
-          this.getClass().getName().equals( other.getClass().getName() ) )
+          this.getBase().equals( ( (Feature) other ).getBase() ) )
       {
          Genotype g1;
          Genotype g2;
@@ -95,6 +87,4 @@ public abstract class Feature
          }
       } );
    }
-   
-   protected abstract void setMultipliers();
 }
