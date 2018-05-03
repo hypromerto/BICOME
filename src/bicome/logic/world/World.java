@@ -62,7 +62,7 @@ public class World
          {
             for ( int j = 0; j < tiles.length; j++ )
             {
-               if ( !tiles[i][j].isEmpty() )  // maybe also check for isGameOver here for the possibility of game being over mid round?
+               if ( !tiles[i][j].isEmpty() && !isGameOver() ) 
                {
                   for ( int k = 0; k < 9; k++) 
                   {
@@ -96,26 +96,34 @@ public class World
                      
                      if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
                      {                                                                 //also considering the selected tiles
-                        if ( aliveNeighbours.size() == 2 && 2 * Math.random() > REPR_THRESHOLD )
+                    	 
+                    	 
+                        if ( aliveNeighbours.size() == 2 && 2 * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
                         {
                            // stub... read below!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
                          
                          
-                           int toDo;
+                           int mateSelectTwo;
                            
-                           toDo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
+                           mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
                            
+                           if ( !aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() ) //DOESN'T WORK IF BOTH CAN'T REPRODUCE!
+                           {                                                                         //FIX!!
+                        	   if ( mateSelectTwo == 1)
+                        		   mateSelectTwo == 0;
+                        	   else if( mateSelectTwo == 0)
+                        		   mateSelectTwo == 1;
+                           }
                            
-                           //This makes it so that first a random partner will be selected then it will be checked for reproduction
-                           //This might change as it skips reproduction if the randomly selected partner can't reproduce while the other one can
-                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( toDo ).getOrganism().canReproduce() )
+                           if ( tiles[i][j].getOrganism().canReproduce() )
                            {    
                            Tile offspring;
                            
                            offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
                            
-                              offsprings[offspring.getRow()][offspring.getCol()] = tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( toDo ).getOrganism() );
+                              offsprings[offspring.getRow()][offspring.getCol()] = 
+                            		  tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectTwo ).getOrganism() );
                               
                            }  
                         }
@@ -123,6 +131,14 @@ public class World
                         {
                            // stub... read below!!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
+                        	
+                        	int mateSelectThree;
+                        	
+                        	mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
+                        	
+                        	//if statement to check if it can reproduce
+                        	
+                        	if ()
                            
                         }
                         
