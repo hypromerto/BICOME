@@ -96,7 +96,9 @@ public class World
                      
                      if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
                      {                                                                 //also considering the selected tiles
-                        if ( aliveNeighbours.size() == 2 && 2 * Math.random() > REPR_THRESHOLD )
+                    	 
+                    	 
+                        if ( aliveNeighbours.size() == 2 && 2 * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
                         {
                            // stub... read below!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
@@ -105,6 +107,8 @@ public class World
                            int toDo;
                            
                            toDo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
+                           
+                           // a while loop here for the possible problem mentioned in the next comment line can be a solution
                            
                            
                            //This makes it so that first a random partner will be selected then it will be checked for reproduction
