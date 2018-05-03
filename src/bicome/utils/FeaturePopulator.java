@@ -1,7 +1,7 @@
 package bicome.utils;
 /**
  * Class for featureBase adding featureBases to a list
- * @author Onur Åžahin
+ * @author Onur Å?ahin
  */
 
 import bicome.logic.feature.*;
@@ -25,7 +25,7 @@ public class FeaturePopulator
      * @param list list to be added these features
      * @throws NullPointerException if list is null
      */
-    public static  void PopulateFeatures(List<FeatureBase> list)
+    public static void populateFeatures(List<FeatureBase> list)
     {
         if(list == null)
             throw new NullPointerException("list was null");

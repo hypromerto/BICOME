@@ -22,6 +22,6 @@ public class SelectionController implements Initializable
         selectedFeaturesListView.setExpanded(true);
         unSelectedFeaturesListView.setExpanded(true);
         //Add all features to unselected list
-        FeaturePopulator.PopulateFeatures(unSelectedFeaturesListView.getItems());
+        FeaturePopulator.populateFeatures(unSelectedFeaturesListView.getItems());
     }
 }

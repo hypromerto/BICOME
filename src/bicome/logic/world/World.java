@@ -79,7 +79,7 @@ public class World
                         }
                         else if ( tiles[i][j].getSelected() )
                         {
-                         selectedTiles++;
+                           selectedTiles++;
                         }
                         else
                         {
@@ -96,34 +96,34 @@ public class World
                      
                      if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
                      {                                                                 //also considering the selected tiles
-                    	 
-                    	 
+                        
+                        
                         if ( aliveNeighbours.size() == 2 && 2 * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
                         {
                            // stub... read below!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
-                         
-                         
+                           
+                           
                            int mateSelectTwo;
                            
                            mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
                            
                            if ( !aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() ) //DOESN'T WORK IF BOTH CAN'T REPRODUCE!
                            {                                                                         //FIX!!
-                        	   if ( mateSelectTwo == 1)
-                        		   mateSelectTwo == 0;
-                        	   else if( mateSelectTwo == 0)
-                        		   mateSelectTwo == 1;
+                              if ( mateSelectTwo == 1)
+                                 mateSelectTwo = 0;
+                              else if ( mateSelectTwo == 0)
+                                 mateSelectTwo = 1;
                            }
                            
                            if ( tiles[i][j].getOrganism().canReproduce() )
                            {    
-                           Tile offspring;
-                           
-                           offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
-                           
+                              Tile offspring;
+                              
+                              offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
+                              
                               offsprings[offspring.getRow()][offspring.getCol()] = 
-                            		  tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectTwo ).getOrganism() );
+                                 tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectTwo ).getOrganism() );
                               
                            }  
                         }
@@ -131,15 +131,15 @@ public class World
                         {
                            // stub... read below!!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
-                        	
-                        	int mateSelectThree;
-                        	
-                        	mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
-                        	
-                        	//if statement to check if it can reproduce
-                        	
-                        	if ()
                            
+                           int mateSelectThree;
+                           
+                           mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
+                           
+                           //if statement to check if it can reproduce
+                           
+                           // if ()
+                              
                         }
                         
                         
@@ -149,8 +149,8 @@ public class World
                   else
                   {
                      //die without reproducing
-                   
-                   tiles[i][j].killOrganism();
+                     
+                     tiles[i][j].killOrganism();
                   }
                   
                   
@@ -172,7 +172,7 @@ public class World
                   
                   tiles[i][j].getOrganism().age();
                   tiles[i][j].setSelected( false ); //setting the new-borns to unselected state so that 
-                                                    //they will be counted as a neighbour next round
+                  //they will be counted as a neighbour next round
                }
                
                if ( offsprings[i][j] instanceof Organism )
