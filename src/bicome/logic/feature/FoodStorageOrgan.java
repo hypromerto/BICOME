@@ -34,6 +34,4 @@ public final class FoodStorageOrgan extends FeatureBase
       this.dominantMultipliers.put( "flight_ease", 1.05 );
       this.recessiveMultipliers.put( "flight_ease", 1.02 );
    }
-   
-   
 }

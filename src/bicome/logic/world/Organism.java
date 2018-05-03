@@ -14,10 +14,11 @@ public class Organism
    private boolean pregnant;
    private int age;
    // the exact type of List is not specified to ease up optimization.
-   private List<Feature> features;
+   private FeatureList features;
+   private Environment habitat;
    private Attribute[] attributes;
    
-   public Organism( List<Feature> features, Environment worldEnvironment )
+   public Organism( FeatureList features, Environment worldEnvironment )
    {
       // stub
       cooldown = 0;
@@ -26,6 +27,7 @@ public class Organism
       this.features = features;
       attributes = new Attribute[ 5 ];
       setAttributesFromEnvironment( worldEnvironment );
+      habitat = worldEnvironment;
       calculateSurvivalChance();
    }
    
@@ -55,20 +57,40 @@ public class Organism
       return !pregnant;      
    }
    
-   public Organism reproduce( Organism o )
+   public Organism reproduce( Organism other )
    {
       Organism offspring;
+      FeatureList newFeatures;
       
       this.setReproductionCooldown( true );
-      o.setReproductionCooldown( true );
+      other.setReproductionCooldown( true );
       
-      offspring = new Organism( null, null/* stub */ );
+      if ( this.features == null || other.features == null )
+      {
+         newFeatures = null;
+      }
       
-      // stub
+      else
+      {
+         newFeatures = new FeatureList();
+         for ( int i = 0; i < features.size(); i++ )
+            newFeatures.add( new Feature( FeatureList.getBase( i ), 
+                                         Genotype.cross( this.getFeatures().get( i ).getGenotype(), 
+                                                        other.getFeatures().get( i ).getGenotype() ) ) );
+      }
+      
+      offspring = new Organism( newFeatures, habitat );
+      
+      offspring.setReproductionCooldown( true );
       
       return offspring;
       
    }
+
+public FeatureList getFeatures()
+{
+   return features;
+}
    
    private void calculateSurvivalChance()
    {

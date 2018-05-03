@@ -40,7 +40,10 @@ public class Feature
    }
    
    /**
-    * Unorthodox equals method to be used implicitly in Organism class's 
+    * Checks if two features are equal to each other.
+    * Two features are deeply equal
+    * if they have the same base and the same phenotype.
+    * <p>This is an unorthodox equals method to be used implicitly in Organism class's 
     * setAttributesFromEnvironment() method, and Environment's filter() method.
     * It ensures that the multipliers that is returned by the getMultipliers() 
     * method of EnvironmentalCondition class is properly multiplied with the 
@@ -74,6 +77,22 @@ public class Feature
          if ( g1.equals( Genotype.DOMINANT_HETEROZYGOTE )
                 && g2.equals( Genotype.DOMINANT_HOMOZYGOTE ) )
             return true;
+      }
+      return false;
+   }
+   
+   /**
+    * Checks if two features are deeply equal to each other. Two features are deeply equal
+    * if they have the same base and the same genotype. 
+    * @param other the other object to be compared with this one
+    * @return returns true if the other object is a Feature that is the same type
+    * and bears the same genotype as this one.
+    */
+   public boolean deepEquals( Object other )
+   {
+      if ( this.equals( other ) && this.genotype == ( (Feature) other ).genotype )
+      {
+         return true;
       }
       return false;
    }
