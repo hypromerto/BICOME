@@ -139,6 +139,10 @@ public class World
                            //if statement to check if it can reproduce
                            
                            // if ()
+                           
+                           /** 
+                            * IMPORTANT: PLEASE ADD getColor() and setColor() METHODS TO TILE CLASS
+                            */
                               
                         }
                         

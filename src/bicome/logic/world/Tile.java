@@ -5,6 +5,12 @@ package bicome.logic.world;
  * @author  Mert Aslan
  * @version 28.04.2018
  */
+import javafx.scene.paint.Color;
+/** 
+ * IMPORTANT: PLEASE ADD getColor() and setColor() METHODS
+ * WHEN THE TILE IS EMPTY, ITS COLOR SHOULD BE Color.TRANSPARENT
+ * THANKS IN ADVANCE
+ */
 public class Tile 
 {
    private int row;
@@ -58,6 +64,6 @@ public class Tile
    public boolean getSelected()
    {
       return selected;
-   }
+   }   
    
 }

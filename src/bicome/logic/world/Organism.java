@@ -3,6 +3,7 @@ package bicome.logic.world;
  * @author Mert Aslan, Ege Balcioglu
  * @version 27.4.2018
  */
+import javafx.scene.paint.Color;
 import java.util.*;
 import bicome.logic.feature.*;
 import bicome.logic.attribute.*;
@@ -17,6 +18,7 @@ public class Organism
    private FeatureList features;
    private Environment habitat;
    private Attribute[] attributes;
+   private Color color;
    
    public Organism( FeatureList features, Environment worldEnvironment )
    {
@@ -28,6 +30,7 @@ public class Organism
       attributes = new Attribute[ 5 ];
       setAttributesFromEnvironment( worldEnvironment );
       habitat = worldEnvironment;
+      setColor();
       calculateSurvivalChance();
    }
    
@@ -86,11 +89,11 @@ public class Organism
       return offspring;
       
    }
-
-public FeatureList getFeatures()
-{
-   return features;
-}
+   
+   public FeatureList getFeatures()
+   {
+      return features;
+   }
    
    private void calculateSurvivalChance()
    {
@@ -102,7 +105,7 @@ public FeatureList getFeatures()
       // set proper multipliers in Feature classes
       for ( int i = 0; i < features.size(); i++ )
       {
-         env.filter( features.get(i) );
+         env.filter( features.get( i ) );
       }
       
       // apply multipliers to Attributes
@@ -115,5 +118,30 @@ public FeatureList getFeatures()
                                                         .getType(), 1.0 ) );
          }
       }
+   }
+   
+   private void setColor()
+   {
+      final double SCALING_FACTOR = 1.0 / features.size();
+      final double OPACITY = 1.0;
+      double r, g, b;
+      r = 0.0;
+      g = 0.0;
+      b = 0.0;
+      for ( int i = 0; i < features.size(); i++ )
+      {
+         if ( features.get( i ).getGenotype() == Genotype.NONE )
+            b += SCALING_FACTOR;
+         else if ( features.get( i ).getGenotype() == Genotype.RECESSIVE_HOMOZYGOTE )
+            g += SCALING_FACTOR;
+         else
+            r += SCALING_FACTOR;
+      }
+      color = Color.color( r, g, b, OPACITY );
+   }
+   
+   public Color getColor()
+   {
+      return color;
    }
 }
