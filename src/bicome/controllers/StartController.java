@@ -4,6 +4,7 @@ import bicome.animations.ViewAnimations;
 import bicome.animations.ScaleValue;
 import com.jfoenix.controls.*;
 import javafx.animation.RotateTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,7 +38,8 @@ public class StartController implements Initializable
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        rootPane.requestFocus();
+        //To fix the focus issue
+        repeatFocus();
     }
 
     @FXML
@@ -61,9 +63,13 @@ public class StartController implements Initializable
         //Set the content to dialogLayout declared before
         JFXDialog dialog = new JFXDialog(rootPane, dialogLayout, JFXDialog.DialogTransition.CENTER);
 
-        cancel.setOnAction((action) -> dialog.close());
+        cancel.setOnAction((action) -> {
+            dialog.close();
+            repeatFocus();
+        });
 
         dialog.show();
+        repeatFocus();
     }
 
     @FXML
@@ -88,5 +94,16 @@ public class StartController implements Initializable
         transition.setToAngle(360);
 
         transition.play();
+    }
+
+    //This fixes gets the focus to the image view Look https://stackoverflow.com/questions/12744542/requestfocus-in-textfield-doesnt-work
+    private void repeatFocus()
+    {
+        Platform.runLater( () -> {
+            if(!logoView.isFocused()) {
+                logoView.requestFocus();
+                repeatFocus();
+            }
+        });
     }
 }

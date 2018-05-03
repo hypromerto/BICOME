@@ -35,5 +35,9 @@ public abstract class FeatureBase
       
       return dominantMultipliers; 
    }
-   
+
+   public String getName()
+   {
+      return this.getClass().getSimpleName();
+   }
 }
