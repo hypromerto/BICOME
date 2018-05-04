@@ -32,9 +32,10 @@ public class World
       }
    }
    
-   public boolean placeOrganism( int row, int col, Organism o )
+   public boolean placeInitialOrganism( int row, int col, Organism o )
    {
-      // stub
+      // stub, will get the coordinates and the organism from the game manager, or it may get the
+	  // variables needed to "construct" an organism, each way is fine...
       return false;
    }
    
@@ -140,9 +141,7 @@ public class World
                            
                            // if ()
                            
-                           /** 
-                            * IMPORTANT: PLEASE ADD getColor() and setColor() METHODS TO TILE CLASS
-                            */
+                          
                               
                         }
                         
