@@ -15,7 +15,7 @@ public enum ScaleValue
         this.scaleValue = scaleValue;
     }
 
-    public double GetScaleValue()
+    public double getScaleValue()
     {
         return  scaleValue;
     }
