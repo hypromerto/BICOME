@@ -53,10 +53,10 @@ public class Feature
     * @param other the other object to be compared with this one
     * @return returns true if the other object is a Feature that is the same type
     * and bears the same phenotype as this one.
-    * @see world.Organism Organism
-    * @see world.World World
-    * @see environment.Environment Environment
-    * @see environment.EnvironmentalCondition EnvironmentalCondition
+    * @see bicome.logic.world.Organism Organism
+    * @see bicome.logic.world.World World
+    * @see bicome.logic.environment.Environment Environment
+    * @see bicome.logic.environment.EnvironmentalCondition EnvironmentalCondition
     */
    @Override
    public boolean equals( Object other )
@@ -90,11 +90,7 @@ public class Feature
     */
    public boolean deepEquals( Object other )
    {
-      if ( this.equals( other ) && this.genotype == ( (Feature) other ).genotype )
-      {
-         return true;
-      }
-      return false;
+       return this.equals(other) && this.genotype == ((Feature) other).genotype;
    }
    
    public void multiply( Double externalMultiplier )
