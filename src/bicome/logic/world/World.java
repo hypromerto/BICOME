@@ -6,6 +6,7 @@ package bicome.logic.world;
 
 import java.util.ArrayList;
 import bicome.logic.environment.Environment;
+import bicome.logic.feature.*;
 
 public class World 
 {
@@ -13,12 +14,14 @@ public class World
    private final double REPR_THRESHOLD = 1.3;
    
    private Tile[][] tiles;
+   private Tile[][] offspringTiles;
    private Environment environment;
    private int round;
    
    public World()
    {
-      tiles  = new Tile[50][50];
+      tiles  = new Tile[30][30];
+      offspringTiles = new Tile[30][30];
       environment = new Environment();
       round = 0;
       
@@ -27,16 +30,19 @@ public class World
          for( int j = 0; j < tiles.length; j++ )
          {
             tiles[i][j] = new Tile(i,j);
+            offspringTiles[i][j] = new Tile(i,j);
          }
          
       }
    }
    
-   public boolean placeInitialOrganism( int row, int col, Organism o )
+   public void placeInitialOrganism( int row, int col, FeatureList features )
    {
       // stub, will get the coordinates and the organism from the game manager, or it may get the
 	  // variables needed to "construct" an organism, each way is fine...
-      return false;
+	   
+	  tiles[row][col].placeOrganism( new Organism( features, environment ) );
+      
    }
    
    
@@ -47,10 +53,8 @@ public class World
       int             selectedTiles;
       ArrayList<Tile> aliveNeighbours;
       ArrayList<Tile> emptyNeighbours;
-      Organism[][]    offsprings;
       
       
-      offsprings         = new Organism[50][50];
       aliveNeighbours    = new ArrayList<Tile>();
       emptyNeighbours    = new ArrayList<Tile>();
       totalNeighbourCell = 0;
@@ -119,14 +123,15 @@ public class World
                                  mateSelectTwo = 1;
                            } */
                            
-                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).canReproduce() )
+                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
                            {    
                               Tile offspring;
                               
                               offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
                               
-                              offsprings[offspring.getRow()][offspring.getCol()] = 
-                            		  tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectTwo ).getOrganism() );
+                              offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism( tiles[i][j].getOrganism().reproduce( aliveNeighbours.
+                            		  get( mateSelectTwo ).getOrganism() ) );
+
                               
                            }  
                         }
@@ -139,14 +144,15 @@ public class World
                            
                            mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
         
-                           if ( tiles[i][j].getOrganism.canReproduce() && aliveNeighbours.get( mateSelectThree ).canReproduce() )
+                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectThree ).getOrganism().canReproduce() )
                            {
                         	   Tile offspring;
                         	   
                         	   offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
                         	   
-                        	   offsprings[offspring.getRow()][offspring.getCol()] =
-                        			   tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectThree ).getOrganism() );
+                        	   offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism(tiles[i][j].getOrganism().reproduce( aliveNeighbours.
+                        			   get( mateSelectThree ).getOrganism() ) );
+                        			   
                            }     
                         }
                         
@@ -167,16 +173,16 @@ public class World
                //end of for loops, therefore end of checks for a single organism
                
                selectedTiles = 0;
-               totalNeighbourCells = 0;
+               totalNeighbourCell = 0;
                aliveNeighbours.clear();
                emptyNeighbours.clear();
                
             }
          }
          
-         for ( int i = 0; i < offsprings.length; i++ )
+         for ( int i = 0; i < offspringTiles.length; i++ )
          {
-            for ( int j = 0; j < offsprings.length; i++ )
+            for ( int j = 0; j < offspringTiles.length; j++ )
             {
                if ( !tiles[i][j].isEmpty() )
                {
@@ -188,11 +194,11 @@ public class World
                   //they will be counted as a neighbour next round
                }
                
-               if ( offsprings[i][j] instanceof Organism )
+               if ( !offspringTiles[i][j].isEmpty() )
                {
-                  tiles[i][j].placeOrganism(offsprings[i][j]); //porting our offsprings back to original organisms array
+                  tiles[i][j].placeOrganism(offspringTiles[i][j].getOrganism() ); //porting our offsprings back to original organisms array
                   
-                  offsprings[i][j] = null; //flushing offsprings
+                  offspringTiles[i][j].killOrganism(); //flushing offsprings
                }
             }
          }
@@ -206,6 +212,7 @@ public class World
    {
 	   return tiles;
    }
+   
    
    
    public boolean isGameOver()
