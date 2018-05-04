@@ -63,7 +63,7 @@ public class World
          {
             for ( int j = 0; j < tiles.length; j++ )
             {
-               if ( !tiles[i][j].isEmpty() && !isGameOver() ) 
+               if ( !tiles[i][j].isEmpty() && !isGameOver() ) //mid round game over check
                {
                   for ( int k = 0; k < 9; k++) 
                   {
@@ -126,7 +126,7 @@ public class World
                               offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
                               
                               offsprings[offspring.getRow()][offspring.getCol()] = 
-                                 tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectTwo ).getOrganism() );
+                            		  tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectTwo ).getOrganism() );
                               
                            }  
                         }
@@ -138,13 +138,16 @@ public class World
                            int mateSelectThree;
                            
                            mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
-                           
-                           //if statement to check if it can reproduce
-                           
-                           // if ()
-                           
-                          
-                              
+        
+                           if ( tiles[i][j].getOrganism.canReproduce() && aliveNeighbours.get( mateSelectThree ).canReproduce() )
+                           {
+                        	   Tile offspring;
+                        	   
+                        	   offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
+                        	   
+                        	   offsprings[offspring.getRow()][offspring.getCol()] =
+                        			   tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectThree ).getOrganism() );
+                           }     
                         }
                         
                         
