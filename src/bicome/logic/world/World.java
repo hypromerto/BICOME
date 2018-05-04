@@ -32,9 +32,10 @@ public class World
       }
    }
    
-   public boolean placeOrganism( int row, int col, Organism o )
+   public boolean placeInitialOrganism( int row, int col, Organism o )
    {
-      // stub
+      // stub, will get the coordinates and the organism from the game manager, or it may get the
+	  // variables needed to "construct" an organism, each way is fine...
       return false;
    }
    
@@ -108,15 +109,17 @@ public class World
                            
                            mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
                            
+                           
+                           /*
                            if ( !aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() ) //DOESN'T WORK IF BOTH CAN'T REPRODUCE!
                            {                                                                         //FIX!!
                               if ( mateSelectTwo == 1)
                                  mateSelectTwo = 0;
                               else if ( mateSelectTwo == 0)
                                  mateSelectTwo = 1;
-                           }
+                           } */
                            
-                           if ( tiles[i][j].getOrganism().canReproduce() )
+                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).canReproduce() )
                            {    
                               Tile offspring;
                               
@@ -140,9 +143,7 @@ public class World
                            
                            // if ()
                            
-                           /** 
-                            * IMPORTANT: PLEASE ADD getColor() and setColor() METHODS TO TILE CLASS
-                            */
+                          
                               
                         }
                         
@@ -152,7 +153,7 @@ public class World
                   }
                   else
                   {
-                     //die without reproducing
+                     //die without reproducing, number of neighbours required isn't met!
                      
                      tiles[i][j].killOrganism();
                   }
@@ -161,6 +162,11 @@ public class World
                }
                // stub... flushings of some variables will be done here
                //end of for loops, therefore end of checks for a single organism
+               
+               selectedTiles = 0;
+               totalNeighbourCells = 0;
+               aliveNeighbours.clear();
+               emptyNeighbours.clear();
                
             }
          }
@@ -191,6 +197,11 @@ public class World
          
          
       }
+   }
+   
+   public Tile[][] getGrid()
+   {
+	   return tiles;
    }
    
    
