@@ -67,6 +67,7 @@ public class FeatureList extends AbstractList<Feature> implements RandomAccess
    @Override
    public boolean add( Feature f )
    {
+      featureList.ensureCapacity( this.size() );
       Feature oldFeature;
       
       oldFeature = features.putIfAbsent( f.getBase(), f );

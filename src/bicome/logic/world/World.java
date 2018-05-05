@@ -10,7 +10,7 @@ import bicome.logic.feature.*;
 
 public class World 
 {
-   
+   private static final int SIZE = 30; // kolaylýk olsun diye yapýverdim.
    private final double REPR_THRESHOLD = 1.3;
    
    private Tile[][] tiles;
@@ -20,8 +20,8 @@ public class World
    
    public World()
    {
-      tiles  = new Tile[30][30];
-      offspringTiles = new Tile[30][30];
+      tiles  = new Tile[SIZE][SIZE];
+      offspringTiles = new Tile[SIZE][SIZE];
       environment = new Environment();
       round = 0;
       
@@ -39,9 +39,9 @@ public class World
    public void placeInitialOrganism( int row, int col, FeatureList features )
    {
       // stub, will get the coordinates and the organism from the game manager, or it may get the
-	  // variables needed to "construct" an organism, each way is fine...
-	   
-	  tiles[row][col].placeOrganism( new Organism( features, environment ) );
+   // variables needed to "construct" an organism, each way is fine...
+    
+   tiles[row][col].placeOrganism( new Organism( features, environment ) );
       
    }
    
@@ -130,7 +130,7 @@ public class World
                               offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
                               
                               offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism( tiles[i][j].getOrganism().reproduce( aliveNeighbours.
-                            		  get( mateSelectTwo ).getOrganism() ) );
+                                get( mateSelectTwo ).getOrganism() ) );
 
                               
                            }  
@@ -146,13 +146,13 @@ public class World
         
                            if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectThree ).getOrganism().canReproduce() )
                            {
-                        	   Tile offspring;
-                        	   
-                        	   offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
-                        	   
-                        	   offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism(tiles[i][j].getOrganism().reproduce( aliveNeighbours.
-                        			   get( mateSelectThree ).getOrganism() ) );
-                        			   
+                            Tile offspring;
+                            
+                            offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
+                            
+                            offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism(tiles[i][j].getOrganism().reproduce( aliveNeighbours.
+                              get( mateSelectThree ).getOrganism() ) );
+                              
                            }     
                         }
                         
@@ -210,7 +210,7 @@ public class World
    
    public Tile[][] getGrid()
    {
-	   return tiles;
+    return tiles;
    }
    
    

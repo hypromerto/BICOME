@@ -15,6 +15,9 @@ public abstract class FeatureBase
    
    protected FeatureBase()
    {
+      dominantMultipliers = new HashMap<>();
+      recessiveMultipliers = new HashMap<>();
+      noneMultipliers = new HashMap<>();
       setMultipliers();
    }
    
