@@ -7,8 +7,7 @@ import java.util.*;
 import bicome.logic.feature.*;
 public class Environment 
 {
-   public static final EnvironmentalCondition[] possibleEnvironmentalConditions
-      = { /* stub */ };
+   private static final int MAXIMUM_NUMBER_OF_CONDITIONS = 3;
    // TreeSet utilized for faster calls of add() method
    private TreeSet<EnvironmentalCondition> environmentalConditions;
    private boolean conditionsSet;
@@ -34,7 +33,29 @@ public class Environment
    private void setRandomConditions()
    {
       // stub, will be filled in more when more EnvironmentalCondition subclasses are written
-      conditionsSet = false;
+      ArrayList<EnvironmentalCondition> possibleEnvironmentalConditions
+         = new ArrayList<EnvironmentalCondition>(){{
+         add( new ColdTemperature() );
+         add( new Humid() ); 
+         add( new HighPredatorDensity() );
+         add( new LowPreyDensity() );
+         add( new Windy() );
+      }};
+      
+      for ( int i = 0; i < MAXIMUM_NUMBER_OF_CONDITIONS; i++ )
+      {
+         EnvironmentalCondition newEnvironmentalCondition;
+         newEnvironmentalCondition = possibleEnvironmentalConditions
+            .remove( (int) ( Math.random()
+                               * possibleEnvironmentalConditions.size() ) );
+         if ( newEnvironmentalCondition == new ColdTemperature() )
+         {
+            if ( (int) ( Math.random() * 2 ) == 1 )
+               newEnvironmentalCondition = new HotTemperature();
+         }
+         environmentalConditions.add( newEnvironmentalCondition );
+      }
+      conditionsSet = true;
    }
    
    /**
@@ -48,7 +69,7 @@ public class Environment
       boolean andCheck;
       andCheck = false;
       
-      // equals method will be used while checking containment. If the class names are same equals return true. 
+      // equals method will be used while checking containment. If the class names are same equals return true.
       if ( environmentalConditions.contains( new Windy() ) )
       {
          name = "Windy ";
