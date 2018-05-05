@@ -8,7 +8,9 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -34,7 +36,7 @@ public class StartController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //To fix the focus issue
-        repeatFocus();
+        repeatFocus(logoView);
     }
 
     @FXML
@@ -57,14 +59,15 @@ public class StartController implements Initializable
 
         //Set the content to dialogLayout declared before
         JFXDialog dialog = new JFXDialog(rootPane, dialogLayout, JFXDialog.DialogTransition.CENTER);
+        dialog.setStyle("-fx-background-color: transparent");
 
         cancel.setOnAction((action) -> {
             dialog.close();
-            repeatFocus();
+            repeatFocus(logoView);
         });
 
         dialog.show();
-        repeatFocus();
+        repeatFocus(dialog);
     }
 
     @FXML
@@ -92,13 +95,14 @@ public class StartController implements Initializable
     }
 
     //This fixes gets the focus to the image view Look https://stackoverflow.com/questions/12744542/requestfocus-in-textfield-doesnt-work
-    private void repeatFocus()
+    private void repeatFocus(Node node)
     {
         Platform.runLater( () -> {
-            if(!logoView.isFocused()) {
+            if(!node.isFocused()) {
                 logoView.requestFocus();
-                repeatFocus();
+                repeatFocus(node);
             }
         });
     }
+
 }

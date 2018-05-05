@@ -2,56 +2,53 @@ package bicome.dialogs;
 
 import bicome.logic.feature.FeatureBase;
 import bicome.logic.genotype.Genotype;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
-import com.jfoenix.controls.JFXRadioButton;
-import javafx.geometry.Insets;
-import javafx.scene.control.Label;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+
+import java.util.Optional;
 
 public class FeatureDialog
 {
-    private static final ToggleGroup group = new ToggleGroup();
-    private static final JFXRadioButton dominantHomoButton = new JFXRadioButton("Homozygot dominant") {{
-        setPadding(new Insets(10));
-        setToggleGroup(group);
-        setSelected(true);
-    }};
-    private static final JFXRadioButton dominantHeteroButton = new JFXRadioButton("Heterozygot dominant") {{
-        setPadding(new Insets(10));
-        setToggleGroup(group);
-    }};
-    private static final JFXRadioButton reccesiveHomoButton = new JFXRadioButton("Homozygot reccesive") {{
-        setPadding(new Insets(10));
-        setToggleGroup(group);
-    }};
+    private static final ButtonType HOMOZYGOT_DOMI = new ButtonType("Homozygot dominant");
+    private static final ButtonType HETEROZYGOT_DOMI = new ButtonType("Heterozygot dominant");
+    private static final ButtonType HOMOZYGOT_RECCESS = new ButtonType("Homozygot reccessive");
 
-    public static Genotype showDialog(FeatureBase base, StackPane dialogContainer)
+    /**
+     * A method to return genotype for a FeatureBase
+     * @param base base of the feature that has been choosen
+     * @return genotype that selected in dialog, otherwise Optional.empty()
+     * @see Optional
+     */
+    public static Optional<Genotype> showDialog(FeatureBase base)
     {
-        Genotype result;
-        JFXDialog dialog = new JFXDialog();
-        dialog.setDialogContainer(dialogContainer);
+        Genotype genotype;
 
-        JFXDialogLayout layout = new JFXDialogLayout();
-        layout.setHeading(new Label("Choose the genotype of the feature: " + base.getName()));
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION) {{
+            setTitle("Choose genotype for " + base.getName());
+            setHeaderText("Choose the genotype for your feature");
+            getButtonTypes()
+                    .setAll(HOMOZYGOT_DOMI,
+                            HETEROZYGOT_DOMI,
+                            HOMOZYGOT_RECCESS,
+                            ButtonType.CANCEL);
+        }};
 
-        layout.setBody(new VBox() {{
-            getChildren().add(dominantHomoButton);
-            getChildren().add(dominantHeteroButton);
-            getChildren().add(reccesiveHomoButton);
-        }});
-
-        JFXButton okButton = new JFXButton("pick");
-        okButton.setOnAction( event -> {
-            //To Do...
-        } );
-
-        layout.setActions(okButton);
+        Optional<ButtonType> result = alert.showAndWait();
+        if(!result.isPresent()) {
+            genotype = null;
+        }
+        else if(result.get() == HOMOZYGOT_DOMI) {
+            genotype = Genotype.DOMINANT_HOMOZYGOTE;
+        }
+        else if(result.get() == HETEROZYGOT_DOMI) {
+            genotype = Genotype.DOMINANT_HETEROZYGOTE;
+        }
+        else { //if(result.get() == HOMOZYGOT_RECCESS)
+            genotype = Genotype.RECESSIVE_HOMOZYGOTE;
+        }
 
         //return result;
-        return Genotype.NONE;
+        return Optional.ofNullable(genotype);
     }
 }

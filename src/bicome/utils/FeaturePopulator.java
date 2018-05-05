@@ -1,7 +1,7 @@
 package bicome.utils;
 /**
  * Class for featureBase adding featureBases to a list
- * @author Onur Å?ahin
+ * @author Onur Sahin
  */
 
 import bicome.logic.feature.*;
@@ -11,6 +11,7 @@ import java.util.List;
 
 public class FeaturePopulator
 {
+    //Initialize the list to be added
     private static final ArrayList<FeatureBase> features = new ArrayList<FeatureBase>() {{
        add(FoodStorageOrgan.getInstance());
        add(Fur.getInstance());
@@ -28,7 +29,7 @@ public class FeaturePopulator
     public static void populateFeatures(List<FeatureBase> list)
     {
         if(list == null)
-            throw new NullPointerException("list was null");
+            throw new NullPointerException("List was null");
 
         list.addAll(features);
     }
