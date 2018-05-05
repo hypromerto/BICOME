@@ -35,7 +35,7 @@ public class World
    public boolean placeInitialOrganism( int row, int col, Organism o )
    {
       // stub, will get the coordinates and the organism from the game manager, or it may get the
-	  // variables needed to "construct" an organism, each way is fine...
+   // variables needed to "construct" an organism, each way is fine...
       return false;
    }
    
@@ -43,7 +43,7 @@ public class World
    
    public void nextTurn()
    {
-      int             totalNeighbourCell;
+      int             totalNeighbourCells;
       int             selectedTiles;
       ArrayList<Tile> aliveNeighbours;
       ArrayList<Tile> emptyNeighbours;
@@ -53,7 +53,7 @@ public class World
       offsprings         = new Organism[50][50];
       aliveNeighbours    = new ArrayList<Tile>();
       emptyNeighbours    = new ArrayList<Tile>();
-      totalNeighbourCell = 0;
+      totalNeighbourCells = 0;
       selectedTiles      = 0;
       
       
@@ -72,7 +72,7 @@ public class World
                      
                      if (row >= 0 && row <= tiles.length && col >= 0 && col <= tiles.length && !(row == i && col == j) )
                      { // Looking for neighbours
-                        totalNeighbourCell++;
+                        totalNeighbourCells++;
                         
                         if ( !tiles[row][col].isEmpty() ) 
                         {
@@ -95,7 +95,7 @@ public class World
                   {
                      //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
                      
-                     if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
+                     if( totalNeighbourCells > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
                      {                                                                 //also considering the selected tiles
                         
                         
@@ -119,14 +119,14 @@ public class World
                                  mateSelectTwo = 1;
                            } */
                            
-                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).canReproduce() )
+                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
                            {    
                               Tile offspring;
                               
                               offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
                               
                               offsprings[offspring.getRow()][offspring.getCol()] = 
-                            		  tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectTwo ).getOrganism() );
+                                tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectTwo ).getOrganism() );
                               
                            }  
                         }
@@ -139,14 +139,14 @@ public class World
                            
                            mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
         
-                           if ( tiles[i][j].getOrganism.canReproduce() && aliveNeighbours.get( mateSelectThree ).canReproduce() )
+                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectThree ).getOrganism().canReproduce() )
                            {
-                        	   Tile offspring;
-                        	   
-                        	   offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
-                        	   
-                        	   offsprings[offspring.getRow()][offspring.getCol()] =
-                        			   tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectThree ).getOrganism() );
+                            Tile offspring;
+                            
+                            offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
+                            
+                            offsprings[offspring.getRow()][offspring.getCol()] =
+                              tiles[i][j].getOrganism().reproduce( aliveNeighbours.get( mateSelectThree ).getOrganism() );
                            }     
                         }
                         
@@ -204,7 +204,7 @@ public class World
    
    public Tile[][] getGrid()
    {
-	   return tiles;
+    return tiles;
    }
    
    
