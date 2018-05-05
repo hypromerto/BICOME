@@ -6,6 +6,7 @@ out/
 *~
 #ignore test files, which should always end with Test.java
 *Test.java
+Testable*
 #ignore files under the bin directory
 bin/
 bin/*

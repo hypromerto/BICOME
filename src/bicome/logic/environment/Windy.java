@@ -1,6 +1,6 @@
 package bicome.logic.environment;
 /**
- * @author Ege Balc�o�lu
+ * @author Ege Balcioglu
  * @version 24.4.2018
  */
 import bicome.logic.genotype.Genotype;
