@@ -12,9 +12,9 @@ import bicome.logic.genotype.Genotype;
 public class Organism 
 {
    private int cooldown;
+   private double survivalChance;
    private boolean pregnant;
    private int age;
-   // the exact type of List is not specified to ease up optimization.
    private FeatureList features;
    private Environment habitat;
    private Attribute[] attributes;
@@ -48,6 +48,7 @@ public class Organism
    public void age()
    {
       age++;
+      survivalChance--;
    }
    
    public void setReproductionCooldown( boolean state )
@@ -97,7 +98,13 @@ public class Organism
    
    private void calculateSurvivalChance()
    {
-      // stub
+      // the per cent survival chance of an organism is the geometric mean of atrribute values ( max 100%, min 0% )
+      survivalChance = 1;
+      for ( Attribute a : attributes )
+      {
+         survivalChance *= a.getValue();
+      }
+      survivalChance = Math.pow( survivalChance, attributes.length );
    }
    
    public void setAttributesFromEnvironment( Environment env )
