@@ -10,3 +10,4 @@ out/
 bin/
 bin/*
 .idea*
+/src/nbproject/private/

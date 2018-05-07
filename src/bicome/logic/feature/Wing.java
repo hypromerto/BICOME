@@ -45,9 +45,9 @@ public final class Wing extends FeatureBase
       if ( g == Genotype.NONE )
          result.append( "No " );
       else if ( g == Genotype.RECESSIVE_HOMOZYGOTE )
-         result.append( "Big" );
+         result.append( "Small " );
       else
-         result.append( "Small" );
+         result.append( "Big " );
       result.append( "Wing" );
       return result.toString();
    }

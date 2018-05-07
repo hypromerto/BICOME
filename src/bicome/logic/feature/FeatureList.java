@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.RandomAccess;
+import java.util.Iterator;
 
 public class FeatureList extends AbstractList<Feature> implements RandomAccess
 {
@@ -40,9 +41,9 @@ public class FeatureList extends AbstractList<Feature> implements RandomAccess
    @Override
    public Feature get( int index )
    {
-      if ( !featureList.isEmpty() )
+      if ( !featureList.isEmpty() && index < featureList.size() && featureList.get( index ) != null )
          return featureList.get( index );
-      return null;
+      return new Feature( getBase( index ), Genotype.NONE );
    }
    
    /**
@@ -76,19 +77,22 @@ public class FeatureList extends AbstractList<Feature> implements RandomAccess
       {
          if ( assignedIndices.putIfAbsent( f.getBase(), this.size() ) == null )
          {
-            assert basesOfIndices.putIfAbsent( this.size(), f.getBase() ) == null;
-            featureList.add( f );
-            return true;
+            assert basesOfIndices.putIfAbsent( this.size() - 1, f.getBase() ) == null;
          }
+         featureList.add( f );
+         return true;
       }
       
-      if ( !oldFeature.deepEquals( f ) )
+      if ( oldFeature != null && !oldFeature.deepEquals( f ) )
       {
          featureList.set( this.indexOf( f.getBase() ), f );
          return true;
       }
-       
-      return false;
+      
+      if ( oldFeature != null && oldFeature.deepEquals( f ) )
+         return false;
+      
+      return true;
    }
                       
    public int indexOf( FeatureBase base )

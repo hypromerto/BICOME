@@ -11,6 +11,7 @@ import bicome.logic.attribute.Attribute;
 public class Feature
 {
    // properties
+   private static int p = 0;
    private Genotype genotype;
    private FeatureBase base;
    private HashMap< String, Double > multipliers;
@@ -19,6 +20,8 @@ public class Feature
    public Feature( FeatureBase base, Genotype genotype )
    {
       this.genotype = genotype;
+      if ( this.genotype == null )
+         this.genotype = Genotype.NONE;
       this.base = base;
       this.multipliers = base.getMultipliers( this.genotype );
    }

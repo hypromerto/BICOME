@@ -28,6 +28,11 @@ public class Organism
       pregnant = false;
       this.features = features;
       attributes = new Attribute[ 5 ];
+      attributes[ 0 ] = new Power();
+      attributes[ 1 ] = new Speed();
+      attributes[ 2 ] = new FlightEase();
+      attributes[ 3 ] = new WaterStockpiling();
+      attributes[ 4 ] = new NutritionStockpiling();
       setAttributesFromEnvironment( worldEnvironment );
       habitat = worldEnvironment;
       setColor();
@@ -104,15 +109,18 @@ public class Organism
       {
          survivalChance *= a.getValue();
       }
-      survivalChance = Math.pow( survivalChance, attributes.length );
+      survivalChance = Math.pow( survivalChance, 1.0 / attributes.length );
    }
    
    public void setAttributesFromEnvironment( Environment env )
    {
-      // set proper multipliers in Feature classes
-      for ( int i = 0; i < features.size(); i++ )
+      if ( env != null )
       {
-         env.filter( features.get( i ) );
+         // set proper multipliers in Feature classes
+         for ( int i = 0; i < features.size(); i++ )
+         {
+            env.filter( features.get( i ) );
+         }
       }
       
       // apply multipliers to Attributes
@@ -120,9 +128,7 @@ public class Organism
       {
          for ( int i = 0; i < attributes.length; i++ )
          {
-            attributes[i].calculate( f.getMultipliers()
-                                       .getOrDefault( attributes[i]
-                                                        .getType(), 1.0 ) );
+            attributes[i].calculate( f.getMultipliers().getOrDefault( attributes[i].getType(), 1.0 ) );
          }
       }
    }
@@ -175,6 +181,7 @@ public class Organism
       if ( pregnant )
          result.append( "not" );
       result.append( " reproduce right now.\n" );
+      result.append( "Features:\n" );
       result.append( features );
       return result.toString();
    }
