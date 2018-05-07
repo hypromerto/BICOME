@@ -1,4 +1,4 @@
-	package bicome.logic.world;
+package bicome.logic.world;
 /**
  * @author Mert Aslan
  * @version 28.04.2018

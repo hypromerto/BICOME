@@ -29,12 +29,12 @@ public final class Leg extends FeatureBase
    @Override
    protected void setMultipliers()
    {
-      // TBA
-      // this.dominantMultipliers.put( , 0.25 );
-      // this.recessiveMultipliers.put();
-      // this.noneMultipliers.put();
-      // this.dominantMultipliers.put();
-      // this.recessiveMultipliers.put();
-      // this.noneMultipliers.put();
+      this.dominantMultipliers.put( "speed", 1.90 );
+      this.recessiveMultipliers.put( "speed", 1.56 );
+      this.noneMultipliers.put( "speed", 0.19 );
+      this.recessiveMultipliers.put( "power", 1.04 );
+      this.dominantMultipliers.put( "nutrition_stockpiling", 0.45 );
+      this.recessiveMultipliers.put( "nutrition_stockpiling", 0.50 );
+      this.noneMultipliers.put( "nutrition_stockpiling", 1.60 );
    }
 }

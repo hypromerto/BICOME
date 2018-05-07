@@ -1,0 +1,10 @@
+
+bicome.animations
+bicome.controllers
+bicome.logic
+bicome.logic.attribute
+bicome.logic.environment
+bicome.logic.feature
+bicome.logic.genotype
+bicome.logic.world
+bicome.utils

@@ -151,4 +151,9 @@ public class Organism
    {
       return color;
    }
+   
+   public double getSurvivalChance()
+   {
+      return survivalChance;
+   }
 }

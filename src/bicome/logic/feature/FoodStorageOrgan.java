@@ -26,8 +26,8 @@ public final class FoodStorageOrgan extends FeatureBase
    @Override
    protected void setMultipliers()
    {
-      this.dominantMultipliers.put( "nutrition_stockpiling", 1.7 );
-      this.recessiveMultipliers.put( "nutrition_stockpiling", 1.2 );
+      this.dominantMultipliers.put( "nutrition_stockpiling", 1.80 );
+      this.recessiveMultipliers.put( "nutrition_stockpiling", 1.55 );
       this.noneMultipliers.put( "nutrition_stockpiling", 0.9 );
       this.dominantMultipliers.put( "speed", 0.90 );
       this.recessiveMultipliers.put( "speed", 0.95 );
