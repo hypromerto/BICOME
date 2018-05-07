@@ -37,4 +37,18 @@ public final class Fur extends FeatureBase
       this.recessiveMultipliers.put( "nutrition_stockpiling", 1.60 );
       this.noneMultipliers.put( "speed", 1.34 );
    }
+   
+   @Override
+   public String getFeatureName( Genotype g )
+   {
+      StringBuffer result = new StringBuffer( "" );
+      if ( g == Genotype.NONE )
+         result.append( "No " );
+      else if ( g == Genotype.RECESSIVE_HOMOZYGOTE )
+         result.append( "Thick " );
+      else
+         result.append( "Thin " );
+      result.append( "Fur" );
+      return result.toString();
+   }
 }

@@ -90,7 +90,7 @@ public class Feature
     */
    public boolean deepEquals( Object other )
    {
-       return this.equals(other) && this.genotype == ( (Feature) other ).genotype;
+      return this.equals(other) && this.genotype == ( (Feature) other ).genotype;
    }
    
    public void multiply( Double externalMultiplier )
@@ -101,5 +101,10 @@ public class Feature
             return internalMultiplier * externalMultiplier;
          }
       } );
+   }
+   
+   public String toString()
+   {
+      return this.base.getFeatureName( this.genotype );
    }
 }

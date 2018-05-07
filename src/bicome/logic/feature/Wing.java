@@ -37,4 +37,18 @@ public final class Wing extends FeatureBase
       this.dominantMultipliers.put( "speed", 0.79 );
       this.noneMultipliers.put( "speed", 1.34 );
    }
+      
+   @Override
+   public String getFeatureName( Genotype g )
+   {
+      StringBuffer result = new StringBuffer( "" );
+      if ( g == Genotype.NONE )
+         result.append( "No " );
+      else if ( g == Genotype.RECESSIVE_HOMOZYGOTE )
+         result.append( "Big" );
+      else
+         result.append( "Small" );
+      result.append( "Wing" );
+      return result.toString();
+   }
 }

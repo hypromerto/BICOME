@@ -37,4 +37,18 @@ public final class Leg extends FeatureBase
       this.recessiveMultipliers.put( "nutrition_stockpiling", 0.50 );
       this.noneMultipliers.put( "nutrition_stockpiling", 1.60 );
    }
+      
+   @Override
+   public String getFeatureName( Genotype g )
+   {
+      StringBuffer result = new StringBuffer( "" );
+      if ( g == Genotype.NONE )
+         result.append( "No " );
+      else if ( g == Genotype.RECESSIVE_HOMOZYGOTE )
+         result.append( "Short " );
+      else
+         result.append( "Long " );
+      result.append( "Leg" );
+      return result.toString();
+   }
 }

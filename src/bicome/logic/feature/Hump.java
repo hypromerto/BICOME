@@ -36,4 +36,18 @@ public final class Hump extends FeatureBase
       this.recessiveMultipliers.put( "nutrition_stockpiling", 1.40 );
       this.noneMultipliers.put( "speed", 1.60 );
    }
+   
+   @Override
+   public String getFeatureName( Genotype g )
+   {
+      StringBuffer result = new StringBuffer( "" );
+      if ( g == Genotype.NONE )
+         result.append( "No " );
+      else if ( g == Genotype.RECESSIVE_HOMOZYGOTE )
+         result.append( "Big " );
+      else
+         result.append( "Small " );
+      result.append( "Hump" );
+      return result.toString();
+   }
 }
