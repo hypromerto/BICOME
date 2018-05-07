@@ -132,4 +132,16 @@ public class FeatureList extends AbstractList<Feature> implements RandomAccess
    {
       return basesOfIndices.get( index );
    }
+   
+   public String toString()
+   {
+      StringBuffer result;
+      result = new StringBuffer( "" );
+      for ( int i = 0; i < this.size(); i++ )
+      {
+         result.append( this.get( i ) );
+         result.append( "\n" );
+      }
+      return result.toString();
+   }
 }

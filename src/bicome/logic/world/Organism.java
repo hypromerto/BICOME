@@ -174,8 +174,8 @@ public class Organism
       result.append( "This organism can" );
       if ( pregnant )
          result.append( "not" );
-      result.append( " reproduce right now." );
-      // featureList with phenotypes
+      result.append( " reproduce right now.\n" );
+      result.append( features );
       return result.toString();
    }
 }
