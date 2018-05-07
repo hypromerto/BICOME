@@ -156,4 +156,26 @@ public class Organism
    {
       return survivalChance;
    }
+   
+   public String toString()
+   {
+      StringBuffer result;
+      result = new StringBuffer( "" );
+      for ( Attribute a : attributes )
+      {
+         result.append( a.getType() );
+         result.append( ": " ); 
+         result.append( a.getValue() );
+         result.append( "\n" );
+      }
+      result.append( "Survival Chance: " );
+      result.append( survivalChance ); 
+      result.append( "%\n" );
+      result.append( "This organism can" );
+      if ( pregnant )
+         result.append( "not" );
+      result.append( " reproduce right now." );
+      // featureList with phenotypes
+      return result.toString();
+   }
 }
