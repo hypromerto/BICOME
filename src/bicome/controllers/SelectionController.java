@@ -52,19 +52,32 @@ public class SelectionController implements Initializable
     @FXML
     protected void onFeatureSelected(MouseEvent event)
     {
-        JFXListView<FeatureBase> listView = (JFXListView<FeatureBase>)event.getSource();
+        JFXListView<FeatureBase> listView = (JFXListView<FeatureBase>) event.getSource();
 
         FeatureBase selected = listView.getSelectionModel().getSelectedItem();
         Optional<Genotype> selectedGene = FeatureDialog.showDialog(selected);
         Feature feature;
 
+        //If gene is selected add it to the selectedList and remove from unSelectedList
         if(selectedGene.isPresent()) {
             feature = new Feature(selected, selectedGene.get());
             unSelectedList.remove(selected);
             selectedList.add(feature);
         }
         else {
-            System.out.println();
+            System.out.println("The featureBase " + selected.toString() + "counldn't add beacuse genotype haven't selected.");
         }
+    }
+
+    @FXML
+    protected void onFeatureUnSelected(MouseEvent event)
+    {
+        JFXListView<Feature> listView = (JFXListView<Feature>) event.getSource();
+
+        Feature selected = listView.getSelectionModel().getSelectedItem();
+        FeatureBase base = selected.getBase();
+
+        selectedList.remove(selected);
+        unSelectedList.add(base);
     }
 }
