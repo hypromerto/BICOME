@@ -154,4 +154,17 @@ public class Environment
       result.delete( result.length() - 2, result.length() );
       return result.toString();
    }
+   
+   public String getConditionsForGUI()
+   {
+      StringBuffer result;
+      result = new StringBuffer( "" );
+      for ( EnvironmentalCondition envCod : environmentalConditions )
+      {
+         result.append( envCod );
+         result.append( "\n" );
+      }
+      result.delete( result.length() - 2, result.length() );
+      return result.toString();
+   }
 }
