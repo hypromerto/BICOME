@@ -94,7 +94,7 @@ public class StartController implements Initializable
         transition.play();
     }
 
-    //This fixes gets the focus to the image view Look https://stackoverflow.com/questions/12744542/requestfocus-in-textfield-doesnt-work
+    //This fixes gets the focus to the imageView Look https://stackoverflow.com/questions/12744542/requestfocus-in-textfield-doesnt-work
     private void repeatFocus(Node node)
     {
         Platform.runLater( () -> {

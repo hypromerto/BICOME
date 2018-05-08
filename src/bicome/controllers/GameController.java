@@ -92,7 +92,7 @@ public class GameController implements Initializable{
             setTranslateX( x);
             setTranslateY( y);
 
-            getChildren().addAll( rectangle)
+            getChildren().addAll( rectangle);
         }
     }
 
