@@ -149,7 +149,7 @@ public class Environment
       for ( EnvironmentalCondition envCod : environmentalConditions )
       {
          result.append( envCod );
-         result.append( "\n" );
+         result.append( ", " );
       }
       result.delete( result.length() - 2, result.length() );
       return result.toString();
