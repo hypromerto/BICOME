@@ -41,7 +41,7 @@ public class Tile
     */
    public void killOrganism()
    {
-      o = null;
+      o     = null;
       
       color = color.TRANSPARENT;
    }

@@ -125,16 +125,6 @@ public class World
                            
                            mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
                            
-                           
-                           /*
-                           if ( !aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() ) //DOESN'T WORK IF BOTH CAN'T REPRODUCE!
-                           {                                                                         //FIX!!
-                              if ( mateSelectTwo == 1)
-                                 mateSelectTwo = 0;
-                              else if ( mateSelectTwo == 0)
-                                 mateSelectTwo = 1;
-                           } */
-                           
                            if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
                            {    
                               Tile offspring;
