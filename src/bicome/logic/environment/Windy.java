@@ -17,5 +17,7 @@ public final class Windy extends EnvironmentalCondition
    {
       multipliers.put( new Feature( Wing.getInstance(), Genotype.RECESSIVE_HOMOZYGOTE ), 0.25 );
       multipliers.put( new Feature( Wing.getInstance(), Genotype.DOMINANT_HOMOZYGOTE ), 0.55 );
+      multipliers.put( new Feature( Leg.getInstance(), Genotype.NONE ), 1.67 );
+      multipliers.put( new Feature( Leg.getInstance(), Genotype.DOMINANT_HOMOZYGOTE ), 0.90 );
    }
 }

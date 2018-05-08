@@ -15,8 +15,7 @@ public class Environment
    
    public Environment()
    {
-      environmentalConditions = new TreeSet<EnvironmentalCondition>
-         ( new Comparator<EnvironmentalCondition>() {
+      environmentalConditions = new TreeSet<EnvironmentalCondition>( new Comparator<EnvironmentalCondition>() {
          // an adequate comparator for easy traversal/iteration through this TreeSet
          public int compare( EnvironmentalCondition e1, EnvironmentalCondition e2 )
          {
@@ -32,7 +31,7 @@ public class Environment
     */
    private void setRandomConditions()
    {
-      // stub, will be filled in more when more EnvironmentalCondition subclasses are written
+      // the list below should be filled in more whenever more EnvironmentalCondition subclasses are written
       ArrayList<EnvironmentalCondition> possibleEnvironmentalConditions
          = new ArrayList<EnvironmentalCondition>(){{
          add( new ColdTemperature() );
@@ -63,11 +62,12 @@ public class Environment
     */
    private void setName()
    {
-      // stub, will be filled in more when more EnvironmentalCondition subclasses are written
+      // stub
       assert conditionsSet; // be sure to make this statement the first line of this method
       
       boolean andCheck;
       andCheck = false;
+      name = "";
       
       // equals method will be used while checking containment. If the class names are same equals return true.
       if ( environmentalConditions.contains( new Windy() ) )
@@ -96,6 +96,7 @@ public class Environment
    
    /**
     * Filters a single Feature.
+    * @param featureOfOrganism the feature whose multipliers will be altered.
     */
    public void filter( Feature featureOfOrganism )
    {
@@ -112,6 +113,10 @@ public class Environment
       }
    }
    
+   /**
+    * Returns the name of this environment according to its conditions
+    * @return the name of this environment
+    */
    public String getName()
    {
       return name;

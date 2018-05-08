@@ -38,9 +38,11 @@ public abstract class FeatureBase
       
       return dominantMultipliers; 
    }
-
-   public String getName()
+   
+   public String toString()
    {
       return this.getClass().getSimpleName();
    }
+
+   public abstract String getFeatureName( Genotype g );
 }

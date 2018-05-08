@@ -12,9 +12,9 @@ import bicome.logic.genotype.Genotype;
 public class Organism 
 {
    private int cooldown;
+   private double survivalChance;
    private boolean pregnant;
    private int age;
-   // the exact type of List is not specified to ease up optimization.
    private FeatureList features;
    private Environment habitat;
    private Attribute[] attributes;
@@ -28,6 +28,11 @@ public class Organism
       pregnant = false;
       this.features = features;
       attributes = new Attribute[ 5 ];
+      attributes[ 0 ] = new Power();
+      attributes[ 1 ] = new Speed();
+      attributes[ 2 ] = new FlightEase();
+      attributes[ 3 ] = new WaterStockpiling();
+      attributes[ 4 ] = new NutritionStockpiling();
       setAttributesFromEnvironment( worldEnvironment );
       habitat = worldEnvironment;
       setColor();
@@ -48,6 +53,7 @@ public class Organism
    public void age()
    {
       age++;
+      survivalChance--;
    }
    
    public void setReproductionCooldown( boolean state )
@@ -97,15 +103,24 @@ public class Organism
    
    private void calculateSurvivalChance()
    {
-      // stub
+      // the per cent survival chance of an organism is the geometric mean of atrribute values ( max 100%, min 0% )
+      survivalChance = 1;
+      for ( Attribute a : attributes )
+      {
+         survivalChance *= a.getValue();
+      }
+      survivalChance = Math.pow( survivalChance, 1.0 / attributes.length );
    }
    
    public void setAttributesFromEnvironment( Environment env )
    {
-      // set proper multipliers in Feature classes
-      for ( int i = 0; i < features.size(); i++ )
+      if ( env != null )
       {
-         env.filter( features.get( i ) );
+         // set proper multipliers in Feature classes
+         for ( int i = 0; i < features.size(); i++ )
+         {
+            env.filter( features.get( i ) );
+         }
       }
       
       // apply multipliers to Attributes
@@ -113,9 +128,7 @@ public class Organism
       {
          for ( int i = 0; i < attributes.length; i++ )
          {
-            attributes[i].calculate( f.getMultipliers()
-                                       .getOrDefault( attributes[i]
-                                                        .getType(), 1.0 ) );
+            attributes[i].calculate( f.getMultipliers().getOrDefault( attributes[i].getType(), 1.0 ) );
          }
       }
    }
@@ -143,5 +156,33 @@ public class Organism
    public Color getColor()
    {
       return color;
+   }
+   
+   public double getSurvivalChance()
+   {
+      return survivalChance;
+   }
+   
+   public String toString()
+   {
+      StringBuffer result;
+      result = new StringBuffer( "" );
+      for ( Attribute a : attributes )
+      {
+         result.append( a.getType() );
+         result.append( ": " ); 
+         result.append( a.getValue() );
+         result.append( "\n" );
+      }
+      result.append( "Survival Chance: " );
+      result.append( survivalChance ); 
+      result.append( "%\n" );
+      result.append( "This organism can" );
+      if ( pregnant )
+         result.append( "not" );
+      result.append( " reproduce right now.\n" );
+      result.append( "Features:\n" );
+      result.append( features );
+      return result.toString();
    }
 }

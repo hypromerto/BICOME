@@ -4,10 +4,10 @@ out/*
 out/
 #ignore files that end with "~" sign
 *~
-#ignore test files, which should always end with Test.java
-*Test.java
-Testable*
+#ignore test files, which should always contain the string "Test" in them
+*Test*
 #ignore files under the bin directory
 bin/
 bin/*
 .idea*
+/src/nbproject/private/
