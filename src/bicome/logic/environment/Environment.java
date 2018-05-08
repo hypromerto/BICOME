@@ -62,36 +62,44 @@ public class Environment
     */
    private void setName()
    {
-      // stub
       assert conditionsSet; // be sure to make this statement the first line of this method
       
-      boolean andCheck;
-      andCheck = false;
       name = "";
       
       // equals method will be used while checking containment. If the class names are same equals return true.
+      if ( environmentalConditions.contains( new HighPredatorDensity() ) )
+      {
+         name = name + "Unsafe ";
+      }
+      
       if ( environmentalConditions.contains( new Windy() ) )
       {
-         name = "Windy ";
-         andCheck = true;
+         name = name + "Windy ";
       }
       
-      if ( andCheck && ( environmentalConditions.contains( new HotTemperature() )  ||
-          environmentalConditions.contains( new ColdTemperature() ) ) )
+      if ( environmentalConditions.contains( new HotTemperature() ) && !environmentalConditions.contains( new Humid() ) )
       {
-         name = name + "and ";
+         name = name + "Desert ";
+      }
+      else if ( environmentalConditions.contains( new ColdTemperature() ) && !environmentalConditions.contains( new Humid() ) )
+      {
+         name = name + "Pole ";
+      }
+      else if ( environmentalConditions.contains( new HotTemperature() ) && environmentalConditions.contains( new Humid() ) )
+      {
+         name = name + "Tropical Rainforest ";
+      }
+      else if ( environmentalConditions.contains( new ColdTemperature() ) && environmentalConditions.contains( new Humid() )  )
+      {
+         name = name + "Continental ";
       }
       
-      if ( environmentalConditions.contains( new HotTemperature() ) )
+       if ( environmentalConditions.contains( new LowPreyDensity() )  )
       {
-         name = name + "Hot ";
-      }
-      else if ( environmentalConditions.contains( new ColdTemperature() ) )
-      {
-         name = name + "Cold ";
+         name = name + "and Scarce "; 
       }
       
-      name = name + "Environment";
+         name = name + "Environment ";
    }
    
    /**
