@@ -13,7 +13,7 @@ public class World
    private static final int    SIZE = 30;            //Size of the simulation grid
    private static final double REPR_THRESHOLD = 1.3; //Reproduction chance, DUE TO CHANGE
    private static final int    TWO_NEIGHBOUR = 2;    //Number of neighbours surrounding the center organism
-   private static final int    THREE_NEIGHBOUR = 2;  //Number of neighbours surrounding the center organism
+   private static final int    THREE_NEIGHBOUR = 3;  //Number of neighbours surrounding the center organism
    
    private Tile[][]    tiles;          //The simulation multi-array
    private Tile[][]    offspringTiles; //The multi-array that is used to hold the new-borns
@@ -198,9 +198,9 @@ public class World
                
                if ( !offspringTiles[i][j].isEmpty() )
                {
-            	   // PROBABLY DOESN'T WORK AS THEY BOTH HAVE THE REFERENCE TO THE SAME OBJECT, SO KILL ORGANISM ALSO KILLS THE ORGANISM
-            	   // IN TILES MULTI ARRAY need a good way to copy
-            	   
+                // PROBABLY DOESN'T WORK AS THEY BOTH HAVE THE REFERENCE TO THE SAME OBJECT, SO KILL ORGANISM ALSO KILLS THE ORGANISM
+                // IN TILES MULTI ARRAY need a good way to copy
+                
                   tiles[i][j].placeOrganism(offspringTiles[i][j].getOrganism() ); //porting our offsprings back to original organisms array
                   
                   offspringTiles[i][j].killOrganism(); //flushing offsprings 
