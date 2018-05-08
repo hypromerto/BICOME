@@ -36,7 +36,8 @@ public class Organism
       setAttributesFromEnvironment( worldEnvironment );
       habitat = worldEnvironment;
       setColor();
-      calculateSurvivalChance();
+      
+      calculateSurvivalChance(); //This has to be done in the end of the constructor
    }
    
    public void increaseCooldown()

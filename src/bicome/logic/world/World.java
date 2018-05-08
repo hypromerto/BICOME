@@ -10,20 +10,22 @@ import bicome.logic.feature.*;
 
 public class World 
 {
-   private static final int SIZE = 30; // kolaylýk olsun diye yapýverdim.
-   private final double REPR_THRESHOLD = 1.3;
+   private static final int    SIZE = 30;            //Size of the simulation grid
+   private static final double REPR_THRESHOLD = 1.3; //Reproduction chance, DUE TO CHANGE
+   private static final int    TWO_NEIGHBOUR = 2;    //Number of neighbours surrounding the center organism
+   private static final int    THREE_NEIGHBOUR = 2;  //Number of neighbours surrounding the center organism
    
-   private Tile[][] tiles;
-   private Tile[][] offspringTiles;
-   private Environment environment;
-   private int round;
+   private Tile[][]    tiles;          //The simulation multi-array
+   private Tile[][]    offspringTiles; //The multi-array that is used to hold the new-borns
+   private Environment environment;    //The environment of the world
+   private int         round;          //Round count of the game
    
    public World()
    {
-      tiles  = new Tile[SIZE][SIZE];
+      tiles          = new Tile[SIZE][SIZE];
       offspringTiles = new Tile[SIZE][SIZE];
-      environment = new Environment();
-      round = 0;
+      environment    = new Environment();
+      round          = 0;
       
       for ( int i = 0; i < tiles.length; i++ )
       {
@@ -36,6 +38,14 @@ public class World
       }
    }
    
+   /**
+    * Places an organism in the given row and column. This is used to place the initial organisms
+    * the user clicks on when he first starts the simulation.
+    * 
+    * @param row         Row to place the initial organism
+    * @param col         Column to place the initial organism
+    * @param features    The features that are selected in the selection stage
+    */
    public void placeInitialOrganism( int row, int col, FeatureList features )
    {
       // stub, will get the coordinates and the organism from the game manager, or it may get the
@@ -45,7 +55,9 @@ public class World
       
    }
    
-   
+   /**
+    * Simulates the next round.
+    */
    
    public void nextTurn()
    {
@@ -95,7 +107,7 @@ public class World
                      
                   }
                   
-                  if ( !( aliveNeighbours.size() < 2 || aliveNeighbours.size() > 3 ) )
+                  if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
                   {
                      //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
                      
@@ -103,7 +115,7 @@ public class World
                      {                                                                 //also considering the selected tiles
                         
                         
-                        if ( aliveNeighbours.size() == 2 && 2 * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
+                        if ( aliveNeighbours.size() == TWO_NEIGHBOUR && TWO_NEIGHBOUR * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
                         {
                            // stub... read below!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
@@ -135,7 +147,7 @@ public class World
                               
                            }  
                         }
-                        else if ( aliveNeighbours.size() == 3 &&  3 * Math.random() > REPR_THRESHOLD )
+                        else if ( aliveNeighbours.size() == THREE_NEIGHBOUR && THREE_NEIGHBOUR * Math.random() > REPR_THRESHOLD )
                         {
                            // stub... read below!!!
                            // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
@@ -205,25 +217,37 @@ public class World
                }
             }
          }
-         round++;
          
-         
+         round++;     
       }
    }
    
+   /**
+    * Gets the simulation grid.
+    * 
+    * @return  tiles      the simulation grid
+    */
    public Tile[][] getGrid()
    {
     return tiles;
    }
    
-   
-   
+   /**
+    * Checks if the game is over.
+    * 
+    * @return   true if game is over, false otherwise
+    */  
    public boolean isGameOver()
    {
       // stub
       return false;
    }
    
+   /**
+    * Gets the environment of the world
+    * 
+    * @return  environment    the environment of the world
+    */
    public Environment getEnvironment()
    {
       return environment;
