@@ -10,4 +10,4 @@ out/
 bin/
 bin/*
 .idea*
-/src/nbproject/private/
+/src/nbproject/private/ .idea/workspace.xml
