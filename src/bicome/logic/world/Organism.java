@@ -91,7 +91,9 @@ public class Organism
       
       offspring = new Organism( newFeatures, habitat );
       
-      offspring.setReproductionCooldown( true );
+      //offspring.setReproductionCooldown( true );  //This might be not needed, may even be bad for the algorithm
+      //On a second thought i am sure that this line would break the game by making it a lot harder as if it is
+      //not hard enough.
       
       return offspring;
       

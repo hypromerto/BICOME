@@ -1,6 +1,6 @@
 package bicome.logic.world;
 /**
- * @author Mert Aslan
+ * @author  Mert Aslan
  * @version 28.04.2018
  */
 
@@ -10,22 +10,23 @@ import bicome.logic.feature.*;
 
 public class World 
 {
-   private static final int    SIZE = 30;            //Size of the simulation grid
-   private static final double REPR_THRESHOLD = 1.3; //Reproduction chance, DUE TO CHANGE
-   private static final int    TWO_NEIGHBOUR = 2;    //Number of neighbours surrounding the center organism
-   private static final int    THREE_NEIGHBOUR = 3;  //Number of neighbours surrounding the center organism
+   private static final int    SIZE = 30;              //Size of the simulation grid
+   private static final double REPR_THRESHOLD  = 1.3;  //Reproduction chance, DUE TO CHANGE
+   private static final int    TWO_NEIGHBOUR   = 2;    //Number of neighbours surrounding the center organism
+   private static final int    THREE_NEIGHBOUR = 3;    //Number of neighbours surrounding the center organism
+   private static final int    ROUND_LIMIT     = 30;   //The total amount of possible rounds of the game
    
    private Tile[][]    tiles;          //The simulation multi-array
    private Tile[][]    offspringTiles; //The multi-array that is used to hold the new-borns
    private Environment environment;    //The environment of the world
    private int         round;          //Round count of the game
    
-   public World()
+   public World(FeatureList features, Environment environment)
    {
-      tiles          = new Tile[SIZE][SIZE];
-      offspringTiles = new Tile[SIZE][SIZE];
-      environment    = new Environment();
-      round          = 0;
+      tiles               = new Tile[SIZE][SIZE];
+      offspringTiles      = new Tile[SIZE][SIZE];
+      this.environment    = environment;
+      round               = 0;
       
       for ( int i = 0; i < tiles.length; i++ )
       {
@@ -36,30 +37,69 @@ public class World
          }
          
       }
+      
+      placeInitialOrganisms( features );
    }
    
    /**
-    * Places an organism in the given row and column. This is used to place the initial organisms
-    * the user clicks on when he first starts the simulation.
+    * Places an organism into a random spot in the grid and two others into random places that are neighbour
+    * to the first placed organism. This creates the starting state of the simulation.
     * 
-    * @param row         Row to place the initial organism
-    * @param col         Column to place the initial organism
-    * @param features    The features that are selected in the selection stage
+    * @param features     the features user selected at the selection stage of the game
     */
-   public void placeInitialOrganism( int row, int col, FeatureList features )
+   public void placeInitialOrganisms( FeatureList features )
    {
-      // stub, will get the coordinates and the organism from the game manager, or it may get the
-   // variables needed to "construct" an organism, each way is fine...
-    
-   tiles[row][col].placeOrganism( new Organism( features, environment ) );
-      
+	   
+	   int             row;
+	   int             col;
+	   Tile            firstNeighbour;
+	   Tile            secondNeighbour;
+	   ArrayList<Tile> initialNeighbours;
+	   
+	   initialNeighbours = new ArrayList<Tile>();
+	   row               = (int) ( Math.random() * SIZE );
+	   col               = (int) ( Math.random() * SIZE );  
+	  
+	   tiles[row][col].placeOrganism( new Organism( features, environment ) ); 
+	   
+	   
+	   for( int k = 0; k < 9; k++) //Detecting the neighbours of the initial organism
+	   {
+		   int neighbourRow = row + (k % 3) - 1;
+		   int neighbourCol = col + (k / 3) - 1;
+		   
+		   //If they suit the condition of being a valid neighbour, which is being in the bounds
+		   //of the grid, then add that tile to the initialNeighbours ArrayList.
+           if (neighbourRow >= 0 && neighbourRow <= tiles.length && neighbourCol >= 0 &&   
+        		   neighbourCol <= tiles.length && !(neighbourRow == row && neighbourCol == col) ) 
+           {
+        	   initialNeighbours.add( tiles[neighbourRow][neighbourCol] );
+           }
+	   }
+	   
+	   //Randomly selecting the first neighbour of the initial organism, and then removing it from the
+	   //ArrayList so that it can no longer be selected as a possible neighbour to the initial organism
+	   firstNeighbour = initialNeighbours.get( (int) ( Math.random() * initialNeighbours.size() ) );
+	   
+	   initialNeighbours.remove( firstNeighbour );
+	   
+	   //Placing the first neighbour to our grid
+	   tiles[firstNeighbour.getRow()][firstNeighbour.getCol()].placeOrganism( new Organism( features, environment ) );
+
+	   //Randomly selecting the second neighbour
+	   secondNeighbour = initialNeighbours.get( (int) ( Math.random() * initialNeighbours.size() ) );
+	   
+	   initialNeighbours.remove( secondNeighbour );
+	   
+	   tiles[secondNeighbour.getRow()][secondNeighbour.getCol()].placeOrganism( new Organism( features, environment ) );
+	   
+	   initialNeighbours.clear(); //Just to look clean and tidy
    }
    
    /**
     * Simulates the next round.
-    */
-   
-   public void nextTurn()
+    */ 
+   public boolean nextTurn()
    {
       int             totalNeighbourCell;
       int             selectedTiles;
@@ -79,26 +119,31 @@ public class World
          {
             for ( int j = 0; j < tiles.length; j++ )
             {
-               if ( !tiles[i][j].isEmpty() && !isGameOver() ) //mid round game over check
+               if ( !tiles[i][j].isEmpty() )
                {
-                  for ( int k = 0; k < 9; k++) 
+            	  int percentage;  //Used to determine if an organism lives or dies depending on it's survival chance
+            	  
+                  percentage = (int) ( Math.random() * 100 );
+
+                  for ( int k = 0; k < 9; k++) //Traversing the neighbours of a single organism
                   {
                      int row = i + (k % 3) - 1;
                      int col = j + (k / 3) - 1;
                      
+                     // Looking for valid neighbours, valid referring to actually being inside the boundaries of the grid
                      if (row >= 0 && row <= tiles.length && col >= 0 && col <= tiles.length && !(row == i && col == j) )
-                     { // Looking for neighbours
+                     { 
                         totalNeighbourCell++;
                         
-                        if ( !tiles[row][col].isEmpty() ) 
+                        if ( !tiles[row][col].isEmpty() ) //If an organism resides in the tile
                         {
                            aliveNeighbours.add(  tiles[row][col] );
                         }
-                        else if ( tiles[i][j].getSelected() )
-                        {
+                        else if ( tiles[i][j].getSelected() ) //The tiles that are due to have new organisms in them 
+                        {                                     //at the end of the round
                            selectedTiles++;
                         }
-                        else
+                        else  //If none of the above, then it is an empty tile
                         {
                            emptyNeighbours.add( tiles[row][col] );
                            tiles[row][col].setSelected( true );
@@ -107,75 +152,81 @@ public class World
                      
                   }
                   
-                  if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
+                  if ( percentage < tiles[i][j].getOrganism().getSurvivalChance() ) //Crucial decision for game rules here, might change
                   {
-                     //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
-                     
-                     if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
-                     {                                                                 //also considering the selected tiles
-                        
-                        
-                        if ( aliveNeighbours.size() == TWO_NEIGHBOUR && TWO_NEIGHBOUR * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
-                        {
-                           // stub... read below!!
-                           // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
-                           
-                           
-                           int mateSelectTwo;
-                           
-                           mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
-                           
-                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
-                           {    
-                              Tile offspring;
-                              
-                              offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
-                              
-                              offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism( tiles[i][j].getOrganism().reproduce( aliveNeighbours.
-                                get( mateSelectTwo ).getOrganism() ) );
-
-                              
-                           }  
-                        }
-                        else if ( aliveNeighbours.size() == THREE_NEIGHBOUR && THREE_NEIGHBOUR * Math.random() > REPR_THRESHOLD )
-                        {
-                           // stub... read below!!!
-                           // IMPORTANT: AN IF STATEMENT HERE TO CHECK IF ORGANISMS SURVIVAL RATE IS ENOUGH TO SURVIVE!!!!
-                           
-                           int mateSelectThree;
-                           
-                           mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
-        
-                           if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectThree ).getOrganism().canReproduce() )
-                           {
-                            Tile offspring;
+                	  
+                	  if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
+                      {
+                         //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
+                         
+                         if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
+                         {                                                                 //also considering the selected tiles
                             
-                            offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
                             
-                            offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism(tiles[i][j].getOrganism().reproduce( aliveNeighbours.
-                              get( mateSelectThree ).getOrganism() ) );
-                              
-                           }     
-                        }
-                        
-                        
-                     }
-                     
+                            if ( aliveNeighbours.size() == TWO_NEIGHBOUR && TWO_NEIGHBOUR * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
+                            {  
+                               int mateSelectTwo;
+                               
+                               mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
+                                                          
+                               if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
+                               {    
+                                  Tile offspring;
+                                  
+                                  offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
+                                  
+                                  offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism( tiles[i][j].getOrganism().reproduce( aliveNeighbours.
+                                  get( mateSelectTwo ).getOrganism() ) );   
+                                  
+                               }  
+                               
+                            }
+                            else if ( aliveNeighbours.size() == THREE_NEIGHBOUR && THREE_NEIGHBOUR * Math.random() > REPR_THRESHOLD )
+                            {  
+                               int mateSelectThree;
+                               
+                               mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
+            
+                               if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectThree ).getOrganism().canReproduce() )
+                               {
+                                Tile offspring;
+                                
+                                offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
+                                
+                                offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism(tiles[i][j].getOrganism().reproduce( aliveNeighbours.
+                                get( mateSelectThree ).getOrganism() ) );    
+                                
+                               }     
+                            }
+                            
+                            
+                         }
+                         
+                      }
+                      else
+                      {
+                         //die without reproducing, number of neighbours required isn't met!
+                         
+                         tiles[i][j].killOrganism();
+                      }
+                	  
                   }
+                  
                   else
                   {
-                     //die without reproducing, number of neighbours required isn't met!
-                     
-                     tiles[i][j].killOrganism();
+                	  //die without reproducing, survival chance is not enough!
+                	  
+                	  tiles[i][j].killOrganism();
                   }
+                  
                   
                   
                }
                // stub... flushings of some variables will be done here
                //end of for loops, therefore end of checks for a single organism
                
-               selectedTiles = 0;
-               totalNeighbourCell = 0;
+               selectedTiles       = 0;
+               totalNeighbourCell  = 0;
                aliveNeighbours.clear();
                emptyNeighbours.clear();
                
@@ -192,6 +243,7 @@ public class World
                      tiles[i][j].getOrganism().increaseCooldown();
                   
                   tiles[i][j].getOrganism().age();
+                                    
                   tiles[i][j].setSelected( false ); //setting the new-borns to unselected state so that 
                   //they will be counted as a neighbour next round
                }
@@ -209,7 +261,11 @@ public class World
          }
          
          round++;     
+         
+         return true;
       }
+      else
+    	  return false;
    }
    
    /**
@@ -229,8 +285,20 @@ public class World
     */  
    public boolean isGameOver()
    {
-      // stub
-      return false;
+	   
+	  if ( round >= ROUND_LIMIT )
+		  return true;
+	  
+      for ( int i = 0; i < SIZE; i++ )
+      {
+    	  for ( int j = 0; j < SIZE; j++ )
+    	  {
+    		  if ( !tiles[i][j].isEmpty() )
+    			  return false;
+    	  }
+      }
+      
+      return true;  //No organisms left
    }
    
    /**
@@ -241,5 +309,10 @@ public class World
    public Environment getEnvironment()
    {
       return environment;
+   }
+   
+   public int getRound()
+   {
+	   return round;
    }
 }
