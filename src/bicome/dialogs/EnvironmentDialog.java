@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class EnvironmentDialog extends JFXDialog
@@ -31,6 +32,7 @@ public class EnvironmentDialog extends JFXDialog
             setStyle("-fx-background-radius: 25; -fx-background-color: TODO");
             setWidth(150);
             setHeight(50);
+            setTextAlignment(TextAlignment.CENTER);
             setOnAction( event -> close() );
         }};
         JFXDialogLayout layout = new JFXDialogLayout(){{
@@ -38,7 +40,7 @@ public class EnvironmentDialog extends JFXDialog
            setBody(
                    new VBox(new ImageView(/*This will return the image of the Environment*/),
                             new Label(environment.toString()),
-                            new Label(/*This will have the properties of the environment*/))
+                            new Label(environment.getConditions()))
            );
            setActions(ok);
         }};
