@@ -31,7 +31,7 @@ public class GameManager
       yearsPassed = 0;
       numOfTurns = 0;
       durationOfTurns = 50; //in millisecond
-      turnTimer = new Timer( durationOfTurns , new GameManager.TimeListener() );
+      turnTimer = new Timer( 10 , new GameManager.TimeListener() );
       this.world = world;
       this.controller = controller;
       
@@ -58,6 +58,7 @@ public class GameManager
          else if ( timePassed % durationOfTurns == 0 && !world.isGameOver() )
          {
             world.nextTurn();
+            controller.drawGrid();
             numOfTurns++;
          }
          
@@ -74,6 +75,7 @@ public class GameManager
    }
    
    /* This method changes the duration of each turn
+    * Make sure duration is a multiply of 10 milliseconds.
     */
    public int setDurationOfTurns( int n )
    {
@@ -92,6 +94,6 @@ public class GameManager
     */
    public int getYearsPassed()
    {
-      return numOfTurns * 90;
+      return numOfTurns;
    }
 }
