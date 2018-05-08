@@ -7,4 +7,5 @@ bicome.logic.environment
 bicome.logic.feature
 bicome.logic.genotype
 bicome.logic.world
+bicome.main
 bicome.utils
