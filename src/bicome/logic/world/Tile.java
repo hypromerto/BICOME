@@ -118,9 +118,5 @@ public class Tile
       return selected;
    }   
    
-   public void emptyTile()
-   {
-	   
-   }
    
 }

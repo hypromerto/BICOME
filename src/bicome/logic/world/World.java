@@ -250,8 +250,6 @@ public class World
                
                if ( !offspringTiles[i][j].isEmpty() )
                {
-                // PROBABLY DOESN'T WORK AS THEY BOTH HAVE THE REFERENCE TO THE SAME OBJECT, SO KILL ORGANISM ALSO KILLS THE ORGANISM
-                // IN TILES MULTI ARRAY need a good way to copy
                 
                   tiles[i][j].placeOrganism(offspringTiles[i][j].getOrganism() ); //porting our offsprings back to original organisms array
                   
