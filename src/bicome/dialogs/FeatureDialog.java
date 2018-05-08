@@ -1,4 +1,11 @@
 package bicome.dialogs;
+/**
+ * @author Onur Sahin
+ * @version 05/08/2018
+ *
+ * This class is for dialog to pick a genotype for the featureBase
+ * Unfortunately I couldn't find a JFXDialog that return something so I have to use ugly java fx default dialog :(
+ */
 
 import bicome.logic.feature.FeatureBase;
 import bicome.logic.genotype.Genotype;
