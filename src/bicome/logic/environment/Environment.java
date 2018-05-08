@@ -141,4 +141,17 @@ public class Environment
    {
       return name;
    }
+   
+   public String getConditions()
+   {
+      StringBuffer result;
+      result = new StringBuffer( "" );
+      for ( EnvironmentalCondition envCod : environmentalConditions )
+      {
+         result.append( envCod );
+         result.append( ", " );
+      }
+      result.delete( result.length() - 2, result.length() );
+      return result.toString();
+   }
 }
