@@ -124,8 +124,20 @@ public class Environment
    /**
     * Returns the name of this environment according to its conditions
     * @return the name of this environment
+    * @deprecated use toString method now, it does exactly the same thing
     */
+   @Deprecated
    public String getName()
+   {
+      return name;
+   }
+   
+   /**
+    * Returns the name of this environment according to its conditions
+    * @return the name of this environment
+    */
+   @Override
+   public String toString()
    {
       return name;
    }

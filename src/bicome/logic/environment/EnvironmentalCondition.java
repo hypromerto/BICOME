@@ -38,5 +38,11 @@ public abstract class EnvironmentalCondition
       return false;
    }
    
+   @Override
+   public String toString()
+   {
+      return this.getClass().getSimpleName();
+   }
+   
    protected abstract void setMultipliers();
 }
