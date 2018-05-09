@@ -3,8 +3,10 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXSlider?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,127 +17,188 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bicome.controllers.GameController">
-   <children>
-      <ImageView id="backgroundPicture" fitHeight="400.0" fitWidth="601.0" pickOnBounds="true" preserveRatio="true" />
-      <BorderPane layoutX="-1.0" layoutY="-2.0" prefHeight="400.0" prefWidth="600.0">
-         <left>
-            <VBox id="animalV" prefHeight="400.0" prefWidth="40.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane prefHeight="400.0" prefWidth="117.0">
-                     <children>
-                        <Separator layoutX="140.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="0.0" />
-                        <Separator layoutY="112.0" prefHeight="4.0" prefWidth="142.0" />
-                        <ImageView id="imageOfAnimal" fitHeight="74.0" fitWidth="114.0" layoutX="9.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="animalName" layoutX="17.0" layoutY="86.0" text="Animal  Name">
-                           <font>
-                              <Font name="Segoe UI Black" size="14.0" />
-                           </font></Label>
-                        <JFXButton id="homeButton" buttonType="RAISED" layoutX="43.0" layoutY="361.0" mnemonicParsing="false" onAction="#goHome" style="-fx-background-radius: 25; -fx-background-color: #388e3c;" text="home" />
-                        <JFXListView fx:id="animalList" layoutX="1.0" layoutY="115.0" prefHeight="224.0" prefWidth="122.0" />
-                     </children></AnchorPane>
-               </children>
-            </VBox>
-         </left>
-         <right>
-            <VBox id="environmentV" prefHeight="415.0" prefWidth="139.0" BorderPane.alignment="CENTER">
-                <Label fx:id="environmentConditionsLabel" />
-                <Separator layoutX="-3.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="0.0" />
-                <Separator layoutX="1.0" layoutY="57.0" prefHeight="4.0" prefWidth="114.0" />
-                <JFXButton id="pauseButton" buttonType="RAISED" layoutX="3.0" layoutY="362.0" mnemonicParsing="false" onAction="#pauseGame" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="pause" />
-                <JFXButton id="speedButton" buttonType="RAISED" layoutX="62.0" layoutY="362.0" mnemonicParsing="false" onAction="#changeSpeed" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="speed" />
-                <Label id="environmentName" layoutX="1.0" prefHeight="54.0" prefWidth="122.0" text="Environment Name" textAlignment="CENTER">
-                   <font>
-                      <Font name="Segoe UI Black" size="12.0" />
-                   </font></Label>
-                <JFXSlider id="speedSlider" layoutX="95.0" layoutY="250.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" />
-            </VBox>
-         </right>
-         <center>
-            <HBox prefHeight="208.0" prefWidth="315.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane prefHeight="400.0" prefWidth="308.0">
-                     <children>
-                        <Separator layoutX="-6.0" layoutY="309.0" prefHeight="20.0" prefWidth="321.0" />
-                        <Label id="timeData" layoutX="14.0" layoutY="370.0" text="time data">
-                           <font>
-                              <Font name="Segoe UI Black" size="13.0" />
-                           </font></Label>
-                        <Label id="survivalRate" layoutX="218.0" layoutY="370.0" text="survival rate">
-                           <font>
-                              <Font name="Segoe UI Black" size="13.0" />
-                           </font></Label>
-                        <GridPane fx:id="grid" gridLinesVisible="true" layoutX="-21.0" layoutY="2.0" prefHeight="359.0" prefWidth="359.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </HBox>
-         </center>
-      </BorderPane>
-   </children>
-</AnchorPane>
+<?import javafx.scene.layout.Pane?>
+<BorderPane layoutX="-1.0" layoutY="-2.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bicome.controllers.GameController">
+            <left>
+                <BorderPane fx:id="animalV" prefHeight="Infinity" prefWidth="120" BorderPane.alignment="CENTER">
+                    <top>
+                        <VBox>
+                            <ImageView fitWidth="120" fitHeight="120" />
+                            <Label fx:id="animalName" text="Animal  Name">
+                                <font>
+                                    <Font name="Segoe UI Black" size="14.0" />
+                                </font>
+                            </Label>
+                        </VBox>
+                    </top>
+                    <center>
+                        <JFXListView fx:id="animalList" prefHeight="Infinity" prefWidth="120" />
+                    </center>
+                    <bottom>
+                        <VBox alignment="CENTER">
+                            <JFXButton fx:id="homeButton" contentDisplay="GRAPHIC_ONLY" alignment="CENTER" buttonType="RAISED" layoutX="43.0" layoutY="354.0" mnemonicParsing="false" onAction="#goHome" prefHeight="50" prefWidth="50" style="-fx-background-radius: 25; -fx-background-color: #388e3c;" text=".">
+                                <graphic>
+                                    <ImageView fx:id="homeIcon" fitHeight="24.0" fitWidth="42.0" layoutX="49.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../resources/images/ic_home_white_24dp_1x.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <VBox.margin>
+                                    <Insets top="5" bottom="5" />
+                                </VBox.margin>
+                            </JFXButton>
+                        </VBox>
+                    </bottom>
+                    <BorderPane.margin>
+                        <Insets right="5" left="5" top="5" bottom="5" />
+                    </BorderPane.margin>
+                </BorderPane>
+            </left>
+            <right>
+                    <BorderPane prefHeight="397.0" prefWidth="139.0">
+                        <top>
+                            <Label fx:id="environmentName" prefHeight="54.0" prefWidth="122.0" text=" Environment Name" textAlignment="CENTER">
+                                <font>
+                                    <Font name="Segoe UI Black" size="12.0" />
+                                </font>
+                            </Label>
+                        </top>
+                        <center>
+                            <JFXListView fx:id="environmentList" layoutX="2.0" layoutY="60.0" prefHeight="Infinity" prefWidth="120.0" showTooltip="true" />
+                        </center>
+                        <bottom>
+                            <VBox>
+                                <JFXButton fx:id="pauseButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#pauseGame" prefHeight="35.0" prefWidth="37.0" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text=".">
+                                    <graphic>
+                                        <ImageView fx:id="pauseicon" fitHeight="32.0" fitWidth="41.0" layoutX="48.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../resources/images/ic_pause_circle_outline_white_24dp_1x.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <VBox.margin>
+                                        <Insets bottom="10" left="40" right="40" top="10" />
+                                    </VBox.margin>
+                                </JFXButton>
+                                <Label prefHeight="20" prefWidth="Infinity" text="Speed">
+                                    <font>
+                                        <Font name="Segoe UI Black" size="12.0" />
+                                    </font>
+                                </Label>
+                                <JFXSlider fx:id="speedSlider" orientation="HORIZONTAL" prefHeight="50" prefWidth="Infinity" />
+                            </VBox>
+                        </bottom>
+                     <BorderPane.margin>
+                        <Insets right="5.0" />
+                     </BorderPane.margin>
+                </BorderPane>
+            </right>
+            <center>
+                <HBox prefHeight="208.0" prefWidth="315.0" BorderPane.alignment="CENTER">
+                                <GridPane fx:id="grid" gridLinesVisible="true" maxHeight="Infinity" maxWidth="Infinity" onMouseClicked="#infoOfCell" prefHeight="550" prefWidth="550">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <HBox.margin>
+                                        <Insets bottom="5" left="5" right="5" top="5" />
+                                    </HBox.margin>
+                                </GridPane>
+                </HBox>
+            </center>
+            <bottom>
+                <HBox alignment="CENTER">
+                    <Label fx:id="timeData" text="time data">
+                        <font>
+                            <Font name="Segoe UI Black" size="13.0" />
+                        </font>
+                        <graphic>
+                            <ImageView fx:id="timeicon" fitHeight="30.0" fitWidth="33.0" layoutX="-2.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../resources/images/ic_access_time_black_24dp_1x.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets bottom="5" left="10.0" right="10.0" top="5" />
+                        </HBox.margin>
+                    </Label>
+                    <Label fx:id="survivalRate" text="survival rate">
+                        <font>
+                            <Font name="Segoe UI Black" size="13.0" />
+                        </font>
+                        <graphic>
+                            <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="180.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../resources/images/Bodybuilding-512.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets bottom="5" left="10.0" right="10.0" top="5" />
+                        </HBox.margin>
+                    </Label>
+                </HBox>
+            </bottom>
+        </BorderPane>
