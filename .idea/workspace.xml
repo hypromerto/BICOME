@@ -2,11 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acb29372-b15b-423b-950e-7ca3787715f8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/Views/GameStage.fxml" afterPath="$PROJECT_DIR$/src/Resources/Views/GameStage.fxml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/continental&amp;predator.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/continental&amp;wind&amp;predator.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/continental&amp;wind.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/desert&amp;predator.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/desert&amp;wind&amp;predator.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/desert&amp;wind.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/desert.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/desktop.ini" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/foodStorageOrgan.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/fur_dominant.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/fur_recessive.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/hump_dominant.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/hump_recessive.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/icon_download.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/icon_home.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/icon_pause.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/icon_play.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/icon_replay.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/icon_speed.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/icon_survival_rate.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/icon_time.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/left_muscle_default.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/left_muscle_dominant.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/left_muslce_recessive.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/left_wing_dominant.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/left_wing_recessive.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/legs_dominant.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/legs_recessive.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/pole&amp;predator.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/pole&amp;wind&amp;predator.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/pole&amp;wind.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/pole.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/predator.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/rainforest&amp;predator&amp;wind.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/rainforest&amp;predator.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/rainforest&amp;wind.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/rainforest.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/right_muscle_default.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/right_muscle_dominant.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/right_muscle_recessive.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/right_wing_dominant.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/right_wing_recessive.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Resources/Images/wind.gif" />
       <change beforePath="$PROJECT_DIR$/src/Resources/Views/SelectionStage.fxml" afterPath="$PROJECT_DIR$/src/Resources/Views/SelectionStage.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/bicome/controllers/GameController.java" afterPath="$PROJECT_DIR$/src/bicome/controllers/GameController.java" />
-      <change beforePath="$PROJECT_DIR$/src/bicome/logic/manager/GameManager.java" afterPath="$PROJECT_DIR$/src/bicome/logic/manager/GameManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Views/StartStage.fxml" afterPath="$PROJECT_DIR$/src/Resources/Views/StartStage.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/bicome/controllers/StartController.java" afterPath="$PROJECT_DIR$/src/bicome/controllers/StartController.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,38 +61,18 @@
       <file leaf-file-name="SelectionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bicome/controllers/SelectionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1545">
+            <state relative-caret-position="554">
               <caret line="130" column="41" lean-forward="false" selection-start-line="130" selection-start-column="41" selection-end-line="130" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FeaturePopulator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bicome/utils/FeaturePopulator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="59" column="13" lean-forward="false" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeatureBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bicome/logic/feature/FeatureBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bicome/controllers/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="105" column="46" lean-forward="false" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
+            <state relative-caret-position="1185">
+              <caret line="107" column="30" lean-forward="false" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
               <folding>
                 <element signature="e#6972#6973#0" expanded="true" />
                 <element signature="e#7017#7018#0" expanded="true" />
@@ -60,52 +81,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameStage.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Resources/Views/GameStage.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="34" column="40" lean-forward="false" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+      <file leaf-file-name="StartController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/bicome/controllers/StartController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="83" column="47" lean-forward="false" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bicome/logic/world/World.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4575">
-              <caret line="316" column="39" lean-forward="false" selection-start-line="316" selection-start-column="39" selection-end-line="316" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bicome/logic/manager/GameManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="691">
-              <caret line="87" column="4" lean-forward="false" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
-              <folding>
-                <element signature="e#1962#1963#0" expanded="true" />
-                <element signature="e#1992#1993#0" expanded="true" />
-                <element signature="e#2025#2026#0" expanded="true" />
-                <element signature="e#2050#2051#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SelectionStage.fxml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SelectionStage.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Resources/Views/SelectionStage.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="57" column="255" lean-forward="false" selection-start-line="57" selection-start-column="255" selection-end-line="57" selection-end-column="255" />
+            <state relative-caret-position="240">
+              <caret line="16" column="124" lean-forward="false" selection-start-line="16" selection-start-column="124" selection-end-line="16" selection-end-column="124" />
               <folding />
             </state>
           </provider>
@@ -117,8 +110,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="69" column="27" lean-forward="false" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+            <state relative-caret-position="660">
+              <caret line="61" column="39" lean-forward="false" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -154,7 +147,6 @@
         <option value="$PROJECT_DIR$/src/Java/Controllers/GameController.java" />
         <option value="$PROJECT_DIR$/src/Java/Controllers/ReflectionController.java" />
         <option value="$PROJECT_DIR$/src/Java/Logic/attribute/Age.java" />
-        <option value="$PROJECT_DIR$/src/Resources/Views/StartStage.fxml" />
         <option value="$PROJECT_DIR$/src/bicome/logic/feature/FeatureBase.java" />
         <option value="$PROJECT_DIR$/src/bicome/logic/feature/Feature.java" />
         <option value="$PROJECT_DIR$/src/bicome/animations/ScaleValue.java" />
@@ -163,17 +155,18 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/bicome/main/Main.java" />
         <option value="$PROJECT_DIR$/src/bicome/navigation/PageNavigator.java" />
-        <option value="$PROJECT_DIR$/src/bicome/controllers/StartController.java" />
         <option value="$PROJECT_DIR$/src/bicome/dialogs/FeatureDialog.java" />
         <option value="$PROJECT_DIR$/src/bicome/logic/environment/Environment.java" />
         <option value="$PROJECT_DIR$/src/bicome/dialogs/EnvironmentDialog.java" />
         <option value="$PROJECT_DIR$/src/bicome/logic/world/World.java" />
         <option value="$PROJECT_DIR$/src/bicome/controllers/SelectionController.java" />
         <option value="$PROJECT_DIR$/src/bicome/utils/FeaturePopulator.java" />
-        <option value="$PROJECT_DIR$/src/Resources/Views/SelectionStage.fxml" />
         <option value="$PROJECT_DIR$/src/bicome/logic/manager/GameManager.java" />
         <option value="$PROJECT_DIR$/src/Resources/Views/GameStage.fxml" />
         <option value="$PROJECT_DIR$/src/bicome/controllers/GameController.java" />
+        <option value="$PROJECT_DIR$/src/bicome/controllers/StartController.java" />
+        <option value="$PROJECT_DIR$/src/Resources/Views/StartStage.fxml" />
+        <option value="$PROJECT_DIR$/src/Resources/Views/SelectionStage.fxml" />
       </list>
     </option>
   </component>
@@ -199,7 +192,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,44 +210,6 @@
               <item name="BICOME" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="bicome" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BICOME" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BICOME" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bicome" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BICOME" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BICOME" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bicome" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BICOME" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BICOME" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bicome" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="feature" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BICOME" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BICOME" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bicome" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BICOME" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BICOME" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bicome" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="world" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BICOME" type="b2602c69:ProjectViewProjectNode" />
@@ -281,6 +236,13 @@
               <item name="BICOME" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BICOME" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BICOME" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="Views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -291,8 +253,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,6 +263,11 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Resources/Images" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -441,7 +408,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="145" y="81" width="1920" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -452,20 +418,35 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2801494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28335112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2801494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -682,26 +663,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resources/Views/StartStage.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="27" lean-forward="false" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/control/Dialog.class" />
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/scene/control/Alert.class" />
-    <entry file="file://$PROJECT_DIR$/src/bicome/controllers/StartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="96" column="45" lean-forward="false" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Downloads/jfoenix-8.0.1.jar!/com/jfoenix/controls/JFXAlert.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -760,25 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bicome/controllers/SelectionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="130" column="41" lean-forward="false" selection-start-line="130" selection-start-column="41" selection-end-line="130" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resources/Views/SelectionStage.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="255" lean-forward="false" selection-start-line="57" selection-start-column="255" selection-end-line="57" selection-end-column="255" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bicome/logic/world/World.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4575">
@@ -789,36 +733,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bicome/logic/manager/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
+        <state relative-caret-position="1065">
           <caret line="87" column="4" lean-forward="false" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
           <folding>
-            <element signature="e#1962#1963#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2025#2026#0" expanded="true" />
-            <element signature="e#2050#2051#0" expanded="true" />
+            <element signature="e#1962#1963#0" expanded="false" />
+            <element signature="e#1992#1993#0" expanded="false" />
+            <element signature="e#2025#2026#0" expanded="false" />
+            <element signature="e#2050#2051#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Resources/Views/GameStage.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+      <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="34" column="40" lean-forward="false" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="16" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bicome/controllers/StartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="83" column="47" lean-forward="false" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources/Views/StartStage.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="61" column="39" lean-forward="false" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bicome/controllers/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="105" column="46" lean-forward="false" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="46" />
+        <state relative-caret-position="1185">
+          <caret line="107" column="30" lean-forward="false" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
           <folding>
             <element signature="e#6972#6973#0" expanded="true" />
             <element signature="e#7017#7018#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bicome/controllers/SelectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="130" column="41" lean-forward="false" selection-start-line="130" selection-start-column="41" selection-end-line="130" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources/Views/SelectionStage.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="124" lean-forward="false" selection-start-line="16" selection-start-column="124" selection-end-line="16" selection-end-column="124" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -7,15 +7,21 @@ import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -68,6 +74,19 @@ public class StartController implements Initializable
 
         dialog.show();
         repeatFocus(dialog);
+    }
+
+    @FXML
+    protected void onPlayAction(ActionEvent event)
+    {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Resources/Views/SelectionStage.fxml"));
+            stage.setScene(new Scene(root,  800, 600));
+        }
+        catch (IOException e) {
+            System.out.println("Couldn't open SelectionStage");
+        }
     }
 
     @FXML
