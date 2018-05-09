@@ -82,6 +82,8 @@ public class GameManager
       turnTimer.start();
    }
 
+   public void pause() { turnTimer.stop(); }
+
    public World getWorld()
    {
       return world;

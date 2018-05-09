@@ -79,10 +79,11 @@ public class StartController implements Initializable
     @FXML
     protected void onPlayAction(ActionEvent event)
     {
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
         try {
             Parent root = FXMLLoader.load(getClass().getResource("Resources/Views/SelectionStage.fxml"));
-            stage.setScene(new Scene(root,  800, 600));
+            currentStage.setScene( new Scene(root,  currentScene.getWidth(), currentScene.getHeight()) );
         }
         catch (IOException e) {
             System.out.println("Couldn't open SelectionStage");

@@ -5,7 +5,6 @@ import bicome.logic.environment.Environment;
 import bicome.logic.feature.Feature;
 import bicome.logic.feature.FeatureBase;
 import bicome.logic.genotype.Genotype;
-import bicome.main.Main;
 import bicome.utils.FeaturePopulator;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
@@ -24,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -112,9 +112,7 @@ public class SelectionController implements Initializable
             JFXDialogLayout layout = new JFXDialogLayout();
             layout.setBody(new Label("Error: " + e.getMessage() + ". Please try again."));
             JFXButton cancel = new JFXButton("OK") {{
-               setOnAction( event1 -> {
-                   dialog.close();
-               });
+               setOnAction( event1 -> dialog.close());
             }};
             layout.setActions(cancel);
             dialog.setContent(layout);

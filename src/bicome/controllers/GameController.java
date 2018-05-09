@@ -15,8 +15,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,7 +29,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -111,50 +117,25 @@ public class GameController implements Initializable{
         }
     }
 
-    private void reproduce() {
-        int x, y;
-        boolean flag;
-        // organism constructor'ında color olsun.
-        // organism Organism[][] arrayine yerleşsin.
-        // organizmayı random bir gridcelle koy ve o celli boya
-        flag = true;
+    @FXML
+    private void goHome(ActionEvent event) {
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
 
-        while (flag) {
-            x = (int) (Math.random() * 100) % 30;
-            y = (int) (Math.random() * 100) % 30;
-            if (organism[x][y] != occupied) { //occupied
-                flag = false;
-                organism[x][y].setOccupied(true);               //setOccupied
-                Group root = new Group();
-
-                // initialize simulation
-                for (int i = 0; i < x; i++) {
-                    for (int j = 0; j < y; j++) {
-                        // create node
-                        MyNode node = new MyNode(organism[i][j], i * gridWidth, j * gridHeight, gridWidth, gridHeight);
-
-                        // add node to group
-                        root.getChildren().add(node);
-
-                        // add to simulation grid
-                        simulation[i][j] = node;
-                    }
-                }
-            }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Resources/Views/StartStage.fxml"));
+            currentStage.setScene(new Scene(root, currentScene.getWidth(), currentScene.getHeight()));
         }
-    }
+        catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Couldn't load startStage");
+        }
 
-        @FXML
-    private void goHome(ActionEvent event){
-        //directs to start page
     }
 
     @FXML
     private void pauseGame(ActionEvent event){
-        if (paused)
-            paused = false;
-        else
-            paused = true;
+        gameManager.pause();
     }
 
     @FXML
