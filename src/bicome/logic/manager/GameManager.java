@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import bicome.controllers.*;
 import bicome.logic.*;
+import bicome.logic.environment.Environment;
 import bicome.logic.feature.*;
 import bicome.logic.world.*;
 
@@ -35,8 +36,6 @@ public class GameManager
       turnTimer = new Timer( UP_TIME , new GameManager.TimeListener() );
       this.world = world;
       this.controller = controller;
-      
-      turnTimer.start();
    }
    
    /**
@@ -77,7 +76,17 @@ public class GameManager
       durationOfTurns = n;
       return durationOfTurns;
    }
-   
+
+   public void start()
+   {
+      turnTimer.start();
+   }
+
+   public World getWorld()
+   {
+      return world;
+   }
+
    /* This method gives the duration of each turn
     */
    public int getDurationOfTurns()

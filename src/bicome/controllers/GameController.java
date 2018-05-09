@@ -1,6 +1,13 @@
 package bicome.controllers;
 
+import bicome.logic.environment.Environment;
+import bicome.logic.environment.EnvironmentalCondition;
+import bicome.logic.feature.Feature;
+import bicome.logic.feature.FeatureList;
+import bicome.logic.manager.GameManager;
 import bicome.logic.world.Organism;
+import bicome.logic.world.Tile;
+import bicome.logic.world.World;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
@@ -15,10 +22,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -50,49 +59,55 @@ public class GameController implements Initializable{
     @FXML
     private JFXButton speedButton;
     @FXML
-    private JFXListView environmentList;
+    private Label environmentConditionsLabel;
     @FXML
     private JFXListView animalList;
     @FXML
     private JFXSlider speedSlider;
+    @FXML
+    private GridPane grid;
 
+    public ObservableList<Feature> featuresList;
 
-    private boolean paused;
-    private ObservableList<String> list;
-    MyNode[][] simulation;
-    Organism[][] organism;
-    Organism[][] theGrid;
+    private GameManager gameManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) { //This is the function that will called during creation of the page
-        theGrid = new Organism[30][30];
-        organism = new Organism[30][30];
-        list = FXCollections.observableArrayList();
-        paused = false;
-        //changeTimerTime(50);
-        viewListOfAnimal( list);
-        viewListOfEnvironment( list);
-        updateTime( 0.0);
-        //updateSurvivalRate( 50.0);
-        //insertBackgroundPic( )  //insertimage
-        simulation = new MyNode[30][30];
-
-        //calculate the width, height, x, y of a grid cell!!
+        featuresList = FXCollections.observableArrayList();
+        animalList.setItems(featuresList);
     }
 
 
-    public static class MyNode extends StackPane {
+    public static class MyNode extends JFXButton {
+        private final int SIZE = 25;
+        private final int x, y;
+        private final Tile tile;
+        private GameController controller;
 
-        public MyNode( Organism organism, double x, double y, double width, double height) {
+        public MyNode( Tile tile, int x, int y, GameController controller) {
+            setPrefSize(SIZE, SIZE);
+            this.tile = tile;
+            this.x = x;
+            this.y = y;
 
-            Rectangle rectangle = new Rectangle( width, height);
-            rectangle.setStroke(organism.getColor());
-            rectangle.setFill(organism.getColor());
-            // set position
-            setTranslateX( x);
-            setTranslateY( y);
+            try {
+                //Set the background color of the button
+                setStyle("-fx-background-color: #" + tile.getColor().toString().substring(2, 8));
+            }
+            catch (NullPointerException e) {
+                System.out.println("color is null");
+                setStyle("-fx-background-color: #ffffff");
+            }
 
-            getChildren().addAll( rectangle);
+            setOnAction( event -> {
+                MyNode node = (MyNode) event.getSource();
+                List<Feature> list = node.controller.featuresList;
+                list.clear();
+                //Change animal image... TO DO
+                for(Feature f : tile.getOrganism().getFeatures()) {
+                    list.add(f);
+                }
+            });
         }
     }
 
@@ -199,4 +214,25 @@ public class GameController implements Initializable{
         imageOfAnimal.setImage(image);
     }
 
+    public void drawGrid()
+    {
+        //To Do...
+    }
+
+    private void init()
+    {
+        environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditions());
+        Tile[][] tiles = gameManager.getWorld().getGrid();
+        for(int i = 0; i < 30; ++i) {
+            for(int j = 0; j  < 30; ++j) {
+                grid.add(new MyNode(tiles[i][j], i, j, this), i, j);
+            }
+        }
+    }
+
+    public void setManager(Environment env, FeatureList list)
+    {
+        World world = new World(list, env);
+        gameManager = new GameManager(world, this);
+    }
 }

@@ -32,28 +32,23 @@
                               <Font name="Segoe UI Black" size="14.0" />
                            </font></Label>
                         <JFXButton id="homeButton" buttonType="RAISED" layoutX="43.0" layoutY="361.0" mnemonicParsing="false" onAction="#goHome" style="-fx-background-radius: 25; -fx-background-color: #388e3c;" text="home" />
-                        <JFXListView id="animalList" layoutX="1.0" layoutY="115.0" prefHeight="224.0" prefWidth="122.0" />
+                        <JFXListView fx:id="animalList" layoutX="1.0" layoutY="115.0" prefHeight="224.0" prefWidth="122.0" />
                      </children></AnchorPane>
                </children>
             </VBox>
          </left>
          <right>
             <VBox id="environmentV" prefHeight="415.0" prefWidth="139.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane prefHeight="415.0" prefWidth="100.0">
-                     <children>
-                        <JFXListView id="environmentList" layoutX="2.0" layoutY="60.0" prefHeight="276.0" prefWidth="115.0" showTooltip="true" />
-                        <Separator layoutX="-3.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="0.0" />
-                        <Separator layoutX="1.0" layoutY="57.0" prefHeight="4.0" prefWidth="114.0" />
-                        <JFXButton id="pauseButton" buttonType="RAISED" layoutX="3.0" layoutY="362.0" mnemonicParsing="false" onAction="#pauseGame" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="pause" />
-                        <JFXButton id="speedButton" buttonType="RAISED" layoutX="62.0" layoutY="362.0" mnemonicParsing="false" onAction="#changeSpeed" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="speed" />
-                        <Label id="environmentName" layoutX="1.0" prefHeight="54.0" prefWidth="122.0" text="Environment Name" textAlignment="CENTER">
-                           <font>
-                              <Font name="Segoe UI Black" size="12.0" />
-                           </font></Label>
-                        <JFXSlider id="speedSlider" layoutX="95.0" layoutY="250.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" />
-                     </children></AnchorPane>
-               </children>
+                <Label fx:id="environmentConditionsLabel" />
+                <Separator layoutX="-3.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="0.0" />
+                <Separator layoutX="1.0" layoutY="57.0" prefHeight="4.0" prefWidth="114.0" />
+                <JFXButton id="pauseButton" buttonType="RAISED" layoutX="3.0" layoutY="362.0" mnemonicParsing="false" onAction="#pauseGame" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="pause" />
+                <JFXButton id="speedButton" buttonType="RAISED" layoutX="62.0" layoutY="362.0" mnemonicParsing="false" onAction="#changeSpeed" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="speed" />
+                <Label id="environmentName" layoutX="1.0" prefHeight="54.0" prefWidth="122.0" text="Environment Name" textAlignment="CENTER">
+                   <font>
+                      <Font name="Segoe UI Black" size="12.0" />
+                   </font></Label>
+                <JFXSlider id="speedSlider" layoutX="95.0" layoutY="250.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" />
             </VBox>
          </right>
          <center>
@@ -70,7 +65,7 @@
                            <font>
                               <Font name="Segoe UI Black" size="13.0" />
                            </font></Label>
-                        <GridPane id="grid" gridLinesVisible="true" layoutX="-21.0" layoutY="2.0" prefHeight="359.0" prefWidth="359.0">
+                        <GridPane fx:id="grid" gridLinesVisible="true" layoutX="-21.0" layoutY="2.0" prefHeight="359.0" prefWidth="359.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

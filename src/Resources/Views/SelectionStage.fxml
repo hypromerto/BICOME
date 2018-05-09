@@ -41,7 +41,7 @@
          <bottom>
              <BorderPane style="-fx-background-color: #43A047">
                  <left>
-                     <JFXButton buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="50" prefWidth="50" style="-fx-background-color: #4caf50; -fx-background-radius: 25" BorderPane.alignment="BOTTOM_LEFT">
+                     <JFXButton fx:id="backButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="50" prefWidth="50" style="-fx-background-color: #4caf50; -fx-background-radius: 25" BorderPane.alignment="BOTTOM_LEFT" onAction="#onBackAction">
                          <graphic>
                              <ImageView fitWidth="30" fitHeight="30">
                                  <image>
@@ -55,7 +55,7 @@
                      </JFXButton>
                  </left>
                  <right>
-                     <JFXButton buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="50" prefWidth="50" style="-fx-background-color: #4caf50; -fx-background-radius: 25" BorderPane.alignment="BOTTOM_LEFT">
+                     <JFXButton fx:id="nextButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" prefHeight="50" prefWidth="50" style="-fx-background-color: #4caf50; -fx-background-radius: 25" BorderPane.alignment="BOTTOM_LEFT" onAction="#onNextAction">
                          <graphic>
                              <ImageView fitWidth="30" fitHeight="30">
                                  <image>
