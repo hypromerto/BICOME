@@ -133,13 +133,15 @@ public class SelectionController implements Initializable
         FeaturePopulator.completeFeatures(selectedList);
         FeatureList list = new FeatureList(selectedList);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Resources/Views/GameStage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/GameStage.fxml"));
         try {
             BorderPane borderPane = loader.load();
             GameController controller = loader.getController();
             controller.setManager( environment, list);
+            ((Stage) ((Node) event.getSource()).getScene().getWindow()).setScene(new Scene(borderPane, rootPane.getWidth(), rootPane.getHeight()));
         } catch (IOException e) {
-            System.out.println("An error occured while loading the GameStage");
+            //e.printStackTrace();
+            System.out.println("An error occured while loading the GameStage: " + e.getMessage());
         }
     }
 }

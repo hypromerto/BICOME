@@ -45,17 +45,17 @@ public class FeatureDialog
         }};
 
         Optional<ButtonType> result = alert.showAndWait();
-        if(!result.isPresent()) {
-            genotype = null;
-        }
-        else if(result.get() == HOMOZYGOT_DOMI) {
+        if(result.get() == HOMOZYGOT_DOMI) {
             genotype = Genotype.DOMINANT_HOMOZYGOTE;
         }
         else if(result.get() == HETEROZYGOT_DOMI) {
             genotype = Genotype.DOMINANT_HETEROZYGOTE;
         }
-        else { //if(result.get() == HOMOZYGOT_RECCESS)
+        else if(result.get() == HOMOZYGOT_RECCESS){
             genotype = Genotype.RECESSIVE_HOMOZYGOTE;
+        }
+        else {
+            genotype = null;
         }
 
         //return result;

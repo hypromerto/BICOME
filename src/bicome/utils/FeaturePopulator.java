@@ -71,7 +71,9 @@ public class FeaturePopulator
                 index = 5;
             }
 
-            list.set(index, f);
+            result.set(index, f);
         }
+
+        list = result;
     }
 }
