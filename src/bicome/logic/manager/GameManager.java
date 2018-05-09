@@ -15,6 +15,7 @@ public class GameManager
 {
    
    //properties
+   final int UP_TIME = 10;
    Timer turnTimer;
    int durationOfTurns;
    int timePassed;
@@ -31,7 +32,7 @@ public class GameManager
       yearsPassed = 0;
       numOfTurns = 0;
       durationOfTurns = 50; //in millisecond
-      turnTimer = new Timer( 10 , new GameManager.TimeListener() );
+      turnTimer = new Timer( UP_TIME , new GameManager.TimeListener() );
       this.world = world;
       this.controller = controller;
       
@@ -49,21 +50,15 @@ public class GameManager
        */
       public void actionPerformed( ActionEvent e )
       {
-         // initaliase the game
-         if ( timePassed == 0 )
-         {
-            world.placeInitialOrganism( controller.getRow() , contorller.getCol() , features );
-         }
          //after initialising play next turn
-         else if ( timePassed % durationOfTurns == 0 && !world.isGameOver() )
+         if ( timePassed % durationOfTurns == 0 && world.nextTurn() )
          {
-            world.nextTurn();
             controller.drawGrid();
             numOfTurns++;
          }
          
          // increment time
-         timePassed++;
+         timePassed = timePassed +  UP_TIME;
       }
    }
    
