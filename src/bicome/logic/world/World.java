@@ -10,7 +10,7 @@ import bicome.logic.feature.*;
 
 public class World 
 {
-   private static final int    SIZE = 30;              //Size of the simulation grid
+   private static final int    SIZE            = 30;   //Size of the simulation grid
    private static final double REPR_THRESHOLD  = 1.3;  //Reproduction chance, DUE TO CHANGE
    private static final int    TWO_NEIGHBOUR   = 2;    //Number of neighbours surrounding the center organism
    private static final int    THREE_NEIGHBOUR = 3;    //Number of neighbours surrounding the center organism
@@ -169,8 +169,8 @@ public class World
                                
                                mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
                                                           
-                               if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
-                               {    
+                               //if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
+                               //{    
                                   Tile offspring;
                                   
                                   offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
@@ -178,7 +178,7 @@ public class World
                                   offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism( tiles[i][j].getOrganism().reproduce( aliveNeighbours.
                                   get( mateSelectTwo ).getOrganism() ) );   
                                   
-                               }  
+                               //}  
                                
                             }
                             else if ( aliveNeighbours.size() == THREE_NEIGHBOUR && THREE_NEIGHBOUR * Math.random() > REPR_THRESHOLD )
@@ -187,8 +187,8 @@ public class World
                                
                                mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
             
-                               if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectThree ).getOrganism().canReproduce() )
-                               {
+                               //if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectThree ).getOrganism().canReproduce() )
+                               //{
                                 Tile offspring;
                                 
                                 offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
@@ -196,7 +196,7 @@ public class World
                                 offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism(tiles[i][j].getOrganism().reproduce( aliveNeighbours.
                                 get( mateSelectThree ).getOrganism() ) );    
                                 
-                               }     
+                               //}     
                             }
                             
                             
@@ -239,8 +239,8 @@ public class World
             {
                if ( !tiles[i][j].isEmpty() )
                {
-                  if ( !tiles[i][j].getOrganism().canReproduce() ) //incrementing the organisms with cooldown active
-                     tiles[i][j].getOrganism().increaseCooldown();
+                 // if ( !tiles[i][j].getOrganism().canReproduce() ) //incrementing the organisms with cooldown active
+                   //  tiles[i][j].getOrganism().increaseCooldown();
                   
                   tiles[i][j].getOrganism().age();
                                     
