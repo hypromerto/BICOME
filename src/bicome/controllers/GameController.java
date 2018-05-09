@@ -69,6 +69,8 @@ public class GameController implements Initializable{
     @FXML
     private JFXListView animalList;
     @FXML
+    private Label speedLabel;
+    @FXML
     private JFXSlider speedSlider;
     @FXML
     private GridPane grid;
@@ -81,6 +83,10 @@ public class GameController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) { //This is the function that will called during creation of the page
         featuresList = FXCollections.observableArrayList();
         animalList.setItems(featuresList);
+        // 25 -> 1x
+        speedSlider.setValue(25);
+        speedLabel.setText("Speed: " + (int) speedSlider.getValue());
+        updateTime(0);
     }
 
 
@@ -91,6 +97,7 @@ public class GameController implements Initializable{
         private GameController controller;
 
         public MyNode( Tile tile, int x, int y, GameController controller) {
+            setDisable(true);
             setPrefSize(SIZE, SIZE);
             this.tile = tile;
             this.x = x;
@@ -104,16 +111,16 @@ public class GameController implements Initializable{
                 System.out.println("color is null");
                 setStyle("-fx-background-color: #ffffff");
             }
+        }
 
-            setOnAction( event -> {
-                MyNode node = (MyNode) event.getSource();
-                List<Feature> list = node.controller.featuresList;
-                list.clear();
-                //Change animal image... TO DO
-                for(Feature f : tile.getOrganism().getFeatures()) {
-                    list.add(f);
-                }
-            });
+        public int getX()
+        {
+            return x;
+        }
+
+        public int getY()
+        {
+            return y;
         }
     }
 
@@ -138,77 +145,86 @@ public class GameController implements Initializable{
         gameManager.pause();
     }
 
+    private void setAnimalList(int x, int y){
+        Tile[][] tiles = gameManager.getWorld().getGrid();
+
+        featuresList.clear();
+        featuresList.addAll(tiles[y][x].getOrganism().getFeatures());
+    }
+
     @FXML
-    private void infoOfCell(MouseEvent event){
-        if (paused) {
-            Organism source = (Organism)event.getSource();
-            String name = source.getClass().getName();//What is this?                                          //getColor() returns color of offspring
-            for (int i = 0; i < 30; i++) {
-                for (int j = 0; j < 30; j++) {
-                    if (organism[i][j] == source) {             //Are you trying to find the current organism? It is nonsense since you have to have the current organism to check if it is current organism in the grid
-                        //viewListOfAnimal(organism[i][j].getList());                            //getList() diye bir method olsun ve animal'ın observableListini return etsin?
-                        //insertAnimalPic(organism[i][j].image); //insertimage?
-                    }
+    protected void onGridClicked(MouseEvent event)
+    {
+        for(Node node : grid.getChildren()) {
+            if(node instanceof MyNode) {
+                if(node.getBoundsInParent().contains(event.getSceneX(), event.getSceneY())) {
+                    MyNode currentNode = (MyNode) node;
+                    setAnimalList(currentNode.getX(), currentNode.getY());
+                    //Set the name of the animal and the image
                 }
             }
-        }
-        else if(!animalList.getItems().isEmpty()){  //Don't empty the list if it is already empty
-            viewListOfAnimal( FXCollections.observableArrayList());     //listeyi boşaltmak
         }
     }
 
     @FXML
     private void changeSpeed(ActionEvent event){
-        //timer'ın zamanını değiştirecek
-        speedSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            //changeTimerTime(newValue.intValue());                                              //changeTimerTime is a method to change the timer time ??
-        });
+        JFXSlider slider = (JFXSlider) event.getSource();
+        int value = (int) Math.floor((slider.getValue() - 1) / 25);
+        if(value == 0) { // 0 -> 1x
+            //1x -> 100 miliseconds
+            gameManager.setDurationOfTurns(200);
+        }
+        else if(value == 1) {
+            gameManager.setDurationOfTurns(100);
+        }
+        else {
+            gameManager.setDurationOfTurns(50);
+        }
     }
 
     @FXML
-    private void viewListOfAnimal( ObservableList<String> listOfAnimal){
-        animalList.setItems(listOfAnimal);
-    }
-
-    @FXML
-    private void viewListOfEnvironment(ObservableList<String> listOfEnvironment){
-        environmentList.setItems(listOfEnvironment);
-    }
-
-    @FXML
-    private void updateTime( double time) {
-        timeData.setText("" + time + " years");
+    private void updateTime( long time) {
+        timeData.setText( time + " years" );
     }
 
     @FXML
     private void updateSurvivalRate( int rateOfSurvival ) {
-        survivalRate.setText("" + rateOfSurvival + "%");
-}
-
-    @FXML
-    private void insertBackgroundPic( Image image) {
-        backgroundPicture.setImage(image);
+        survivalRate.setText( rateOfSurvival + "%" );
     }
 
     @FXML
-    private void insertAnimalPic( Image image) {
+    private void setAnimalPic( Image image) {
         imageOfAnimal.setImage(image);
     }
 
-    public void drawGrid()
+    public void updateGameStage( long time)
     {
-        //To Do...
+        updateTime(time);
+        //updateSurvivalRate(rateOfSurvival);
+
+        World world = gameManager.getWorld();
+        Tile[][] tiles = world.getGrid();
+
+        for(Node node : grid.getChildren()) {
+            MyNode currentNode = (MyNode) node;
+            int i = currentNode.getY();
+            int j = currentNode.getX();
+            node.setStyle("-fx-background-color: #" + (tiles[i][j].getColor().toString().substring(2, 8)));
+        }
     }
 
     private void init()
     {
         environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditions());
+        //Initialize the game grid
         Tile[][] tiles = gameManager.getWorld().getGrid();
         for(int i = 0; i < 30; ++i) {
             for(int j = 0; j  < 30; ++j) {
                 grid.add(new MyNode(tiles[i][j], i, j, this), i, j);
             }
         }
+
+        gameManager.start();
     }
 
     public void setManager(Environment env, FeatureList list)

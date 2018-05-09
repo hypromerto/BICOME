@@ -4,7 +4,9 @@ import bicome.dialogs.FeatureDialog;
 import bicome.logic.environment.Environment;
 import bicome.logic.feature.Feature;
 import bicome.logic.feature.FeatureBase;
+import bicome.logic.feature.FeatureList;
 import bicome.logic.genotype.Genotype;
+import bicome.logic.world.World;
 import bicome.utils.FeaturePopulator;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
@@ -21,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -102,7 +105,7 @@ public class SelectionController implements Initializable
         Scene currentScene = ((Node) event.getSource()).getScene();
         Stage currentStage = (Stage) currentScene.getWindow();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Resources/Views/StartStage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Resources/Views/StartStage.fxml"));
             //Use currentScene's width and height in order to not change the size of the window while navigating
             currentStage.setScene( new Scene(root, currentScene.getWidth(), currentScene.getHeight()));
         }
@@ -128,16 +131,15 @@ public class SelectionController implements Initializable
     protected void onNextAction(ActionEvent event) {
         //Set unselected features to NONE
         FeaturePopulator.completeFeatures(selectedList);
+        FeatureList list = new FeatureList(selectedList);
 
-        Scene currentScene = ((Node) event.getSource()).getScene();
-        Stage currentStage = (Stage) currentScene.getWindow();
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Resources/Views/GameStage.fxml"));
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(""));
-            currentStage.setScene( new Scene(root, currentScene.getWidth(), currentScene.getHeight()) );
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+            BorderPane borderPane = loader.load();
+            GameController controller = loader.getController();
+            controller.setManager( environment, list);
+        } catch (IOException e) {
+            System.out.println("An error occured while loading the GameStage");
         }
     }
 }

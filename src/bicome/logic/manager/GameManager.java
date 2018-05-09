@@ -61,7 +61,7 @@ public class GameManager
          //after initialising play next turn
          if ( timePassed % durationOfTurns == 0 && world.nextTurn() && timePassed != 0 )
          {
-            controller.drawGrid();
+            controller.updateGameStage( getYearsPassed());
             numOfTurns++;
          }
          

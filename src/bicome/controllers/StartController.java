@@ -81,8 +81,9 @@ public class StartController implements Initializable
     {
         Scene currentScene = ((Node) event.getSource()).getScene();
         Stage currentStage = (Stage) currentScene.getWindow();
+        //System.out.println(getClass().getResource("/Resources/Views/SelectionStage.fxml"));
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Resources/Views/SelectionStage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Resources/Views/SelectionStage.fxml"));
             currentStage.setScene( new Scene(root,  currentScene.getWidth(), currentScene.getHeight()) );
         }
         catch (IOException e) {
