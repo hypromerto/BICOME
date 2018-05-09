@@ -15,15 +15,15 @@ public class GameManager
 {
    
    //properties
-   final int UP_TIME = 10;
-   Timer turnTimer;
-   int durationOfTurns;
-   int timePassed;
-   int yearsPassed;
-   int numOfTurns;
-   World world;
-   GameController controller;
-   FeatureList features;
+   private final int UP_TIME = 10;
+   private Timer turnTimer;
+   private int durationOfTurns;
+   private int timePassed;
+   private int yearsPassed;
+   private int numOfTurns;
+   private World world;
+   private GameController controller;
+   private FeatureList features;
    
    //constructor
    public GameManager( World world , GameController controller )
@@ -51,7 +51,7 @@ public class GameManager
       public void actionPerformed( ActionEvent e )
       {
          //after initialising play next turn
-         if ( timePassed % durationOfTurns == 0 && world.nextTurn() )
+         if ( timePassed % durationOfTurns == 0 && world.nextTurn() && timePassed != 0 )
          {
             controller.drawGrid();
             numOfTurns++;
