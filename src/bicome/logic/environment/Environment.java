@@ -13,6 +13,9 @@ public class Environment
    private boolean conditionsSet;
    private String name;
    
+   /**
+    * Sole constructor that sets random conditions to this environment
+    */
    public Environment()
    {
       environmentalConditions = new TreeSet<EnvironmentalCondition>( new Comparator<EnvironmentalCondition>() {
@@ -27,7 +30,7 @@ public class Environment
    }
    
    /**
-    * Will set random conditions to this environment
+    * Sets random conditions to this environment
     */
    private void setRandomConditions()
    {
@@ -58,7 +61,7 @@ public class Environment
    }
    
    /**
-    * Will set a name for this environment according to the random conditions set
+    * Sets a name for this environment according to the random conditions set
     */
    private void setName()
    {
@@ -142,6 +145,11 @@ public class Environment
       return name;
    }
    
+   /**
+    * Returns the conditions of environment as a String.
+    * @return the conditions of environment as a String.
+    * The conditions are seperated by commas
+    */
    public String getConditions()
    {
       StringBuffer result;
@@ -155,6 +163,11 @@ public class Environment
       return result.toString();
    }
    
+   /**
+    * Returns the conditions of environment as a String.
+    * @return the conditions of environment as a String.
+    * The conditions are seperated by newline characters.
+    */
    public String getConditionsForGUI()
    {
       StringBuffer result;

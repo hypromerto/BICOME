@@ -8,11 +8,15 @@ import java.util.HashMap;
 import bicome.logic.feature.*;
 public final class HighPredatorDensity extends EnvironmentalCondition
 {
+   /**
+    * Sole constructor.
+    */
    public HighPredatorDensity()
    {
       super();
    }
    
+   @Override
    protected void setMultipliers()
    {
       multipliers.put( new Feature( Muscles.getInstance(), Genotype.NONE ), 0.29 );

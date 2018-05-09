@@ -8,11 +8,15 @@ import java.util.HashMap;
 import bicome.logic.feature.*;
 public final class LowPreyDensity extends EnvironmentalCondition
 {
+   /**
+    * Sole constructor.
+    */
    public LowPreyDensity()
    {
       super();
    }
    
+   @Override
    protected void setMultipliers()
    {
       multipliers.put( new Feature( FoodStorageOrgan.getInstance(), Genotype.RECESSIVE_HOMOZYGOTE ), 1.27 );

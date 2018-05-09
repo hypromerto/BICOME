@@ -11,12 +11,14 @@ import bicome.logic.attribute.Attribute;
 public class Feature
 {
    // properties
-   private static int p = 0;
    private Genotype genotype;
    private FeatureBase base;
    private HashMap< String, Double > multipliers;
    
    // constructors
+   /**
+    * Constructs a Feature with the given base and genotype
+    */
    public Feature( FeatureBase base, Genotype genotype )
    {
       this.genotype = genotype;
@@ -27,11 +29,18 @@ public class Feature
    }
    
    // methods
+   /**
+    * Returns the genotype of this Feature
+    * @return the genotype of this Feature
+    */
    public Genotype getGenotype()
    {
       return this.genotype;
    }
    
+   /**
+    * gets the multipliers of this feature, after they have been affected by the environment
+    */
    public final HashMap< String, Double > getMultipliers()
    {
       return multipliers; 
@@ -96,6 +105,10 @@ public class Feature
       return this.equals(other) && this.genotype == ( (Feature) other ).genotype;
    }
    
+   /**
+    * Multiplies each multiplier in the multipliers map with the given external multiplier
+    * @param externalMultiplier the external multiplier, likely from an EnvCod
+    */
    public void multiply( Double externalMultiplier )
    {
       this.getMultipliers().replaceAll( new BiFunction< String, Double, Double >() {
@@ -106,6 +119,10 @@ public class Feature
       } );
    }
    
+   /**
+    * Returns the name of this feature.
+    * @return the name of this feature
+    */
    public String toString()
    {
       return this.base.getFeatureName( this.genotype );

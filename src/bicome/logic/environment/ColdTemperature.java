@@ -8,11 +8,15 @@ import java.util.HashMap;
 import bicome.logic.feature.*;
 public final class ColdTemperature extends EnvironmentalCondition
 {
+   /**
+    * Sole constructor.
+    */
    public ColdTemperature()
    {
       super();
    }
    
+   @Override
    protected void setMultipliers()
    {
       multipliers.put( new Feature( Fur.getInstance(), Genotype.NONE ), 0.25 );

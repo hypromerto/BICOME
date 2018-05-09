@@ -49,55 +49,56 @@ public class World
     */
    private void placeInitialOrganisms( FeatureList features )
    {
-	   
-	   int             row;
-	   int             col;
-	   Tile            firstNeighbour;
-	   Tile            secondNeighbour;
-	   ArrayList<Tile> initialNeighbours;
-	   
-	   initialNeighbours = new ArrayList<Tile>();
-	   row               = (int) ( Math.random() * SIZE );
-	   col               = (int) ( Math.random() * SIZE );  
-	  
-	   tiles[row][col].placeOrganism( new Organism( features, environment ) ); 
-	   
-	   
-	   for( int k = 0; k < 9; k++) //Detecting the neighbours of the initial organism
-	   {
-		   int neighbourRow = row + (k % 3) - 1;
-		   int neighbourCol = col + (k / 3) - 1;
-		   
-		   //If they suit the condition of being a valid neighbour, which is being in the bounds
-		   //of the grid, then add that tile to the initialNeighbours ArrayList.
+    
+    int             row;
+    int             col;
+    Tile            firstNeighbour;
+    Tile            secondNeighbour;
+    ArrayList<Tile> initialNeighbours;
+    
+    initialNeighbours = new ArrayList<Tile>();
+    row               = (int) ( Math.random() * SIZE );
+    col               = (int) ( Math.random() * SIZE );  
+   
+    tiles[row][col].placeOrganism( new Organism( features, environment ) ); 
+    
+    
+    for( int k = 0; k < 9; k++) //Detecting the neighbours of the initial organism
+    {
+     int neighbourRow = row + (k % 3) - 1;
+     int neighbourCol = col + (k / 3) - 1;
+     
+     //If they suit the condition of being a valid neighbour, which is being in the bounds
+     //of the grid, then add that tile to the initialNeighbours ArrayList.
            if (neighbourRow >= 0 && neighbourRow <= tiles.length && neighbourCol >= 0 &&   
-        		   neighbourCol <= tiles.length && !(neighbourRow == row && neighbourCol == col) ) 
+             neighbourCol <= tiles.length && !(neighbourRow == row && neighbourCol == col) ) 
            {
-        	   initialNeighbours.add( tiles[neighbourRow][neighbourCol] );
+            initialNeighbours.add( tiles[neighbourRow][neighbourCol] );
            }
-	   }
-	   
-	   //Randomly selecting the first neighbour of the initial organism, and then removing it from the
-	   //ArrayList so that it can no longer be selected as a possible neighbour to the initial organism
-	   firstNeighbour = initialNeighbours.get( (int) ( Math.random() * initialNeighbours.size() ) );
-	   
-	   initialNeighbours.remove( firstNeighbour );
-	   
-	   //Placing the first neighbour to our grid
-	   tiles[firstNeighbour.getRow()][firstNeighbour.getCol()].placeOrganism( new Organism( features, environment ) );
+    }
+    
+    //Randomly selecting the first neighbour of the initial organism, and then removing it from the
+    //ArrayList so that it can no longer be selected as a possible neighbour to the initial organism
+    firstNeighbour = initialNeighbours.get( (int) ( Math.random() * initialNeighbours.size() ) );
+    
+    initialNeighbours.remove( firstNeighbour );
+    
+    //Placing the first neighbour to our grid
+    tiles[firstNeighbour.getRow()][firstNeighbour.getCol()].placeOrganism( new Organism( features, environment ) );
 
-	   //Randomly selecting the second neighbour
-	   secondNeighbour = initialNeighbours.get( (int) ( Math.random() * initialNeighbours.size() ) );
-	   
-	   initialNeighbours.remove( secondNeighbour );
-	   
-	   tiles[secondNeighbour.getRow()][secondNeighbour.getCol()].placeOrganism( new Organism( features, environment ) );
-	   
-	   initialNeighbours.clear(); //Just to look clean and tidy
+    //Randomly selecting the second neighbour
+    secondNeighbour = initialNeighbours.get( (int) ( Math.random() * initialNeighbours.size() ) );
+    
+    initialNeighbours.remove( secondNeighbour );
+    
+    tiles[secondNeighbour.getRow()][secondNeighbour.getCol()].placeOrganism( new Organism( features, environment ) );
+    
+    initialNeighbours.clear(); //Just to look clean and tidy
    }
    
    /**
     * Simulates the next round.
+    * @return true if the game did not end yet, false otherwise
     */ 
    public boolean nextTurn()
    {
@@ -121,8 +122,8 @@ public class World
             {
                if ( !tiles[i][j].isEmpty() )
                {
-            	  int percentage;  //Used to determine if an organism lives or dies depending on it's survival chance
-            	  
+               int percentage;  //Used to determine if an organism lives or dies depending on it's survival chance
+               
                   percentage = (int) ( Math.random() * 100 );
 
                   for ( int k = 0; k < 9; k++) //Traversing the neighbours of a single organism
@@ -154,8 +155,8 @@ public class World
                   
                   if ( percentage < tiles[i][j].getOrganism().getSurvivalChance() ) //Crucial decision for game rules here, might change
                   {
-                	  
-                	  if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
+                   
+                   if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
                       {
                          //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
                          
@@ -209,14 +210,14 @@ public class World
                          
                          tiles[i][j].killOrganism();
                       }
-                	  
+                   
                   }
                   
                   else
                   {
-                	  //die without reproducing, survival chance is not enough!
-                	  
-                	  tiles[i][j].killOrganism();
+                   //die without reproducing, survival chance is not enough!
+                   
+                   tiles[i][j].killOrganism();
                   }
                   
                   
@@ -263,7 +264,7 @@ public class World
          return true;
       }
       else
-    	  return false;
+       return false;
    }
    
    /**
@@ -283,17 +284,17 @@ public class World
     */  
    public boolean isGameOver()
    {
-	   
-	  if ( round >= ROUND_LIMIT )
-		  return true;
-	  
+    
+   if ( round >= ROUND_LIMIT )
+    return true;
+   
       for ( int i = 0; i < SIZE; i++ )
       {
-    	  for ( int j = 0; j < SIZE; j++ )
-    	  {
-    		  if ( !tiles[i][j].isEmpty() )
-    			  return false;
-    	  }
+       for ( int j = 0; j < SIZE; j++ )
+       {
+        if ( !tiles[i][j].isEmpty() )
+         return false;
+       }
       }
       
       return true;  //No organisms left
@@ -311,7 +312,7 @@ public class World
    
    public int getRound()
    {
-	   return round;
+    return round;
    }
 
    public int getSize() { return SIZE; }

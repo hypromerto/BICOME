@@ -8,11 +8,15 @@ import java.util.HashMap;
 import bicome.logic.feature.*;
 public final class Windy extends EnvironmentalCondition
 {
+   /**
+    * Sole constructor.
+    */
    public Windy()
    {
       super();
    }
    
+   @Override
    protected void setMultipliers()
    {
       multipliers.put( new Feature( Wing.getInstance(), Genotype.RECESSIVE_HOMOZYGOTE ), 0.25 );
