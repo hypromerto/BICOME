@@ -7,15 +7,21 @@ import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -71,6 +77,20 @@ public class StartController implements Initializable
     }
 
     @FXML
+    protected void onPlayAction(ActionEvent event)
+    {
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Resources/Views/SelectionStage.fxml"));
+            currentStage.setScene( new Scene(root,  currentScene.getWidth(), currentScene.getHeight()) );
+        }
+        catch (IOException e) {
+            System.out.println("Couldn't open SelectionStage");
+        }
+    }
+
+    @FXML
     protected void onMouseEnteredHandler(MouseEvent event)
     {
         Button button = (Button) event.getSource();
@@ -94,7 +114,7 @@ public class StartController implements Initializable
         transition.play();
     }
 
-    //This fixes gets the focus to the image view Look https://stackoverflow.com/questions/12744542/requestfocus-in-textfield-doesnt-work
+    //This fixes gets the focus to the imageView Look https://stackoverflow.com/questions/12744542/requestfocus-in-textfield-doesnt-work
     private void repeatFocus(Node node)
     {
         Platform.runLater( () -> {

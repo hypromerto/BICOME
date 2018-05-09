@@ -15,8 +15,7 @@ public class Environment
    
    public Environment()
    {
-      environmentalConditions = new TreeSet<EnvironmentalCondition>
-         ( new Comparator<EnvironmentalCondition>() {
+      environmentalConditions = new TreeSet<EnvironmentalCondition>( new Comparator<EnvironmentalCondition>() {
          // an adequate comparator for easy traversal/iteration through this TreeSet
          public int compare( EnvironmentalCondition e1, EnvironmentalCondition e2 )
          {
@@ -32,7 +31,7 @@ public class Environment
     */
    private void setRandomConditions()
    {
-      // stub, will be filled in more when more EnvironmentalCondition subclasses are written
+      // the list below should be filled in more whenever more EnvironmentalCondition subclasses are written
       ArrayList<EnvironmentalCondition> possibleEnvironmentalConditions
          = new ArrayList<EnvironmentalCondition>(){{
          add( new ColdTemperature() );
@@ -63,39 +62,49 @@ public class Environment
     */
    private void setName()
    {
-      // stub, will be filled in more when more EnvironmentalCondition subclasses are written
       assert conditionsSet; // be sure to make this statement the first line of this method
       
-      boolean andCheck;
-      andCheck = false;
+      name = "";
       
       // equals method will be used while checking containment. If the class names are same equals return true.
+      if ( environmentalConditions.contains( new HighPredatorDensity() ) )
+      {
+         name = name + "Unsafe ";
+      }
+      
       if ( environmentalConditions.contains( new Windy() ) )
       {
-         name = "Windy ";
-         andCheck = true;
+         name = name + "Windy ";
       }
       
-      if ( andCheck && ( environmentalConditions.contains( new HotTemperature() )  ||
-          environmentalConditions.contains( new ColdTemperature() ) ) )
+      if ( environmentalConditions.contains( new HotTemperature() ) && !environmentalConditions.contains( new Humid() ) )
       {
-         name = name + "and ";
+         name = name + "Desert ";
+      }
+      else if ( environmentalConditions.contains( new ColdTemperature() ) && !environmentalConditions.contains( new Humid() ) )
+      {
+         name = name + "Pole ";
+      }
+      else if ( environmentalConditions.contains( new HotTemperature() ) && environmentalConditions.contains( new Humid() ) )
+      {
+         name = name + "Tropical Rainforest ";
+      }
+      else if ( environmentalConditions.contains( new ColdTemperature() ) && environmentalConditions.contains( new Humid() )  )
+      {
+         name = name + "Continental ";
       }
       
-      if ( environmentalConditions.contains( new HotTemperature() ) )
+       if ( environmentalConditions.contains( new LowPreyDensity() )  )
       {
-         name = name + "Hot ";
-      }
-      else if ( environmentalConditions.contains( new ColdTemperature() ) )
-      {
-         name = name + "Cold ";
+         name = name + "and Scarce "; 
       }
       
-      name = name + "Environment";
+         name = name + "Environment ";
    }
    
    /**
     * Filters a single Feature.
+    * @param featureOfOrganism the feature whose multipliers will be altered.
     */
    public void filter( Feature featureOfOrganism )
    {
@@ -112,8 +121,50 @@ public class Environment
       }
    }
    
+   /**
+    * Returns the name of this environment according to its conditions
+    * @return the name of this environment
+    * @deprecated use toString method now, it does exactly the same thing
+    */
+   @Deprecated
    public String getName()
    {
       return name;
+   }
+   
+   /**
+    * Returns the name of this environment according to its conditions
+    * @return the name of this environment
+    */
+   @Override
+   public String toString()
+   {
+      return name;
+   }
+   
+   public String getConditions()
+   {
+      StringBuffer result;
+      result = new StringBuffer( "" );
+      for ( EnvironmentalCondition envCod : environmentalConditions )
+      {
+         result.append( envCod );
+         result.append( ", " );
+      }
+      result.delete( result.length() - 2, result.length() );
+      return result.toString();
+   }
+   
+   public String getConditionsForGUI()
+   {
+      StringBuffer result;
+      result = new StringBuffer( "" );
+      for ( EnvironmentalCondition envCod : environmentalConditions )
+      {
+         result.append( envCod );
+         result.append( "\n" );
+      }
+      result.delete( result.length() - 2, result.length() );
+      return result.toString();
    }
 }

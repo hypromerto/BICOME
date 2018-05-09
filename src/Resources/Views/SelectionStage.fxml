@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import com.jfoenix.controls.JFXListView?>
 <StackPane fx:id="rootPane" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bicome.controllers.SelectionController">
     <children>
         <BorderPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #66bb6a;">
             <left>
-                <BorderPane fx:id="leftPanel" prefWidth="200" style="-fx-background-color: #43A047">
+                <BorderPane fx:id="leftPanel" prefWidth="200" style="-fx-effect: dropshadow( gaussian, rgba(255, 255, 255, 1), 0, 0, 0, 1 ); -fx-background-color: #43A047;">
                     <top>
                         <VBox fx:id="FeaturesPanel" alignment="TOP_LEFT" prefWidth="200" style="-fx-background-color: #43A047">
                             <Label text="Selected Features: " textFill="white" />
-                            <JFXListView fx:id="selectedFeaturesListView" style="-fx-background-color: #43A047">
+                            <JFXListView fx:id="selectedFeaturesListView" onMouseClicked="#onFeatureUnSelected" style="-fx-background-color: #43A047" >
 
                             </JFXListView>
                      <BorderPane.margin>
@@ -26,12 +28,44 @@
                     </top>
                     <center>
                         <Label text="Select Features: " textFill="white" />
-                        <JFXListView fx:id="unSelectedFeaturesListView" style="-fx-background-color: #43A047">
+                        <JFXListView fx:id="unSelectedFeaturesListView" onMouseClicked="#onFeatureSelected" style="-fx-background-color: #43A047">
 
                         </JFXListView>
                     </center>
                 </BorderPane>
             </left>
+         <bottom>
+             <BorderPane style="-fx-background-color: #43A047">
+                 <left>
+                     <JFXButton fx:id="backButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" onAction="#onBackAction" prefHeight="50" prefWidth="50" style="-fx-background-color: #4caf50; -fx-background-radius: 25" BorderPane.alignment="BOTTOM_LEFT">
+                         <graphic>
+                             <ImageView fitHeight="30" fitWidth="30">
+                                 <image>
+                                     <Image url="Resources/Images/backWhite.png" />
+                                 </image>
+                             </ImageView>
+                         </graphic>
+                         <BorderPane.margin>
+                             <Insets bottom="10" left="10" right="10" top="10" />
+                         </BorderPane.margin>
+                     </JFXButton>
+                 </left>
+                 <right>
+                     <JFXButton fx:id="nextButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" onAction="#onNextAction" prefHeight="50" prefWidth="50" style="-fx-background-color: #4caf50; -fx-background-radius: 25" BorderPane.alignment="BOTTOM_LEFT">
+                         <graphic>
+                             <ImageView fitHeight="30" fitWidth="30">
+                                 <image>
+                                     <Image url="Resources/Images/backWhite.png" />
+                                 </image>
+                             </ImageView>
+                         </graphic>
+                         <BorderPane.margin>
+                             <Insets bottom="10" left="10" right="10" top="10" />
+                         </BorderPane.margin>
+                     </JFXButton>
+                 </right>
+             </BorderPane>
+         </bottom>
         </BorderPane>
     </children>
 </StackPane>

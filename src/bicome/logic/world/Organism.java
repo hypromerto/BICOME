@@ -11,10 +11,10 @@ import bicome.logic.environment.*;
 import bicome.logic.genotype.Genotype;
 public class Organism 
 {
-   private int cooldown;
-   private boolean pregnant;
+   //private int cooldown;
+   private double survivalChance;
+   //private boolean pregnant;
    private int age;
-   // the exact type of List is not specified to ease up optimization.
    private FeatureList features;
    private Environment habitat;
    private Attribute[] attributes;
@@ -23,17 +23,30 @@ public class Organism
    public Organism( FeatureList features, Environment worldEnvironment )
    {
       // stub
-      cooldown = 0;
+      //cooldown = 0;
       age = 0;
-      pregnant = false;
+      //pregnant = false;
       this.features = features;
       attributes = new Attribute[ 5 ];
+      attributes[ 0 ] = new Power();
+      attributes[ 1 ] = new Speed();
+      attributes[ 2 ] = new FlightEase();
+      attributes[ 3 ] = new WaterStockpiling();
+      attributes[ 4 ] = new NutritionStockpiling();
       setAttributesFromEnvironment( worldEnvironment );
       habitat = worldEnvironment;
       setColor();
-      calculateSurvivalChance();
+      
+      calculateSurvivalChance(); //This has to be done in the end of the constructor
    }
    
+   public void age()
+   {
+      age++;
+      survivalChance--;
+   }
+   
+   /*
    public void increaseCooldown()
    {
       if ( cooldown % 3 == 0 && cooldown != 0 )
@@ -45,10 +58,6 @@ public class Organism
          cooldown++;
    }
    
-   public void age()
-   {
-      age++;
-   }
    
    public void setReproductionCooldown( boolean state )
    {
@@ -59,14 +68,14 @@ public class Organism
    {
       return !pregnant;      
    }
-   
+   */
    public Organism reproduce( Organism other )
    {
       Organism offspring;
       FeatureList newFeatures;
       
-      this.setReproductionCooldown( true );
-      other.setReproductionCooldown( true );
+      //this.setReproductionCooldown( true );
+      //other.setReproductionCooldown( true );
       
       if ( this.features == null || other.features == null )
       {
@@ -84,7 +93,9 @@ public class Organism
       
       offspring = new Organism( newFeatures, habitat );
       
-      offspring.setReproductionCooldown( true );
+      //offspring.setReproductionCooldown( true );  //This might be not needed, may even be bad for the algorithm
+      //On a second thought i am sure that this line would break the game by making it a lot harder as if it is
+      //not hard enough.
       
       return offspring;
       
@@ -97,15 +108,24 @@ public class Organism
    
    private void calculateSurvivalChance()
    {
-      // stub
+      // the per cent survival chance of an organism is the geometric mean of atrribute values ( max 100%, min 0% )
+      survivalChance = 1;
+      for ( Attribute a : attributes )
+      {
+         survivalChance *= a.getValue();
+      }
+      survivalChance = Math.pow( survivalChance, 1.0 / attributes.length );
    }
    
    public void setAttributesFromEnvironment( Environment env )
    {
-      // set proper multipliers in Feature classes
-      for ( int i = 0; i < features.size(); i++ )
+      if ( env != null )
       {
-         env.filter( features.get( i ) );
+         // set proper multipliers in Feature classes
+         for ( int i = 0; i < features.size(); i++ )
+         {
+            env.filter( features.get( i ) );
+         }
       }
       
       // apply multipliers to Attributes
@@ -113,9 +133,7 @@ public class Organism
       {
          for ( int i = 0; i < attributes.length; i++ )
          {
-            attributes[i].calculate( f.getMultipliers()
-                                       .getOrDefault( attributes[i]
-                                                        .getType(), 1.0 ) );
+            attributes[i].calculate( f.getMultipliers().getOrDefault( attributes[i].getType(), 1.0 ) );
          }
       }
    }
@@ -143,5 +161,36 @@ public class Organism
    public Color getColor()
    {
       return color;
+   }
+   
+   public double getSurvivalChance()
+   {
+      return survivalChance;
+   }
+   
+   public String toString()
+   {
+      StringBuffer result;
+      result = new StringBuffer( "" );
+      for ( Attribute a : attributes )
+      {
+         result.append( a.getType() );
+         result.append( ": " ); 
+         result.append( a.getValue() );
+         result.append( "\n" );
+      }
+      result.append( "Age: ");
+      result.append( age );
+      result.append( "\n" );
+      result.append( "Survival Chance: " );
+      result.append( survivalChance ); 
+      result.append( "%\n" );
+      //result.append( "This organism can" );
+      //if ( pregnant )
+         //result.append( "not" );
+      //result.append( " reproduce right now.\n" );
+      result.append( "Features:\n" );
+      result.append( features );
+      return result.toString();
    }
 }

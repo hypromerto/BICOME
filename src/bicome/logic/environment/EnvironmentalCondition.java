@@ -26,8 +26,8 @@ public abstract class EnvironmentalCondition
       String otherClassName;
       if ( other != null && other instanceof EnvironmentalCondition )
       {
-         thisClassName = this.getClass().getName();
-         otherClassName = other.getClass().getName();
+         thisClassName = this.getClass().getSimpleName();
+         otherClassName = other.getClass().getSimpleName();
          if ( thisClassName.substring( thisClassName.lastIndexOf( '.' ) )
                 .equals(
          otherClassName.substring( otherClassName.lastIndexOf( '.' ) ) ) )
@@ -36,6 +36,12 @@ public abstract class EnvironmentalCondition
          }
       }
       return false;
+   }
+   
+   @Override
+   public String toString()
+   {
+      return this.getClass().getSimpleName();
    }
    
    protected abstract void setMultipliers();

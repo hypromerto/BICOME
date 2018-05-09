@@ -29,12 +29,26 @@ public final class Fur extends FeatureBase
    @Override
    protected void setMultipliers()
    {
-      // TBA
-      // this.dominantMultipliers.put( , 0.25 );
-      // this.recessiveMultipliers.put();
-      // this.noneMultipliers.put();
-      // this.dominantMultipliers.put();
-      // this.recessiveMultipliers.put();
-      // this.noneMultipliers.put();
+      this.dominantMultipliers.put( "speed", 0.90 );
+      this.recessiveMultipliers.put( "speed", 0.75 );
+      this.noneMultipliers.put( "nutrition_stockpiling", 0.90 );
+      this.dominantMultipliers.put( "water_stockpiling", 1.22 );
+      this.recessiveMultipliers.put( "water_stockpiling", 1.45 );
+      this.recessiveMultipliers.put( "nutrition_stockpiling", 1.60 );
+      this.noneMultipliers.put( "speed", 1.34 );
+   }
+   
+   @Override
+   public String getFeatureName( Genotype g )
+   {
+      StringBuffer result = new StringBuffer( "" );
+      if ( g == Genotype.NONE )
+         result.append( "No " );
+      else if ( g == Genotype.RECESSIVE_HOMOZYGOTE )
+         result.append( "Thick " );
+      else
+         result.append( "Thin " );
+      result.append( "Fur" );
+      return result.toString();
    }
 }

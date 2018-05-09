@@ -35,4 +35,18 @@ public final class Muscles extends FeatureBase
       this.dominantMultipliers.put( "speed", 0.70 );
       this.noneMultipliers.put( "speed", 1.45 );
    }
+      
+   @Override
+   public String getFeatureName( Genotype g )
+   {
+      StringBuffer result = new StringBuffer( "" );
+      if ( g == Genotype.NONE )
+         result.append( "No " );
+      else if ( g == Genotype.RECESSIVE_HOMOZYGOTE )
+         result.append( "Light " );
+      else
+         result.append( "Heavy " );
+      result.append( "Muscles" );
+      return result.toString();
+   }
 }

@@ -1,18 +1,27 @@
 package bicome.dialogs;
+/**
+ * @author Onur Sahin
+ * @version 05/08/2018
+ *
+ * This class is for dialog to pick a genotype for the featureBase
+ * Unfortunately I couldn't find a JFXDialog that return something so I have to use ugly java fx default dialog :(
+ */
 
 import bicome.logic.feature.FeatureBase;
 import bicome.logic.genotype.Genotype;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
 import java.util.Optional;
 
 public class FeatureDialog
 {
-    private static final ButtonType HOMOZYGOT_DOMI = new ButtonType("Homozygot dominant");
-    private static final ButtonType HETEROZYGOT_DOMI = new ButtonType("Heterozygot dominant");
-    private static final ButtonType HOMOZYGOT_RECCESS = new ButtonType("Homozygot reccessive");
+    private static final ButtonType HOMOZYGOT_DOMI = new ButtonType("Ho-D");
+    private static final ButtonType HETEROZYGOT_DOMI = new ButtonType("He-D");
+    private static final ButtonType HOMOZYGOT_RECCESS = new ButtonType("Ho-R");
 
     /**
      * A method to return genotype for a FeatureBase
@@ -25,8 +34,9 @@ public class FeatureDialog
         Genotype genotype;
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION) {{
-            setTitle("Choose genotype for " + base.getName());
+            setTitle("Choose genotype for " + base.toString());
             setHeaderText("Choose the genotype for your feature");
+
             getButtonTypes()
                     .setAll(HOMOZYGOT_DOMI,
                             HETEROZYGOT_DOMI,
