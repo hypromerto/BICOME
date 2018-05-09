@@ -17,7 +17,7 @@ public abstract class FeatureBase
    protected HashMap< String, Double > noneMultipliers;
    
    /**
-    * Sole constructor that sets the multipliers of this base
+    * Sole constructor that sets the multipliers of this base, it is protected because of the demands of the singleton pattern
     */
    protected FeatureBase()
    {
@@ -28,6 +28,9 @@ public abstract class FeatureBase
    }
    
    // methods 
+   /**
+    * sets the three multiplier maps for this FeatureBase
+    */
    protected abstract void setMultipliers();
    
    /**
@@ -64,7 +67,8 @@ public abstract class FeatureBase
 
    /**
     * Returns a name for the type of a feature of this base, based on the genotype
+    * @param g the Genotype that determines the name
     * @return the same String as Feature.toString()
     */
-   public abstract String getFeatureName( Genotype g );
+   protected abstract String getFeatureName( Genotype g );
 }

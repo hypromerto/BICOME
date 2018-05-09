@@ -10,6 +10,9 @@ public enum Genotype
    DOMINANT_HOMOZYGOTE( 'A', 'A' ),
       DOMINANT_HETEROZYGOTE( 'A', 'a' ),
       RECESSIVE_HOMOZYGOTE( 'a', 'a' ),
+      /**
+       * A constant to indicate that the Feature that this Genotype belongs to does not exist in the Organism that the Feature is supposed to belong to.
+       */
       NONE( 'x', 'x' );
    
    // properties
@@ -17,6 +20,11 @@ public enum Genotype
    private char gene2;
    
    // enum constructor
+   /**
+    * Sole constructor
+    * @param gene1 the first gene that determines the genotype of this allele.
+    * @param gene2 the first gene that determines the genotype of this allele.
+    */
    Genotype( char gene1, char gene2 )
    {
       this.gene1 = gene1;
@@ -30,6 +38,9 @@ public enum Genotype
       return result;
    }
    
+   /**
+    * creates a new Genotype for cross method
+    */
    private static Genotype newGenotype( char ch1, char ch2 )
    {
       if ( ch1 > ch2 )

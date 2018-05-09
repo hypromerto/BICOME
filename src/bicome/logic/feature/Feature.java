@@ -18,6 +18,8 @@ public class Feature
    // constructors
    /**
     * Constructs a Feature with the given base and genotype
+    * @param base the base of this Feature
+    * @param genotype the genotype of this Feature
     */
    public Feature( FeatureBase base, Genotype genotype )
    {
@@ -40,6 +42,7 @@ public class Feature
    
    /**
     * gets the multipliers of this feature, after they have been affected by the environment
+    * @return the map of multipliers of this Feature's base according to its Genotype
     */
    public final HashMap< String, Double > getMultipliers()
    {

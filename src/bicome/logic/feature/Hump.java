@@ -19,6 +19,10 @@ public final class Hump extends FeatureBase
       super();
    }
    
+   /**
+    * Gets the instance of this class according to the singleton pattern
+    * @return the instance of this class
+    */
    public static FeatureBase getInstance()
    {
       if ( instance == null )
@@ -38,7 +42,7 @@ public final class Hump extends FeatureBase
    }
    
    @Override
-   public String getFeatureName( Genotype g )
+   protected String getFeatureName( Genotype g )
    {
       StringBuffer result = new StringBuffer( "" );
       if ( g == Genotype.NONE )

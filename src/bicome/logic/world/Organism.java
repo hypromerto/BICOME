@@ -1,5 +1,6 @@
 package bicome.logic.world;
 /**
+ * A single, hermaphrodite, fictional organism that has Attributes and Features, and is living in a particular Environment 
  * @author Mert Aslan, Ege Balcioglu
  * @version 27.4.2018
  */
@@ -11,21 +12,26 @@ import bicome.logic.environment.*;
 import bicome.logic.genotype.Genotype;
 public class Organism 
 {
-   //private int cooldown;
+//   private int cooldown;
    private double survivalChance;
-   //private boolean pregnant;
+//   private boolean pregnant;
    private int age;
    private FeatureList features;
    private Environment habitat;
    private Attribute[] attributes;
    private Color color;
    
+   /**
+    * Sole constructor.
+    * @param features the list of Features of this Organism
+    * @param worldEnvironment the habitat of this organism's population
+    */
    public Organism( FeatureList features, Environment worldEnvironment )
    {
       // stub
-      //cooldown = 0;
+//      cooldown = 0;
       age = 0;
-      //pregnant = false;
+//      pregnant = false;
       this.features = features;
       attributes = new Attribute[ 5 ];
       attributes[ 0 ] = new Power();
@@ -40,6 +46,9 @@ public class Organism
       calculateSurvivalChance(); //This has to be done in the end of the constructor
    }
    
+   /**
+    * Makes the organism age by one year, also decreasing its survival chance accordingly
+    */
    public void age()
    {
       age++;
@@ -69,6 +78,12 @@ public class Organism
       return !pregnant;      
    }
    */
+   
+   /**
+    * Makes this Organism mate with a partner and returns the offspring.
+    * @param other this organism's mating partner
+    * @return the offspring. Each reproduction act only produces one offspring.
+    */
    public Organism reproduce( Organism other )
    {
       Organism offspring;
@@ -101,11 +116,18 @@ public class Organism
       
    }
    
+   /**
+    * returns the list of features this organism possesses.
+    * @return this organism's FeatureList
+    */
    public FeatureList getFeatures()
    {
       return features;
    }
    
+   /**
+    * calculates the per cent survival chance of this organism
+    */
    private void calculateSurvivalChance()
    {
       // the per cent survival chance of an organism is the geometric mean of atrribute values ( max 100%, min 0% )
@@ -115,6 +137,16 @@ public class Organism
          survivalChance *= a.getValue();
       }
       survivalChance = Math.pow( survivalChance, 1.0 / attributes.length );
+      
+      if ( survivalChance < 0.0 )
+      {
+         survivalChance = 0.0;
+      }
+      
+      else if ( survivalChance > 100.0 )
+      {
+         survivalChance = 100.0;
+      }
    }
    
    public void setAttributesFromEnvironment( Environment env )

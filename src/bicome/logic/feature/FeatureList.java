@@ -37,6 +37,7 @@ public class FeatureList extends AbstractList<Feature> implements RandomAccess
    /**
     * Constructs a FeatureList from an unordered collection of Features.
     * Also acts as a copy constructor
+    * @param features a collection of Features
     */
    public FeatureList( Collection<Feature> features )
    {
