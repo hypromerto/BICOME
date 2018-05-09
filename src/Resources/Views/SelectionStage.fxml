@@ -22,7 +22,7 @@
                     <top>
                         <VBox fx:id="FeaturesPanel" alignment="TOP_LEFT" prefWidth="200" style="-fx-background-color: #43A047">
                             <Label text="Selected Features: " textFill="white" />
-                            <JFXListView fx:id="selectedFeaturesListView" style="-fx-background-color: #43A047">
+                            <JFXListView fx:id="selectedFeaturesListView" style="-fx-background-color: #43A047" onMouseClicked="#onFeatureUnSelected">
 
                             </JFXListView>
                      <BorderPane.margin>
@@ -32,7 +32,7 @@
                     </top>
                     <center>
                         <Label text="Select Features: " textFill="white" />
-                        <JFXListView fx:id="unSelectedFeaturesListView" style="-fx-background-color: #43A047">
+                        <JFXListView fx:id="unSelectedFeaturesListView" style="-fx-background-color: #43A047" onMouseClicked="#onFeatureSelected">
 
                         </JFXListView>
                     </center>

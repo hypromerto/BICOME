@@ -313,4 +313,6 @@ public class World
    {
 	   return round;
    }
+
+   public int getSize() { return SIZE; }
 }

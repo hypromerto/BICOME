@@ -1,6 +1,7 @@
 package bicome.controllers;
 
 import bicome.dialogs.FeatureDialog;
+import bicome.logic.environment.Environment;
 import bicome.logic.feature.Feature;
 import bicome.logic.feature.FeatureBase;
 import bicome.logic.genotype.Genotype;
@@ -12,6 +13,7 @@ import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXListView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,11 +21,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -42,6 +42,7 @@ public class SelectionController implements Initializable
 
     private ObservableList<Feature> selectedList;
     private ObservableList<FeatureBase> unSelectedList;
+    private Environment environment;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,6 +60,7 @@ public class SelectionController implements Initializable
         //Link the observables
         selectedFeaturesListView.setItems(selectedList);
         unSelectedFeaturesListView.setItems(unSelectedList);
+        environment = new Environment();
     }
 
     @FXML
@@ -121,6 +123,23 @@ public class SelectionController implements Initializable
             });*/ //I am not sure about this
 
             dialog.show(rootPane);
+        }
+    }
+
+    @FXML
+    protected void onNextAction(ActionEvent event) {
+        //Set unselected features to NONE
+        FeaturePopulator.completeFeatures(selectedList);
+
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(""));
+            currentStage.setScene( new Scene(root, currentScene.getWidth(), currentScene.getHeight()) );
+        }
+        catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
