@@ -47,7 +47,7 @@ public class World
     * 
     * @param features     the features user selected at the selection stage of the game
     */
-   public void placeInitialOrganisms( FeatureList features )
+   private void placeInitialOrganisms( FeatureList features )
    {
 	   
 	   int             row;
