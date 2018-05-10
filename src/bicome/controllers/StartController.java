@@ -87,7 +87,6 @@ public class StartController implements Initializable
             currentStage.setScene( new Scene(root,  currentScene.getWidth(), currentScene.getHeight()) );
         }
         catch (IOException e) {
-           e.printStackTrace();
            System.out.println("Couldn't open SelectionStage");
         }
     }
