@@ -92,9 +92,4 @@ public class FeaturePopulator
 
         list = result;
     }
-
-    public static void addNones(List<Feature> list)
-    {
-        list.addAll(noneFeatureList);
-    }
 }

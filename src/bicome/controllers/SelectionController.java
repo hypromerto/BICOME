@@ -68,8 +68,6 @@ public class SelectionController implements Initializable
         selectedFeaturesListView.setItems(selectedList);
         unSelectedFeaturesListView.setItems(unSelectedList);
         environment = new Environment();
-
-        FeaturePopulator.addNones(selectedList);
     }
 
     @FXML
