@@ -27,6 +27,18 @@ public class FeaturePopulator
             add(new Feature(fb, Genotype.NONE));
         }
     }};
+    
+    /**
+     * Initializes the order of FeatureList randomly with the needed features of the game
+     */
+    public static final void initializeFeatureOrder() {
+       FeatureList godList = new FeatureList();
+       ArrayList<FeatureBase> bases = ( ArrayList<FeatureBase> ) features.clone();
+       while ( !bases.isEmpty() )
+       {
+          godList.add( new Feature( bases.remove( (int) ( Math.random() * bases.size() ) ), Genotype.NONE ) );
+       }
+    }
 
     /**
      * Adds features to the list
@@ -40,7 +52,11 @@ public class FeaturePopulator
 
         list.addAll(features);
     }
-
+    
+    /**
+     * Completes a list of features with appropriate NONE-genotyped features.
+     * @param list list to be completed
+     */
     public static void completeFeatures(List<Feature> list)
     {
         if(list == null)
@@ -67,7 +83,7 @@ public class FeaturePopulator
             else if(base.equals(Muscles.getInstance())) {
                 index = 4;
             }
-            else { //base.equals(Wing.getInstace()
+            else /* if(base.equals(Wing.getInstance())) */ {
                 index = 5;
             }
 
