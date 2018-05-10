@@ -8,6 +8,7 @@ import bicome.logic.feature.*;
 import bicome.logic.genotype.Genotype;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FeaturePopulator
@@ -26,19 +27,8 @@ public class FeaturePopulator
         for(FeatureBase fb : features) {
             add(new Feature(fb, Genotype.NONE));
         }
+        Collections.shuffle(this);
     }};
-    
-    /**
-     * Initializes the order of FeatureList randomly with the needed features of the game
-     */
-    public static final void initializeFeatureOrder() {
-       FeatureList godList = new FeatureList();
-       ArrayList<FeatureBase> bases = ( ArrayList<FeatureBase> ) features.clone();
-       while ( !bases.isEmpty() )
-       {
-          godList.add( new Feature( bases.remove( (int) ( Math.random() * bases.size() ) ), Genotype.NONE ) );
-       }
-    }
 
     /**
      * Adds features to the list
@@ -52,7 +42,12 @@ public class FeaturePopulator
 
         list.addAll(features);
     }
-    
+
+    public static void addNoneFeatures(List<Feature> list)
+    {
+        list.addAll(noneFeatureList);
+    }
+
     /**
      * Completes a list of features with appropriate NONE-genotyped features.
      * @param list list to be completed

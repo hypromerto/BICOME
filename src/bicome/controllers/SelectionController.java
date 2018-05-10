@@ -63,6 +63,7 @@ public class SelectionController implements Initializable
 
         //Add all features to unselected list
         FeaturePopulator.populateFeatures(unSelectedList);
+        FeaturePopulator.addNoneFeatures(selectedList);
 
         //Link the observables
         selectedFeaturesListView.setItems(selectedList);
