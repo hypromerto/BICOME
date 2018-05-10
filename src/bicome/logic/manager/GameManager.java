@@ -18,7 +18,7 @@ public class GameManager
 {
    
    //properties
-   private final int UP_TIME = 1000;
+   private final int UP_TIME = 20;
    private Timer turnTimer;
    private int durationOfTurns;
    private int timePassed;
@@ -42,7 +42,7 @@ public class GameManager
       durationOfTurns = 50; // in millisecond
       this.world = world;
       this.controller = controller;
-      turnTimer = new Timer( durationOfTurns, new TimeListener() );  
+      turnTimer = new Timer( durationOfTurns * UP_TIME, new TimeListener() );  
    }
    
    /**
@@ -97,7 +97,7 @@ public class GameManager
    public int setDurationOfTurns( int n )
    {
       durationOfTurns = n;
-      turnTimer.setDelay( durationOfTurns );
+      turnTimer.setDelay( durationOfTurns * UP_TIME );
       return durationOfTurns;
    }
 
