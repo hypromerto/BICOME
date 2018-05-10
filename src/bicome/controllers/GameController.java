@@ -34,10 +34,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 /**
  * Please add javadoc Cerag
@@ -93,37 +90,40 @@ public class GameController implements Initializable{
     }
 
 
-    public static class MyNode extends JFXButton {
-        private final int SIZE = 25;
+    public static class MyNode extends Rectangle {
+        private static final int SIZE = 15;
         private final int x, y;
         private final Tile tile;
-        private GameController controller;
 
-        public MyNode( Tile tile, int x, int y, GameController controller) {
-            setDisable(true);
-            setPrefSize(SIZE, SIZE);
+        public MyNode( Tile tile, int x, int y) {
+            super( SIZE, SIZE);
+            setFill(tile.getColor());
             this.tile = tile;
             this.x = x;
             this.y = y;
 
-            try {
+            /*try {
                 //Set the background color of the button
                 setStyle("-fx-background-color: #" + tile.getColor().toString().substring(2, 8));
             }
             catch (NullPointerException e) {
                 System.out.println("color is null");
                 setStyle("-fx-background-color: #ffffff");
-            }
+            }*/
         }
 
-        public int getX()
+        public int getRow()
         {
             return x;
         }
 
-        public int getY()
+        public int getCol()
         {
             return y;
+        }
+
+        public Tile getTile() {
+            return tile;
         }
     }
 
@@ -148,11 +148,12 @@ public class GameController implements Initializable{
         gameManager.pause();
     }
 
-    private void setAnimalList(int x, int y){
-        Tile[][] tiles = gameManager.getWorld().getGrid();
+    private void setAnimalList(Tile tile){
+        Optional<Organism> organism = Optional.ofNullable(tile.getOrganism());
 
-        featuresList.clear();
-        featuresList.addAll(tiles[y][x].getOrganism().getFeatures());
+        organism.ifPresent( o -> {
+            animalList.getItems().addAll(o.getFeatures());
+        });
     }
 
     @FXML
@@ -162,7 +163,7 @@ public class GameController implements Initializable{
             if(node instanceof MyNode) {
                 if(node.getBoundsInParent().contains(event.getSceneX(), event.getSceneY())) {
                     MyNode currentNode = (MyNode) node;
-                    setAnimalList(currentNode.getX(), currentNode.getY());
+
                     //Set the name of the animal and the image
                 }
             }
@@ -208,11 +209,18 @@ public class GameController implements Initializable{
         World world = gameManager.getWorld();
         Tile[][] tiles = world.getGrid();
 
-        grid.getChildren().clear();
+        for(Tile[] arr : tiles) {
+            for(Tile tile : arr) {
+                System.out.print(tile.getOrganism() != null ? 1 : 0);
+            }
+            System.out.println();
+        }
+
+
         for(int i = 0; i < 30; ++i) {
             for(int j = 0; j  < 30; ++j) {
-                MyNode node = new MyNode(tiles[i][j], i, j, this);
-                grid.add(node , i, j);
+                MyNode node = new MyNode(tiles[i][j], i, j);
+                grid.add(node , j, i);
             }
         }
     }
@@ -224,7 +232,7 @@ public class GameController implements Initializable{
         Tile[][] tiles = gameManager.getWorld().getGrid();
         for(int i = 0; i < 30; ++i) {
             for(int j = 0; j  < 30; ++j) {
-                grid.add(new MyNode(tiles[i][j], i, j, this), i, j);
+                grid.add(new MyNode(tiles[i][j], i, j), j, i);
             }
         }
 
