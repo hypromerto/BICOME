@@ -97,7 +97,8 @@ public class GameController implements Initializable{
 
         public MyNode( Tile tile, int x, int y) {
             super( SIZE, SIZE);
-            System.out.println(tile.getColor().toString());
+            if(!tile.getColor().toString().contains("0x00000000") )
+                System.out.println(tile.getColor().toString());
             setFill(tile.getColor());
             this.tile = tile;
             this.x = x;
@@ -134,7 +135,7 @@ public class GameController implements Initializable{
         Stage currentStage = (Stage) currentScene.getWindow();
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Resources/Views/StartStage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Resources/Views/StartStage.fxml"));
             currentStage.setScene(new Scene(root, currentScene.getWidth(), currentScene.getHeight()));
         }
         catch (IOException e) {
@@ -210,14 +211,14 @@ public class GameController implements Initializable{
         World world = gameManager.getWorld();
         Tile[][] tiles = world.getGrid();
 
-        for(Tile[] arr : tiles) {
+        /*for(Tile[] arr : tiles) {
             for(Tile tile : arr) {
                 System.out.print(tile.getOrganism() != null ? 1 : 0);
             }
             System.out.println();
-        }
+        } */ //Test for tiles
 
-        grid.getChildren().clear();
+        grid.getChildren().retainAll(grid.getChildren().get(0)); //retainAll is for the grid lines
         for(int i = 0; i < 30; ++i) {
             for(int j = 0; j  < 30; ++j) {
                 MyNode node = new MyNode(tiles[i][j], i, j);
@@ -248,6 +249,10 @@ public class GameController implements Initializable{
 
     public void finishGame()
     {
-        //Call this when game is over
+        try {
+            Parent next = FXMLLoader.load(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
