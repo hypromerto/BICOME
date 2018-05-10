@@ -122,7 +122,7 @@ public class World
             {
                if ( !tiles[i][j].isEmpty() )
                {
-            	  int percentage;  //Used to determine if an organism lives or dies depending on it's survival chance
+               int percentage;  //Used to determine if an organism lives or dies depending on it's survival chance
                
                   percentage = (int) ( Math.random() * 100 );
 
@@ -157,16 +157,16 @@ public class World
                   //{
                    
                    //if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
-                  	 if ( aliveNeighbours.size() >=  1 )
+                    if ( aliveNeighbours.size() >=  1 )
                      {
                          //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
                          
                          if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
                          {                                                                 //also considering the selected tiles
                             
-                            System.out.println("Row: " + i + " Col : " + j + " Empty neighbours: " + emptyNeighbours.size());
-                            System.out.println("Row: " + i + " Col : " + j + " Alive neighbours: " + aliveNeighbours.size());
-                            System.out.println("Row: " + i + " Col : " + j + " Selected tiles " + selectedTiles);
+//                            System.out.println("Row: " + i + " Col : " + j + " Empty neighbours: " + emptyNeighbours.size());
+//                            System.out.println("Row: " + i + " Col : " + j + " Alive neighbours: " + aliveNeighbours.size());
+//                            System.out.println("Row: " + i + " Col : " + j + " Selected tiles " + selectedTiles);
 
                             //if ( aliveNeighbours.size() == TWO_NEIGHBOUR && TWO_NEIGHBOUR * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
                             //{  
@@ -176,8 +176,8 @@ public class World
                                 
                                mateSelectTwo = (int) ( Math.random() * aliveNeighbours.size() );
                                
-                               System.out.println("Row: " + i + " Col : " + j + " Mate Location: " + "Row: " +
-                               aliveNeighbours.get( mateSelectTwo).getRow() + " Col: "  + aliveNeighbours.get( mateSelectTwo).getCol());
+//                               System.out.println("Row: " + i + " Col : " + j + " Mate Location: " + "Row: " +
+//                               aliveNeighbours.get( mateSelectTwo).getRow() + " Col: "  + aliveNeighbours.get( mateSelectTwo).getCol());
 
                                //if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
                                //{    
@@ -188,12 +188,12 @@ public class World
                                   offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism( tiles[i][j].getOrganism().reproduce( aliveNeighbours.
                                   get( mateSelectTwo ).getOrganism() ) );
                                   
-                                  System.out.println("Row: " + i + " Col : " + j + " Offspring Location: " + "Row: " +
-                                          offspring.getRow() + " Col: "  + offspring.getCol() );
+//                                  System.out.println("Row: " + i + " Col : " + j + " Offspring Location: " + "Row: " +
+//                                          offspring.getRow() + " Col: "  + offspring.getCol() );
                                   
                                   tiles[offspring.getRow()][offspring.getCol()].setSelected( true);
                                   
-                                  System.out.println(offspringTiles[offspring.getRow()][offspring.getCol()].getOrganism());
+//                                  System.out.println(offspringTiles[offspring.getRow()][offspring.getCol()].getOrganism());
                                   
                                //}  
                                
@@ -267,16 +267,16 @@ public class World
                if ( !offspringTiles[i][j].isEmpty() )
                {
                 
-            	  // System.out.println("This is offspring tiles");
-            	   //System.out.println( offspringTiles[i][j].getOrganism());
-            	   
-            	   
+               // System.out.println("This is offspring tiles");
+                //System.out.println( offspringTiles[i][j].getOrganism());
+                
+                
                   tiles[i][j].placeOrganism(offspringTiles[i][j].getOrganism() ); //porting our offsprings back to original organisms array
                   
-                 // System.out.println();
+//                  System.out.println();
                   
-                  //System.out.println("Tiles after placing");
-                  //System.out.println( tiles[i][j].getOrganism());
+//                  System.out.println("Tiles after placing");
+//                  System.out.println( tiles[i][j].getOrganism());
                  
     
                   

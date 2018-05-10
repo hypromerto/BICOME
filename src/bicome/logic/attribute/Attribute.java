@@ -9,7 +9,7 @@ public abstract class Attribute
    /**
     * The initial value of an Attribute 
     */
-   protected static final double INITIAL = 50.0;
+   protected static final double INITIAL = 87.5;
    private double value;
    // type Strings will be used as Keys in the Maps of Feature class.
    protected String type;
