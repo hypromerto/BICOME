@@ -254,7 +254,7 @@ public class World
                 
                   tiles[i][j].placeOrganism(offspringTiles[i][j].getOrganism() ); //porting our offsprings back to original organisms array
                   
-                  offspringTiles[i][j].killOrganism(); //flushing offsprings 
+                  offspringTiles[i][j].killOrganism(); //flushing offsprings
                }
             }
          }
