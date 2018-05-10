@@ -81,12 +81,12 @@
                                         <Insets bottom="10" left="40" right="40" top="10" />
                                     </VBox.margin>
                                 </JFXButton>
-                                <Label fx:id="speedLabel" prefHeight="20" prefWidth="Infinity" text="Speed">
+                                <Label fx:id="speedLabel" prefHeight="20" prefWidth="Infinity" text="Speed: 1x">
                                     <font>
                                         <Font name="Segoe UI Black" size="12.0" />
                                     </font>
                                 </Label>
-                                <JFXSlider fx:id="speedSlider" orientation="HORIZONTAL" prefHeight="40" prefWidth="Infinity" value="25"  />
+                                <JFXSlider fx:id="speedSlider" orientation="HORIZONTAL" prefHeight="40" prefWidth="Infinity" value="25" />
                             </VBox>
                         </bottom>
                      <BorderPane.margin>

@@ -85,9 +85,14 @@ public class GameController implements Initializable{
         featuresList = FXCollections.observableArrayList();
         animalList.setItems(featuresList);
         // 25 -> 1x
-        speedSlider.setValue(25);
-        speedLabel.setText("Speed: " + (int) speedSlider.getValue());
         updateTime(0);
+
+        speedSlider.valueProperty().addListener( e -> {
+            int value = (int) Math.floor((speedSlider.getValue() - 1) / 25) + 1;
+            speedLabel.setText("Speed: " + value + "x");
+            gameManager.setDurationOfTurns(1000 / value);
+        });
+        speedSlider.setValue(25);
     }
 
 
@@ -181,22 +186,6 @@ public class GameController implements Initializable{
                     //Set the name of the animal and the image
                 }
             }
-        }
-    }
-
-    @FXML
-    private void changeSpeed(ActionEvent event){
-        JFXSlider slider = (JFXSlider) event.getSource();
-        int value = (int) Math.floor((slider.getValue() - 1) / 25);
-        if(value == 0) { // 0 -> 1x
-            //1x -> 100 miliseconds
-            gameManager.setDurationOfTurns(200);
-        }
-        else if(value == 1) {
-            gameManager.setDurationOfTurns(100);
-        }
-        else {
-            gameManager.setDurationOfTurns(50);
         }
     }
 

@@ -27,7 +27,7 @@ public class Feature
       if ( this.genotype == null )
          this.genotype = Genotype.NONE;
       this.base = base;
-      this.multipliers = base.getMultipliers( this.genotype );
+      multipliers = base.getMultipliers( this.genotype );
    }
    
    // methods
