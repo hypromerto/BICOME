@@ -1,5 +1,8 @@
 package bicome.controllers;
 
+import bicome.animations.ScaleValue;
+import bicome.animations.ViewAnimations;
+import bicome.dialogs.EnvironmentDialog;
 import bicome.dialogs.FeatureDialog;
 import bicome.logic.environment.Environment;
 import bicome.logic.feature.Feature;
@@ -27,6 +30,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import javax.swing.text.View;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -92,6 +96,8 @@ public class SelectionController implements Initializable
         JFXListView<Feature> listView = (JFXListView<Feature>) event.getSource();
 
         Feature selected = listView.getSelectionModel().getSelectedItem();
+        if(selected == null) //We have clicked an empty place don't do anything
+            return;
         FeatureBase base = selected.getBase();
 
         selectedList.remove(selected);
@@ -138,10 +144,32 @@ public class SelectionController implements Initializable
             BorderPane borderPane = loader.load();
             GameController controller = loader.getController();
             controller.setManager( environment, list);
+            controller.init();
             ((Stage) ((Node) event.getSource()).getScene().getWindow()).setScene(new Scene(borderPane, rootPane.getWidth(), rootPane.getHeight()));
         } catch (IOException e) {
             //e.printStackTrace();
             System.out.println("An error occured while loading the GameStage: " + e.getMessage());
         }
+    }
+
+    @FXML
+    protected void onEnvironmentAction(ActionEvent event)
+    {
+        EnvironmentDialog dialog = new EnvironmentDialog(rootPane, environment);
+        dialog.show();
+    }
+
+    @FXML
+    protected void onMouseEntered(MouseEvent event)
+    {
+        JFXButton node = (JFXButton) event.getSource();
+        ViewAnimations.scaleControl(node, ScaleValue.BIGGER);
+    }
+
+    @FXML
+    protected void onMouseExited(MouseEvent event)
+    {
+        JFXButton node = (JFXButton) event.getSource();
+        ViewAnimations.scaleControl(node, ScaleValue.MEDIUM);
     }
 }

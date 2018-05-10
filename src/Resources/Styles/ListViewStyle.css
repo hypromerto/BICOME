@@ -1,0 +1,27 @@
+.list-view {
+    -fx-background-color: #4CAF50;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #388E3C;
+}
+
+.list-view .list-cell {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+.list-view .scroll-bar:horizontal .track,
+.list-view .scroll-bar:vertical .track{
+    -fx-background-color: #C8E6C9;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+    -fx-border-radius:2em;
+}
+
+.list-view.scroll-bar:horizontal .thumb,
+.list-view.scroll-bar:vertical .thumb {
+    -fx-background-color: #1B5E20;
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+}

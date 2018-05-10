@@ -11,6 +11,7 @@ import bicome.logic.world.World;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -78,6 +79,8 @@ public class GameController implements Initializable{
     public ObservableList<Feature> featuresList;
 
     private GameManager gameManager;
+
+    private Timeline timer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) { //This is the function that will called during creation of the page
@@ -205,17 +208,18 @@ public class GameController implements Initializable{
         World world = gameManager.getWorld();
         Tile[][] tiles = world.getGrid();
 
-        for(Node node : grid.getChildren()) {
-            MyNode currentNode = (MyNode) node;
-            int i = currentNode.getY();
-            int j = currentNode.getX();
-            node.setStyle("-fx-background-color: #" + (tiles[i][j].getColor().toString().substring(2, 8)));
+        grid.getChildren().clear();
+        for(int i = 0; i < 30; ++i) {
+            for(int j = 0; j  < 30; ++j) {
+                MyNode node = new MyNode(tiles[i][j], i, j, this);
+                grid.add(node , i, j);
+            }
         }
     }
 
-    private void init()
+    public void init()
     {
-        environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditions());
+        environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
         //Initialize the game grid
         Tile[][] tiles = gameManager.getWorld().getGrid();
         for(int i = 0; i < 30; ++i) {
