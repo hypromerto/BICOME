@@ -236,4 +236,9 @@ public class GameController implements Initializable{
         World world = new World(list, env);
         gameManager = new GameManager(world, this);
     }
+
+    public void finishGame()
+    {
+        //Call this when game is over
+    }
 }
