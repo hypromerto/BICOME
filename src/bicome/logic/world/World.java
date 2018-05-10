@@ -284,7 +284,7 @@ public class World
                   
                   if ( !tiles[i][j].isEmpty())
                   {
-                      System.out.println( "After porting: Row: " + tiles[i][j].getRow() + " Col: " + tiles[i][j].getCol() );
+//                      System.out.println( "After porting: Row: " + tiles[i][j].getRow() + " Col: " + tiles[i][j].getCol() );
 
                   }
                   
