@@ -1,6 +1,7 @@
 package bicome.controllers;
 
 import bicome.animations.ScaleValue;
+import javafx.scene.image.ImageView;
 import bicome.animations.ViewAnimations;
 import bicome.dialogs.EnvironmentDialog;
 import bicome.dialogs.FeatureDialog;
@@ -46,6 +47,33 @@ public class SelectionController implements Initializable
 
     @FXML
     JFXListView<FeatureBase> unSelectedFeaturesListView;
+    
+        @FXML
+    public StackPane rootPane;
+
+    @FXML
+    ImageView rightWingDom, leftWingDom;
+
+    @FXML
+    ImageView rightWingRec, leftWingRec;
+
+    @FXML
+    ImageView furDom, furRec;
+
+    @FXML
+    ImageView fso1, fso2, fso3, fso4, fso5;
+
+    @FXML
+    ImageView humpDom, humpRec;
+
+    @FXML
+    ImageView legsDom, legsRec;
+
+    @FXML
+    ImageView rightMuscleDom, leftMuscleDom;
+
+    @FXML
+    ImageView rightMuscleRec, leftMuscleRec;
 
     private ObservableList<Feature> selectedList;
     private ObservableList<FeatureBase> unSelectedList;
@@ -89,6 +117,7 @@ public class SelectionController implements Initializable
                 if(f.getBase().equals(feature.getBase())) {
                     selectedList.remove(f);
                     selectedList.add(feature);
+                    constructAnimal(selected,true);
                     break;
                 }
             }
@@ -112,6 +141,7 @@ public class SelectionController implements Initializable
         selectedList.remove(selected);
         selectedList.add(new Feature(base, Genotype.NONE));
         unSelectedList.add(base);
+        constructAnimal(selected,false);
     }
 
     @FXML
@@ -179,5 +209,54 @@ public class SelectionController implements Initializable
     {
         JFXButton node = (JFXButton) event.getSource();
         ViewAnimations.scaleControl(node, ScaleValue.MEDIUM);
+    }
+    
+    @FXML
+    private void constructAnimal(Feature feature, boolean selected) {
+
+        if (feature.toString().equals("Big Wing")) {
+            rightWingDom.setVisible(selected);
+            leftWingDom.setVisible(selected);
+        }
+        else if (feature.toString().equals("Small Wing")) {
+             rightWingRec.setVisible( selected);
+             leftWingRec.setVisible( selected);
+        }
+
+        else if (feature.toString().equals("Four Extra Food Storage Organs")) {
+            fso2.setVisible(selected);
+            fso3.setVisible(selected);
+            fso4.setVisible(selected);
+            fso5.setVisible(selected);
+        }
+        else if (feature.toString().equals("One Extra Food Storage Organs")) {
+            fso2.setVisible(selected);
+        }
+        else if (feature.toString().equals("Thick Fur")){
+            furRec.setVisible(selected);
+        }
+        else if (feature.toString().equals("Thin Fur")) {
+            furDom.setVisible(selected);
+        }
+        else if (feature.toString().equals("Long Leg") ){
+            legsDom.setVisible(selected);
+        }
+        else if (feature.toString().equals("Short Leg")) {
+            legsRec.setVisible(selected);
+        }
+        else if (feature.toString().equals("Small Hump")) {
+            humpDom.setVisible(selected);
+        }
+        else if (feature.toString().equals("Big Hump")) {
+            humpRec.setVisible(selected);
+        }
+        else if (feature.toString().equals("Heavy Muscles")){
+            rightMuscleDom.setVisible(selected);
+            leftMuscleDom.setVisible(selected);
+        }
+        else if (feature.toString().equals("Light Muscles")) {
+            rightMuscleRec.setVisible(selected);
+            leftMuscleRec.setVisible(selected);
+        }
     }
 }
