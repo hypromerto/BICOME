@@ -73,6 +73,12 @@ public class GameManager
          {
 //            System.out.println("game is over");
             turnTimer.stop();
+            //inform controller the game is over.
+            Platform.runLater( new Runnable() {
+               public void run() {
+                  controller.finishGame();
+               }
+            } );
          }
          
          // increment time
