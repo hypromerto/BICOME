@@ -97,6 +97,7 @@ public class GameController implements Initializable{
 
         public MyNode( Tile tile, int x, int y) {
             super( SIZE, SIZE);
+            System.out.println(tile.getColor().toString());
             setFill(tile.getColor());
             this.tile = tile;
             this.x = x;
@@ -216,7 +217,7 @@ public class GameController implements Initializable{
             System.out.println();
         }
 
-
+        grid.getChildren().clear();
         for(int i = 0; i < 30; ++i) {
             for(int j = 0; j  < 30; ++j) {
                 MyNode node = new MyNode(tiles[i][j], i, j);
