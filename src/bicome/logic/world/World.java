@@ -11,7 +11,8 @@ import bicome.logic.feature.*;
 public class World 
 {
    private static final int    SIZE            = 30;   //Size of the simulation grid
-   private static final double REPR_THRESHOLD  = 0;  //Reproduction chance, DUE TO CHANGE
+   private static final double REPR_THRESHOLD  = 1.3;  //Reproduction chance, DUE TO CHANGE
+   private static final int    ONE_NEIGHBOUR   = 1;    //Number of neighbours surrounding the center organism
    private static final int    TWO_NEIGHBOUR   = 2;    //Number of neighbours surrounding the center organism
    private static final int    THREE_NEIGHBOUR = 3;    //Number of neighbours surrounding the center organism
    private static final int    ROUND_LIMIT     = 30;   //The total amount of possible rounds of the game
@@ -153,8 +154,8 @@ public class World
                      
                   }
                   
-                  //if ( percentage < tiles[i][j].getOrganism().getSurvivalChance() ) //Crucial decision for game rules here, might change
-                  //{
+                  if ( percentage < tiles[i][j].getOrganism().getSurvivalChance() ) //Crucial decision for game rules here, might change
+                  {
                    
                    //if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
                     if ( aliveNeighbours.size() >= 1 && aliveNeighbours.size() <= 3 )
@@ -167,9 +168,19 @@ public class World
                               // System.out.println("Row: " + i + " Col : " + j + " Empty neighbours: " + emptyNeighbours.size());
 //                            System.out.println("Row: " + i + " Col : " + j + " Alive neighbours: " + aliveNeighbours.size());
 //                            System.out.println("Row: " + i + " Col : " + j + " Selected tiles " + selectedTiles);
+                          
+                         if ( aliveNeighbours.size() == ONE_NEIGHBOUR && Math.random() > REPR_THRESHOLD)
+                         {
+                          Tile offspring;
+                          
+                                offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
+                                
+                                offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism( tiles[i][j].getOrganism().reproduce( aliveNeighbours.
+                                get( 0 ).getOrganism() ) );
+                         }
 
-                            //if ( aliveNeighbours.size() == TWO_NEIGHBOUR && TWO_NEIGHBOUR * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
-                            //{  
+                            if ( aliveNeighbours.size() == TWO_NEIGHBOUR && TWO_NEIGHBOUR * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
+                            {  
                                int mateSelectTwo;
                                
                                //mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
@@ -197,7 +208,7 @@ public class World
                                   
                                //}  
                                
-                           /* }
+                            }
                             else if ( aliveNeighbours.size() == THREE_NEIGHBOUR && THREE_NEIGHBOUR * Math.random() > REPR_THRESHOLD )
                             {  
                                int mateSelectThree;
@@ -214,7 +225,7 @@ public class World
                                 get( mateSelectThree ).getOrganism() ) );    
                                 
                                //}     
-                            } */
+                            } 
                             
                             
                          }
@@ -227,14 +238,14 @@ public class World
                          tiles[i][j].killOrganism();
                       }
                    
-                  //}
+                  }
                   
-                  //else
-                  //{
+                  else
+                  {
                    //die without reproducing, survival chance is not enough!
                    
-                   //tiles[i][j].killOrganism();
-                 // }
+                   tiles[i][j].killOrganism();
+                  }
                   
                   
                   

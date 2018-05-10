@@ -11,3 +11,4 @@ bin/*
 .idea*
 *Libraries/*
 */Main.class
+/bin/
