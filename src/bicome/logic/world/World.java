@@ -11,11 +11,11 @@ import bicome.logic.feature.*;
 public class World 
 {
    private static final int    SIZE            = 30;   //Size of the simulation grid
-   private static final double REPR_THRESHOLD  = 1.3;  //Reproduction chance, DUE TO CHANGE
+   private static final double REPR_THRESHOLD  = 1.1;  //Reproduction chance, DUE TO CHANGE
    private static final int    ONE_NEIGHBOUR   = 1;    //Number of neighbours surrounding the center organism
    private static final int    TWO_NEIGHBOUR   = 2;    //Number of neighbours surrounding the center organism
    private static final int    THREE_NEIGHBOUR = 3;    //Number of neighbours surrounding the center organism
-   private static final int    ROUND_LIMIT     = 50;   //The total amount of possible rounds of the game
+   private static final int    ROUND_LIMIT     = 100;   //The total amount of possible rounds of the game
    
    private Tile[][]    tiles;          //The simulation multi-array
    private Tile[][]    offspringTiles; //The multi-array that is used to hold the new-borns
@@ -311,7 +311,7 @@ public class World
          
          round++;     
          
-         System.out.println( "Round: " + round);
+//         System.out.println( "Round: " + round);
          
          return true;
       }

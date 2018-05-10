@@ -47,9 +47,7 @@ public abstract class EnvironmentalCondition
       {
          thisClassName = this.getClass().getSimpleName();
          otherClassName = other.getClass().getSimpleName();
-         if ( thisClassName.substring( thisClassName.lastIndexOf( '.' ) )
-                .equals(
-         otherClassName.substring( otherClassName.lastIndexOf( '.' ) ) ) )
+         if ( thisClassName.equals( otherClassName ) )
          {
             return true;
          }

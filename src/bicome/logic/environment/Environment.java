@@ -50,8 +50,9 @@ public class Environment
          newEnvironmentalCondition = possibleEnvironmentalConditions
             .remove( (int) ( Math.random()
                                * possibleEnvironmentalConditions.size() ) );
-         if ( newEnvironmentalCondition == new ColdTemperature() )
+         if ( newEnvironmentalCondition.equals( new ColdTemperature() ) )
          {
+            System.out.println( "Deciding if hot or cold" );
             if ( (int) ( Math.random() * 2 ) == 1 )
                newEnvironmentalCondition = new HotTemperature();
          }

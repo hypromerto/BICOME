@@ -18,7 +18,8 @@ public class GameManager
 {
    
    //properties
-   private final int UP_TIME = 20;
+   public static final int INITIAL_DURATION_OF_TURNS = 1000;
+   private static final int UP_TIME = 1;
    private Timer turnTimer;
    private int durationOfTurns;
    private int timePassed;
@@ -39,7 +40,7 @@ public class GameManager
       timePassed = 0;
       yearsPassed = 0;
       numOfTurns = 0;
-      durationOfTurns = 50; // in millisecond
+      durationOfTurns = INITIAL_DURATION_OF_TURNS; // in millisecond
       this.world = world;
       this.controller = controller;
       turnTimer = new Timer( durationOfTurns * UP_TIME, new TimeListener() );  
@@ -59,7 +60,7 @@ public class GameManager
       {
          if ( /* timePassed % UP_TIME == 0 && */ world.nextTurn() )
          {
-            System.out.println("next turn");
+//            System.out.println("next turn");
             Platform.runLater( new Runnable() {
                public void run() {
                   //after initialising play next turn
@@ -70,7 +71,7 @@ public class GameManager
          }
          else
          {
-            System.out.println("game is over");
+//            System.out.println("game is over");
             turnTimer.stop();
          }
          

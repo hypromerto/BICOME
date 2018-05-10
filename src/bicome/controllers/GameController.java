@@ -91,7 +91,7 @@ public class GameController implements Initializable{
            try {
             int value = (int) Math.floor((speedSlider.getValue() - 1) / 25) + 1;
             speedLabel.setText("Speed: " + value + "x");
-            gameManager.setDurationOfTurns(1000 / value);
+            gameManager.setDurationOfTurns(GameManager.INITIAL_DURATION_OF_TURNS / value);
            }
            catch ( ArithmeticException ex )
            {
