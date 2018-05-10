@@ -1,8 +1,7 @@
 package bicome.logic.manager;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.util.*;
+import javafx.application.*;
 import bicome.controllers.*;
 import bicome.logic.*;
 import bicome.logic.environment.Environment;
@@ -11,7 +10,7 @@ import bicome.logic.world.*;
 
 /**
  * A class that manages the interactions between the World class and the controller classes
- * @author Ismail Ilter Sezan
+ * @author Ismail Ilter Sezan, Ege Balcioglu
  * @version 9.5.2018
  */
 public class GameManager
@@ -40,9 +39,9 @@ public class GameManager
       yearsPassed = 0;
       numOfTurns = 0;
       durationOfTurns = 50; // in millisecond
-      turnTimer = new Timer( UP_TIME , new GameManager.TimeListener() );
       this.world = world;
       this.controller = controller;
+      turnTimer = new Timer();      
    }
    
    /**
@@ -50,23 +49,27 @@ public class GameManager
     * @implements ActionListener
     * @author ISMAIL ILTER SEZAN
     */
-   private class TimeListener implements ActionListener
+   private class TimeListener extends TimerTask
    {
       /**
        * This method performs the action
        * @param e the event that triggers this timer
        */
-      public void actionPerformed( ActionEvent e )
+      public void run()
       {
-         //after initialising play next turn
-         if ( timePassed % durationOfTurns == 0 && world.nextTurn() && timePassed != 0 )
-         {
-            controller.updateGameStage( getYearsPassed());
-            numOfTurns++;
-         }
-         
-         // increment time
-         timePassed = timePassed +  UP_TIME;
+         Platform.runLater( new Runnable() {
+            public void run() {
+               //after initialising play next turn
+               if ( timePassed % durationOfTurns == 0 && world.nextTurn() )
+               {
+                  controller.updateGameStage( getYearsPassed());
+                  numOfTurns++;
+               }
+               
+               // increment time
+               timePassed = timePassed +  UP_TIME;
+            }
+         } );
       }
    }
    
@@ -95,7 +98,9 @@ public class GameManager
     */
    public void start()
    {
-      turnTimer.start();
+      // If it doesn't work, delete this guy at line 102 first before trying anything else
+      turnTimer.purge();  
+      turnTimer.schedule( new GameManager.TimeListener(), UP_TIME, UP_TIME );
    }
    
    /**
@@ -103,7 +108,7 @@ public class GameManager
     */
    public void pause()
    {
-      turnTimer.stop();
+      turnTimer.cancel();
    }
    
    /**
