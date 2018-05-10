@@ -6,7 +6,7 @@ package bicome.utils;
 
 import bicome.logic.feature.*;
 import bicome.logic.genotype.Genotype;
-import javafx.scene.control.Label;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class FeaturePopulator
        add(Wing.getInstance());
     }};
 
-    private static final ArrayList<Feature> featureList = new ArrayList<Feature>() {{
+    private static final ArrayList<Feature> noneFeatureList = new ArrayList<Feature>() {{
         for(FeatureBase fb : features) {
             add(new Feature(fb, Genotype.NONE));
         }
@@ -46,7 +46,7 @@ public class FeaturePopulator
         if(list == null)
             throw new NullPointerException("List was null");
 
-        List<Feature> result =  new ArrayList<>(featureList);
+        List<Feature> result =  new ArrayList<>(noneFeatureList);
 
         //We could do this with two for loops because it would work when we add other features too however it would be a lot slower for high number of features
         for(Feature f : list) {
@@ -75,5 +75,10 @@ public class FeaturePopulator
         }
 
         list = result;
+    }
+
+    public static void addNones(List<Feature> list)
+    {
+        list.addAll(noneFeatureList);
     }
 }
