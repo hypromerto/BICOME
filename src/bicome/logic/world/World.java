@@ -122,7 +122,7 @@ public class World
             {
                if ( !tiles[i][j].isEmpty() )
                {
-               int percentage;  //Used to determine if an organism lives or dies depending on it's survival chance
+            	  int percentage;  //Used to determine if an organism lives or dies depending on it's survival chance
                
                   percentage = (int) ( Math.random() * 100 );
 
