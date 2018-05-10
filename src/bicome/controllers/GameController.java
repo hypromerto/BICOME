@@ -36,6 +36,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Please add javadoc Cerag
@@ -79,8 +81,6 @@ public class GameController implements Initializable{
     public ObservableList<Feature> featuresList;
 
     private GameManager gameManager;
-
-    private Timeline timer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) { //This is the function that will called during creation of the page
