@@ -102,4 +102,10 @@ public enum Genotype
       return possibleResults[ randomResult ];
    }
    
+   @Override
+   public String toString()
+   {
+      return "" + gene1 + gene2;
+   }
+   
 }
