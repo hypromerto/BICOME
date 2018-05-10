@@ -41,7 +41,6 @@ public class GameManager
       durationOfTurns = 50; // in millisecond
       this.world = world;
       this.controller = controller;
-      turnTimer = new Timer();      
    }
    
    /**
@@ -105,6 +104,8 @@ public class GameManager
    public void start()
    {
       // If it doesn't work, delete this guy at line 108 first before trying anything else
+	      turnTimer = new Timer();      
+
       turnTimer.schedule( new GameManager.TimeListener(), UP_TIME, UP_TIME );
    }
    
@@ -113,6 +114,7 @@ public class GameManager
     */
    public void pause()
    {
+	  turnTimer.cancel();
       turnTimer.purge();
    }
    
