@@ -177,7 +177,7 @@ public class Environment
          result.append( envCod );
          result.append( "\n" );
       }
-      result.delete( result.length() - 2, result.length() );
+      result.delete( result.length() - 1, result.length() );
       return result.toString();
    }
 }
