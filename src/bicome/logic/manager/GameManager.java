@@ -1,6 +1,7 @@
 package bicome.logic.manager;
 
-import java.util.*;
+import javax.swing.*;
+import java.awt.event.*;
 import javafx.application.*;
 import bicome.controllers.*;
 import bicome.logic.*;
@@ -33,7 +34,7 @@ public class GameManager
     * @param world the world of this game
     * @param controller the game controller of this game
     */
-   public GameManager( World world , GameController controller )
+   public GameManager( World world, GameController controller )
    {
       timePassed = 0;
       yearsPassed = 0;
@@ -41,6 +42,7 @@ public class GameManager
       durationOfTurns = 50; // in millisecond
       this.world = world;
       this.controller = controller;
+      turnTimer = new Timer( durationOfTurns, new TimeListener() );  
    }
    
    /**
@@ -48,14 +50,14 @@ public class GameManager
     * @implements ActionListener
     * @author ISMAIL ILTER SEZAN
     */
-   private class TimeListener extends TimerTask
+   private class TimeListener implements ActionListener
    {
       /**
        * This method performs the action
        */
-      public void run()
+      public void actionPerformed( ActionEvent e )
       {
-         if ( timePassed % durationOfTurns == 0 && world.nextTurn() )
+         if ( /* timePassed % UP_TIME == 0 && */ world.nextTurn() )
          {
             System.out.println("next turn");
             Platform.runLater( new Runnable() {
@@ -69,11 +71,11 @@ public class GameManager
          else
          {
             System.out.println("game is over");
-            TimeListener.this.cancel();
+            turnTimer.stop();
          }
          
          // increment time
-         timePassed = timePassed +  UP_TIME;
+         //timePassed = timePassed + UP_TIME;
       }
    }
 
@@ -95,6 +97,7 @@ public class GameManager
    public int setDurationOfTurns( int n )
    {
       durationOfTurns = n;
+      turnTimer.setDelay( durationOfTurns );
       return durationOfTurns;
    }
 
@@ -103,9 +106,7 @@ public class GameManager
     */
    public void start()
    {
-      turnTimer = new Timer();      
-
-      turnTimer.schedule( new GameManager.TimeListener(), UP_TIME, UP_TIME );
+      turnTimer.start();
    }
    
    /**
@@ -113,9 +114,7 @@ public class GameManager
     */
    public void pause()
    {
-      turnTimer.cancel();
-      ;
-      turnTimer.purge();
+      turnTimer.stop();
    }
    
    /**
