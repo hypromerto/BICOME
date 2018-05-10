@@ -70,8 +70,8 @@ public class World
      
      //If they suit the condition of being a valid neighbour, which is being in the bounds
      //of the grid, then add that tile to the initialNeighbours ArrayList.
-           if (neighbourRow >= 0 && neighbourRow <= tiles.length && neighbourCol >= 0 &&   
-             neighbourCol <= tiles.length && !(neighbourRow == row && neighbourCol == col) ) 
+           if (neighbourRow >= 0 && neighbourRow < tiles.length && neighbourCol >= 0 &&   
+             neighbourCol < tiles.length && !(neighbourRow == row && neighbourCol == col) ) 
            {
             initialNeighbours.add( tiles[neighbourRow][neighbourCol] );
            }
@@ -164,7 +164,7 @@ public class World
                          if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
                          {                                                                 //also considering the selected tiles
                             
-//                            System.out.println("Row: " + i + " Col : " + j + " Empty neighbours: " + emptyNeighbours.size());
+                              // System.out.println("Row: " + i + " Col : " + j + " Empty neighbours: " + emptyNeighbours.size());
 //                            System.out.println("Row: " + i + " Col : " + j + " Alive neighbours: " + aliveNeighbours.size());
 //                            System.out.println("Row: " + i + " Col : " + j + " Selected tiles " + selectedTiles);
 
