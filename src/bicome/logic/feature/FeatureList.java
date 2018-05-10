@@ -17,8 +17,8 @@ public class FeatureList extends AbstractList<Feature> implements RandomAccess
 {
    // properties
    private static final int INITIAL_CAPACITY = 6;
-   private static Hashtable<FeatureBase, Integer> assignedIndices;
-   private static Hashtable<Integer, FeatureBase> basesOfIndices;
+   private static Hashtable<FeatureBase, Integer> assignedIndices = new Hashtable<>( INITIAL_CAPACITY );
+   private static Hashtable<Integer, FeatureBase> basesOfIndices = new Hashtable<>( INITIAL_CAPACITY );
    private Hashtable<FeatureBase, Feature> features;
    private ArrayList<Feature> featureList;
    
@@ -28,8 +28,6 @@ public class FeatureList extends AbstractList<Feature> implements RandomAccess
     */
    public FeatureList()
    {
-      assignedIndices = new Hashtable<>( INITIAL_CAPACITY );
-      basesOfIndices = new Hashtable<>( INITIAL_CAPACITY );
       features = new Hashtable<>( INITIAL_CAPACITY );
       featureList = new ArrayList<>( INITIAL_CAPACITY );
    }
@@ -149,6 +147,11 @@ public class FeatureList extends AbstractList<Feature> implements RandomAccess
    
    public String toString()
    {
+      if ( this.isEmpty() )
+      {
+         return "[]";
+      }
+      
       StringBuffer result;
       result = new StringBuffer( "" );
       for ( int i = 0; i < this.size(); i++ )

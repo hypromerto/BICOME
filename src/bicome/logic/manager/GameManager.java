@@ -57,27 +57,28 @@ public class GameManager
        */
       public void run()
       {
-         Platform.runLater( new Runnable() {
-            public void run() {
-               //after initialising play next turn
-               if ( timePassed % durationOfTurns == 0 && world.nextTurn() )
-               {
-                  System.out.println("next turn");
-                  controller.updateGameStage( getYearsPassed());
-                  numOfTurns++;
+         if ( timePassed % durationOfTurns == 0 && world.nextTurn() )
+         {
+            System.out.println("next turn");
+            Platform.runLater( new Runnable() {
+               public void run() {
+                  //after initialising play next turn
+                  controller.updateGameStage( getYearsPassed() );
                }
-               else
-               {
-                  System.out.println("game is over");
-                  TimeListener.this.cancel();
-               }
-               
-               // increment time
-               timePassed = timePassed +  UP_TIME;
-            }
-         } );
+            } );
+            numOfTurns++;
+         }
+         else
+         {
+            System.out.println("game is over");
+            TimeListener.this.cancel();
+         }
+         
+         // increment time
+         timePassed = timePassed +  UP_TIME;
       }
    }
+
    
    /**
     * This method returns number of turns

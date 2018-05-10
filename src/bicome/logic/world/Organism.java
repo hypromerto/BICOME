@@ -101,9 +101,11 @@ public class Organism
       {
          newFeatures = new FeatureList();
          for ( int i = 0; i < features.size(); i++ )
+         {
             newFeatures.add( new Feature( FeatureList.getBase( i ), 
                                          Genotype.cross( this.getFeatures().get( i ).getGenotype(), 
                                                         other.getFeatures().get( i ).getGenotype() ) ) );
+         }
       }
       
       offspring = new Organism( newFeatures, habitat );
