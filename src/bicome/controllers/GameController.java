@@ -153,12 +153,12 @@ public class GameController implements Initializable{
         if(button.getText().equals("playing")) {
             gameManager.pause();
             button.setText("paused");
-            imageView.setImage(new Image("/Resources/Images/icon_play.png"));
+            imageView.setImage(new Image("/Resources/Images/playWhite.png"));
         }
         else {
             gameManager.start();
             button.setText("playing");
-            imageView.setImage(new Image("/Resources/Images/icon_pause.png"));
+            imageView.setImage(new Image("/Resources/Images/pauseWhite.png"));
         }
     }
 

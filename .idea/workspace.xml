@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acb29372-b15b-423b-950e-7ca3787715f8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/bicome/controllers/SelectionController.java" afterPath="$PROJECT_DIR$/src/bicome/controllers/SelectionController.java" />
-      <change beforePath="$PROJECT_DIR$/src/bicome/utils/FeaturePopulator.java" afterPath="$PROJECT_DIR$/src/bicome/utils/FeaturePopulator.java" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Views/GameStage.fxml" afterPath="$PROJECT_DIR$/src/Resources/Views/GameStage.fxml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +19,8 @@
             <file leaf-file-name="GameStage.fxml" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/Resources/Views/GameStage.fxml">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="390">
-                    <caret line="71" column="280" lean-forward="false" selection-start-line="71" selection-start-column="280" selection-end-line="71" selection-end-column="280" />
+                  <state relative-caret-position="408">
+                    <caret line="88" column="136" lean-forward="false" selection-start-line="88" selection-start-column="136" selection-end-line="88" selection-end-column="136" />
                     <folding />
                   </state>
                 </provider>
@@ -41,8 +39,8 @@
       <file leaf-file-name="SelectionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bicome/controllers/SelectionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="64" column="56" lean-forward="false" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+            <state relative-caret-position="-835">
+              <caret line="65" column="39" lean-forward="false" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,16 +53,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
               <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bicome/controllers/StartController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
-              <caret line="50" column="53" lean-forward="false" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -83,8 +71,8 @@
       <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bicome/controllers/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="160" column="21" lean-forward="false" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
+            <state relative-caret-position="342">
+              <caret line="155" column="61" lean-forward="true" selection-start-line="155" selection-start-column="61" selection-end-line="155" selection-end-column="61" />
               <folding>
                 <element signature="e#3542#3543#0" expanded="true" />
                 <element signature="e#3574#3575#0" expanded="true" />
@@ -106,8 +94,8 @@
       <file leaf-file-name="FeaturePopulator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bicome/utils/FeaturePopulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+            <state relative-caret-position="0">
+              <caret line="0" column="21" lean-forward="true" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
               <folding>
                 <element signature="e#1280#1281#0" expanded="true" />
                 <element signature="e#1324#1325#0" expanded="true" />
@@ -116,7 +104,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
@@ -129,7 +117,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bicome/logic/manager/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="509">
@@ -145,8 +133,8 @@
       <file leaf-file-name="StartStage.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Resources/Views/StartStage.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="26" column="62" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="62" />
+            <state relative-caret-position="-30">
+              <caret line="61" column="65" lean-forward="false" selection-start-line="61" selection-start-column="65" selection-end-line="61" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -202,18 +190,18 @@
         <option value="$PROJECT_DIR$/src/bicome/controllers/StartController.java" />
         <option value="$PROJECT_DIR$/src/bicome/dialogs/FeatureDialog.java" />
         <option value="$PROJECT_DIR$/src/Resources/Styles/ButtonStyle.css" />
-        <option value="$PROJECT_DIR$/src/Resources/Views/StartStage.fxml" />
         <option value="$PROJECT_DIR$/src/Resources/Styles/ListViewStyle.css" />
         <option value="$PROJECT_DIR$/src/bicome/dialogs/EnvironmentDialog.java" />
         <option value="$PROJECT_DIR$/src/Resources/Views/SelectionStage.fxml" />
         <option value="$PROJECT_DIR$/src/Resources/Views/ReflectionStage.fxml" />
         <option value="$PROJECT_DIR$/src/bicome/dialogs/PageLoadErrorDialog.java" />
-        <option value="$PROJECT_DIR$/src/Resources/Views/GameStage.fxml" />
         <option value="$PROJECT_DIR$/src/bicome/logic/manager/GameManager.java" />
-        <option value="$PROJECT_DIR$/src/bicome/controllers/GameController.java" />
         <option value="$PROJECT_DIR$/src/bicome/utils/FeaturePopulator.java" />
-        <option value="$PROJECT_DIR$/src/bicome/controllers/SelectionController.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/bicome/controllers/SelectionController.java" />
+        <option value="$PROJECT_DIR$/src/bicome/controllers/GameController.java" />
+        <option value="$PROJECT_DIR$/src/Resources/Views/StartStage.fxml" />
+        <option value="$PROJECT_DIR$/src/Resources/Views/GameStage.fxml" />
       </list>
     </option>
   </component>
@@ -790,17 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resources/Views/StartStage.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="26" column="62" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Resources/Views/ReflectionStage.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -822,54 +799,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Resources/Views/GameStage.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="71" column="280" lean-forward="false" selection-start-line="71" selection-start-column="280" selection-end-line="71" selection-end-column="280" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bicome/controllers/StartController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-135">
           <caret line="50" column="53" lean-forward="false" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bicome/logic/manager/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="115" column="23" lean-forward="false" selection-start-line="115" selection-start-column="23" selection-end-line="115" selection-end-column="23" />
-          <folding>
-            <element signature="e#2873#2874#0" expanded="true" />
-            <element signature="e#2903#2904#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bicome/controllers/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="160" column="21" lean-forward="false" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
-          <folding>
-            <element signature="e#3542#3543#0" expanded="true" />
-            <element signature="e#3574#3575#0" expanded="true" />
-            <element signature="e#3613#3614#0" expanded="true" />
-            <element signature="e#3645#3646#0" expanded="true" />
-            <element signature="e#3678#3679#0" expanded="true" />
-            <element signature="e#3713#3714#0" expanded="true" />
-            <element signature="e#6040#6041#0" expanded="true" />
-            <element signature="e#6091#6092#0" expanded="true" />
-            <element signature="e#6162#6163#0" expanded="true" />
-            <element signature="e#6222#6223#0" expanded="true" />
-            <element signature="e#6279#6280#0" expanded="true" />
-            <element signature="e#6324#6325#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -889,27 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bicome/utils/FeaturePopulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-          <folding>
-            <element signature="e#1280#1281#0" expanded="true" />
-            <element signature="e#1324#1325#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bicome/controllers/SelectionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="64" column="56" lean-forward="false" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -917,6 +830,81 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#582#583#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bicome/controllers/SelectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-835">
+          <caret line="65" column="39" lean-forward="false" selection-start-line="65" selection-start-column="39" selection-end-line="65" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bicome/controllers/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="155" column="61" lean-forward="true" selection-start-line="155" selection-start-column="61" selection-end-line="155" selection-end-column="61" />
+          <folding>
+            <element signature="e#3542#3543#0" expanded="true" />
+            <element signature="e#3574#3575#0" expanded="true" />
+            <element signature="e#3613#3614#0" expanded="true" />
+            <element signature="e#3645#3646#0" expanded="true" />
+            <element signature="e#3678#3679#0" expanded="true" />
+            <element signature="e#3713#3714#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="e#6091#6092#0" expanded="true" />
+            <element signature="e#6162#6163#0" expanded="true" />
+            <element signature="e#6222#6223#0" expanded="true" />
+            <element signature="e#6279#6280#0" expanded="true" />
+            <element signature="e#6324#6325#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources/Views/StartStage.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="61" column="65" lean-forward="false" selection-start-line="61" selection-start-column="65" selection-end-line="61" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources/Views/GameStage.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="88" column="136" lean-forward="false" selection-start-line="88" selection-start-column="136" selection-end-line="88" selection-end-column="136" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bicome/utils/FeaturePopulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="21" lean-forward="true" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+          <folding>
+            <element signature="e#1280#1281#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bicome/logic/manager/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="115" column="23" lean-forward="false" selection-start-line="115" selection-start-column="23" selection-end-line="115" selection-end-column="23" />
+          <folding>
+            <element signature="e#2873#2874#0" expanded="true" />
+            <element signature="e#2903#2904#0" expanded="true" />
           </folding>
         </state>
       </provider>

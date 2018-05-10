@@ -59,7 +59,7 @@
                        <graphic>
                            <ImageView fitHeight="30.0" fitWidth="30.0">
                                <image>
-                                   <Image url="Resources/Images/PlayWhite.png" />
+                                   <Image url="Resources/Images/playWhite.png" />
                                </image>
                            </ImageView>
                        </graphic>
