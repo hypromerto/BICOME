@@ -187,8 +187,11 @@ public class GameController implements Initializable{
         for(Node node : grid.getChildren()) {
             if(node instanceof MyNode) {
                 if(node.getBoundsInParent().contains(event.getSceneX(), event.getSceneY())) {
+                    if(node == null)
+                        return;
                     MyNode currentNode = (MyNode) node;
-
+                    animalList.getItems().clear();
+                    animalList.getItems().addAll(currentNode.getTile().getOrganism().getFeatures());
                     //Set the name of the animal and the image
                 }
             }
