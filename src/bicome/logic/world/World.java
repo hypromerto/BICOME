@@ -157,7 +157,7 @@ public class World
                   //{
                    
                    //if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
-                    if ( aliveNeighbours.size() >=  1 )
+                    if ( aliveNeighbours.size() >= 1 && aliveNeighbours.size() <= 3 )
                      {
                          //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
                          

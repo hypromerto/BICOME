@@ -68,6 +68,8 @@ public class SelectionController implements Initializable
         selectedFeaturesListView.setItems(selectedList);
         unSelectedFeaturesListView.setItems(unSelectedList);
         environment = new Environment();
+
+        FeaturePopulator.addNones(selectedList);
     }
 
     @FXML
@@ -83,7 +85,13 @@ public class SelectionController implements Initializable
         if(selectedGene.isPresent()) {
             feature = new Feature(selected, selectedGene.get());
             unSelectedList.remove(selected);
-            selectedList.add(feature);
+            for(Feature f : selectedList) {
+                if(f.getBase().equals(feature.getBase())) {
+                    selectedList.remove(f);
+                    selectedList.add(feature);
+                    break;
+                }
+            }
         }
         else {
             System.out.println("The featureBase " + selected.toString() + "couldn't add beacuse genotype haven't selected.");
@@ -96,11 +104,13 @@ public class SelectionController implements Initializable
         JFXListView<Feature> listView = (JFXListView<Feature>) event.getSource();
 
         Feature selected = listView.getSelectionModel().getSelectedItem();
-        if(selected == null) //We have clicked an empty place don't do anything
+        if(selected == null || selected.getGenotype().equals(Genotype.NONE)) //We have clicked an empty place don't do anything
             return;
         FeatureBase base = selected.getBase();
 
+        //Remove the feature and add the NONE version of it
         selectedList.remove(selected);
+        selectedList.add(new Feature(base, Genotype.NONE));
         unSelectedList.add(base);
     }
 
@@ -135,8 +145,6 @@ public class SelectionController implements Initializable
 
     @FXML
     protected void onNextAction(ActionEvent event) {
-        //Set unselected features to NONE
-        FeaturePopulator.completeFeatures(selectedList);
         FeatureList list = new FeatureList(selectedList);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/GameStage.fxml"));
