@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>Logic</name>
-			<type>2</type>
-			<location>C:/Users/aslan/OneDrive/Belgeler/Test/BICOME/src/Java/Logic</location>
-		</link>
-	</linkedResources>
 </projectDescription>

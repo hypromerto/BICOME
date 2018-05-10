@@ -11,7 +11,7 @@ import bicome.logic.feature.*;
 public class World 
 {
    private static final int    SIZE            = 30;   //Size of the simulation grid
-   private static final double REPR_THRESHOLD  = 1.3;  //Reproduction chance, DUE TO CHANGE
+   private static final double REPR_THRESHOLD  = 0;  //Reproduction chance, DUE TO CHANGE
    private static final int    TWO_NEIGHBOUR   = 2;    //Number of neighbours surrounding the center organism
    private static final int    THREE_NEIGHBOUR = 3;    //Number of neighbours surrounding the center organism
    private static final int    ROUND_LIMIT     = 30;   //The total amount of possible rounds of the game
@@ -132,7 +132,7 @@ public class World
                      int col = j + (k / 3) - 1;
                      
                      // Looking for valid neighbours, valid referring to actually being inside the boundaries of the grid
-                     if (row >= 0 && row <= tiles.length && col >= 0 && col <= tiles.length && !(row == i && col == j) )
+                     if (row >= 0 && row < tiles.length && col >= 0 && col < tiles.length && !(row == i && col == j) )
                      { 
                         totalNeighbourCell++;
                         
@@ -140,36 +140,45 @@ public class World
                         {
                            aliveNeighbours.add(  tiles[row][col] );
                         }
-                        else if ( tiles[i][j].getSelected() ) //The tiles that are due to have new organisms in them 
+                        else if ( tiles[row][col].getSelected() ) //The tiles that are due to have new organisms in them 
                         {                                     //at the end of the round
                            selectedTiles++;
                         }
                         else  //If none of the above, then it is an empty tile
                         {
                            emptyNeighbours.add( tiles[row][col] );
-                           tiles[row][col].setSelected( true );
+                          // tiles[row][col].setSelected( true );
                         }
                      }
                      
                   }
                   
-                  if ( percentage < tiles[i][j].getOrganism().getSurvivalChance() ) //Crucial decision for game rules here, might change
-                  {
+                  //if ( percentage < tiles[i][j].getOrganism().getSurvivalChance() ) //Crucial decision for game rules here, might change
+                  //{
                    
-                   if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
-                      {
+                   //if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
+                  	 if ( aliveNeighbours.size() >=  1 )
+                     {
                          //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
                          
                          if( totalNeighbourCell > aliveNeighbours.size() + selectedTiles ) //if there are spaces left for offspring
                          {                                                                 //also considering the selected tiles
                             
-                            
-                            if ( aliveNeighbours.size() == TWO_NEIGHBOUR && TWO_NEIGHBOUR * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
-                            {  
+                            System.out.println("Row: " + i + " Col : " + j + " Empty neighbours: " + emptyNeighbours.size());
+                            System.out.println("Row: " + i + " Col : " + j + " Alive neighbours: " + aliveNeighbours.size());
+                            System.out.println("Row: " + i + " Col : " + j + " Selected tiles " + selectedTiles);
+
+                            //if ( aliveNeighbours.size() == TWO_NEIGHBOUR && TWO_NEIGHBOUR * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
+                            //{  
                                int mateSelectTwo;
                                
-                               mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
-                                                          
+                               //mateSelectTwo = (int) Math.round( Math.random() ); //Choosing a partner from two alive neighbours
+                                
+                               mateSelectTwo = (int) ( Math.random() * aliveNeighbours.size() );
+                               
+                               System.out.println("Row: " + i + " Col : " + j + " Mate Location: " + "Row: " +
+                               aliveNeighbours.get( mateSelectTwo).getRow() + " Col: "  + aliveNeighbours.get( mateSelectTwo).getCol());
+
                                //if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
                                //{    
                                   Tile offspring;
@@ -177,11 +186,18 @@ public class World
                                   offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
                                   
                                   offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism( tiles[i][j].getOrganism().reproduce( aliveNeighbours.
-                                  get( mateSelectTwo ).getOrganism() ) );   
+                                  get( mateSelectTwo ).getOrganism() ) );
+                                  
+                                  System.out.println("Row: " + i + " Col : " + j + " Offspring Location: " + "Row: " +
+                                          offspring.getRow() + " Col: "  + offspring.getCol() );
+                                  
+                                  tiles[offspring.getRow()][offspring.getCol()].setSelected( true);
+                                  
+                                  System.out.println(offspringTiles[offspring.getRow()][offspring.getCol()].getOrganism());
                                   
                                //}  
                                
-                            }
+                           /* }
                             else if ( aliveNeighbours.size() == THREE_NEIGHBOUR && THREE_NEIGHBOUR * Math.random() > REPR_THRESHOLD )
                             {  
                                int mateSelectThree;
@@ -198,7 +214,7 @@ public class World
                                 get( mateSelectThree ).getOrganism() ) );    
                                 
                                //}     
-                            }
+                            } */
                             
                             
                          }
@@ -211,14 +227,14 @@ public class World
                          tiles[i][j].killOrganism();
                       }
                    
-                  }
+                  //}
                   
-                  else
-                  {
+                  //else
+                  //{
                    //die without reproducing, survival chance is not enough!
                    
-                   tiles[i][j].killOrganism();
-                  }
+                   //tiles[i][j].killOrganism();
+                 // }
                   
                   
                   
@@ -245,17 +261,40 @@ public class World
                   
                   tiles[i][j].getOrganism().age();
                                     
-                  tiles[i][j].setSelected( false ); //setting the new-borns to unselected state so that 
-                  //they will be counted as a neighbour next round
+                  
                }
                
                if ( !offspringTiles[i][j].isEmpty() )
                {
                 
+            	  // System.out.println("This is offspring tiles");
+            	   //System.out.println( offspringTiles[i][j].getOrganism());
+            	   
+            	   
                   tiles[i][j].placeOrganism(offspringTiles[i][j].getOrganism() ); //porting our offsprings back to original organisms array
                   
+                 // System.out.println();
+                  
+                  //System.out.println("Tiles after placing");
+                  //System.out.println( tiles[i][j].getOrganism());
+                 
+    
+                  
                   offspringTiles[i][j].killOrganism(); //flushing offsprings
+                  
+                  if ( !tiles[i][j].isEmpty())
+                  {
+                      System.out.println( "After porting: Row: " + tiles[i][j].getRow() + " Col: " + tiles[i][j].getCol() );
+
+                  }
+                  
+                  //System.out.println();
+                  
+                  //System.out.println( tiles[i][j].getOrganism());
                }
+               
+               tiles[i][j].setSelected( false ); //setting the new-borns to unselected state so that 
+               //they will be counted as a neighbour next round
             }
          }
          
