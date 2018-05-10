@@ -88,13 +88,19 @@ public class GameController implements Initializable{
         updateTime(0);
 
         speedSlider.valueProperty().addListener( e -> {
+           try {
             int value = (int) Math.floor((speedSlider.getValue() - 1) / 25) + 1;
             speedLabel.setText("Speed: " + value + "x");
             gameManager.setDurationOfTurns(1000 / value);
+           }
+           catch ( ArithmeticException ex )
+           {
+              speedSlider.setValue( 1 );
+              gameManager.setDurationOfTurns( 1000 );
+           }
         });
         speedSlider.setValue(25);
     }
-
 
     public static class MyNode extends Rectangle {
         private static final int SIZE = 15;
@@ -134,7 +140,7 @@ public class GameController implements Initializable{
             return tile;
         }
     }
-
+    
     @FXML
     private void goHome(ActionEvent event) {
         Scene currentScene = ((Node) event.getSource()).getScene();
