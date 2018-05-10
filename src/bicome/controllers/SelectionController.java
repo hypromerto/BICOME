@@ -47,9 +47,6 @@ public class SelectionController implements Initializable
 
     @FXML
     JFXListView<FeatureBase> unSelectedFeaturesListView;
-    
-        @FXML
-    public StackPane rootPane;
 
     @FXML
     ImageView rightWingDom, leftWingDom;
@@ -117,7 +114,7 @@ public class SelectionController implements Initializable
                 if(f.getBase().equals(feature.getBase())) {
                     selectedList.remove(f);
                     selectedList.add(feature);
-                    constructAnimal(selected,true);
+                    constructAnimal(feature,true);
                     break;
                 }
             }

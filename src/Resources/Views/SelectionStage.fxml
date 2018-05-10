@@ -60,7 +60,7 @@
                             <graphic>
                                 <ImageView fitHeight="30" fitWidth="30">
                                     <image>
-                                        <Image url="Resources/Images/backWhite.png" />
+                                        <Image url="Resources/Images/forwardButton.png" />
                                     </image>
                                 </ImageView>
                             </graphic>
