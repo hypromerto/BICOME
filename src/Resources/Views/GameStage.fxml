@@ -69,7 +69,7 @@
                         </center>
                         <bottom>
                             <VBox>
-                                <JFXButton fx:id="pauseButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#pauseGame" prefHeight="35.0" prefWidth="37.0" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text=".">
+                                <JFXButton fx:id="pauseButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#pauseAndPlayGame" prefHeight="35.0" prefWidth="37.0" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="playing">
                                     <graphic>
                                         <ImageView fx:id="pauseicon" fitHeight="36" fitWidth="36" pickOnBounds="true" preserveRatio="true">
                                             <image>

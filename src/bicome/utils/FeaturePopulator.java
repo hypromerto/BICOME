@@ -57,6 +57,7 @@ public class FeaturePopulator
      * Completes a list of features with appropriate NONE-genotyped features.
      * @param list list to be completed
      */
+    @Deprecated
     public static void completeFeatures(List<Feature> list)
     {
         if(list == null)

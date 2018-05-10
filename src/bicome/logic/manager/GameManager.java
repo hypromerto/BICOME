@@ -53,7 +53,6 @@ public class GameManager
    {
       /**
        * This method performs the action
-       * @param e the event that triggers this timer
        */
       public void run()
       {
@@ -106,7 +105,6 @@ public class GameManager
    public void start()
    {
       // If it doesn't work, delete this guy at line 108 first before trying anything else
-      turnTimer.purge();  
       turnTimer.schedule( new GameManager.TimeListener(), UP_TIME, UP_TIME );
    }
    
@@ -115,7 +113,7 @@ public class GameManager
     */
    public void pause()
    {
-      turnTimer.cancel();
+      turnTimer.purge();
    }
    
    /**

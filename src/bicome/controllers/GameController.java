@@ -22,6 +22,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -146,8 +147,19 @@ public class GameController implements Initializable{
     }
 
     @FXML
-    private void pauseGame(ActionEvent event){
-        gameManager.pause();
+    private void pauseAndPlayGame(ActionEvent event){
+        Button button = (Button) event.getSource();
+        ImageView imageView = (ImageView) button.getGraphic();
+        if(button.getText().equals("playing")) {
+            gameManager.pause();
+            button.setText("paused");
+            imageView.setImage(new Image("/Resources/Images/icon_play.png"));
+        }
+        else {
+            gameManager.start();
+            button.setText("playing");
+            imageView.setImage(new Image("/Resources/Images/icon_pause.png"));
+        }
     }
 
     private void setAnimalList(Tile tile){

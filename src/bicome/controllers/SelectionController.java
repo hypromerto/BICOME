@@ -106,7 +106,7 @@ public class SelectionController implements Initializable
             return;
         FeatureBase base = selected.getBase();
 
-        //Remove the feature and add the NONE version of it
+        //Remove the feature and add the NONE version of it0
         selectedList.remove(selected);
         selectedList.add(new Feature(base, Genotype.NONE));
         unSelectedList.add(base);
