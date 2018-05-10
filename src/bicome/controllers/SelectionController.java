@@ -10,7 +10,6 @@ import bicome.logic.feature.Feature;
 import bicome.logic.feature.FeatureBase;
 import bicome.logic.feature.FeatureList;
 import bicome.logic.genotype.Genotype;
-import bicome.logic.world.World;
 import bicome.utils.FeaturePopulator;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
@@ -30,8 +29,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import javax.swing.text.View;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -47,9 +44,6 @@ public class SelectionController implements Initializable
 
     @FXML
     JFXListView<FeatureBase> unSelectedFeaturesListView;
-    
-//    @FXML
-//    public StackPane rootPane;
 
     @FXML
     ImageView rightWingDom, leftWingDom;
