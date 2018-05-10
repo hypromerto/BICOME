@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -28,23 +29,24 @@ public class EnvironmentDialog extends JFXDialog
 
     private JFXDialogLayout getLayout()
     {
-        JFXButton ok = new JFXButton("OK"){{
-            setStyle("-fx-background-radius: 25; -fx-background-color: TODO");
-            setWidth(150);
-            setHeight(50);
-            setTextAlignment(TextAlignment.CENTER);
-            setOnAction( event -> close() );
-        }};
+        ImageView imageView = new ImageView(/*This will return the image of the Environment*/);
+        Label envNameLabel = new Label(environment.toString());
+        Label envConditionsLabel = new Label(environment.getConditionsForGUI());
         JFXDialogLayout layout = new JFXDialogLayout(){{
-
            setBody(
-                   new VBox(new ImageView(/*This will return the image of the Environment*/),
-                            new Label(environment.toString()),
-                            new Label(environment.getConditions()))
+                   new VBox(imageView,
+                            envNameLabel,
+                            envConditionsLabel) {{
+                                //Set margin of the dialog
+                                for(Node node : this.getChildren()) {
+                                    setMargin(node, defaultInsets);
+                                }
+                   }}
            );
-           setActions(ok);
         }};
 
         return layout;
     }
+
+    private static final Insets defaultInsets = new Insets(10);
 }

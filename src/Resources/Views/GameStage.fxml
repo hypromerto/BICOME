@@ -65,7 +65,7 @@
                             </Label>
                         </top>
                         <center>
-                            <JFXListView fx:id="environmentList" layoutX="2.0" layoutY="60.0" prefHeight="Infinity" prefWidth="120.0" showTooltip="true" />
+                            <Label fx:id="environmentConditionsLabel" prefWidth="150" prefHeight="Infinity" />
                         </center>
                         <bottom>
                             <VBox>

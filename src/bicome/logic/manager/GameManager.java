@@ -17,7 +17,7 @@ public class GameManager
 {
    
    //properties
-   private final int UP_TIME = 10;
+   private final int UP_TIME = 1000;
    private Timer turnTimer;
    private int durationOfTurns;
    private int timePassed;
@@ -62,8 +62,13 @@ public class GameManager
                //after initialising play next turn
                if ( timePassed % durationOfTurns == 0 && world.nextTurn() )
                {
+                  System.out.println("next turn");
                   controller.updateGameStage( getYearsPassed());
                   numOfTurns++;
+               }
+               else
+               {
+                  System.out.println("game is over");
                }
                
                // increment time

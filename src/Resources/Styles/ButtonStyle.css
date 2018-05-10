@@ -1,3 +1,5 @@
-    -fx-background-color: #4caf50;
+.button-raised {
     -fx-background-radius: 25;
-    -fx-focus-color: transparent;     /*To get rid of auto focus color*/
+    -fx-background-color: #4caf50;
+    -fx-text-fill: #E8F5E9;
+}
