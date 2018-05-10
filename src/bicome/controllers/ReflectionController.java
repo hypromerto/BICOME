@@ -1,12 +1,21 @@
 package bicome.controllers;
 
+import bicome.logic.environment.Environment;
+import bicome.logic.manager.GameManager;
+import bicome.logic.world.Organism;
 import com.jfoenix.controls.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
+
+import java.io.IOException;
 import java.util.ResourceBundle;
 import javafx.scene.image.Image;
 import javafx.collections.FXCollections;
@@ -18,113 +27,91 @@ import javafx.scene.image.ImageView;
 import com.jfoenix.controls.*;
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 
 
-public class ReflectionController { //implements Initializable {
+public class ReflectionController
+{ //implements Initializable {
 
     @FXML
-    private AnchorPane anchorPane;
+    private Label animalNameLabel;
+
     @FXML
-    private JFXButton saveButton;
+    private Label timeLabel;
+
     @FXML
-    private JFXButton replayButton;
+    private Label survivalRateLabel;
+
     @FXML
-    private Label animalName;
+    private Label environmentNameLabel;
+
     @FXML
-    private Label environmentName;
+    private Label environmentConditionsLabel;
+
     @FXML
-    private Label timeData;
+    private JFXListView firstAnimalListView;
+
     @FXML
-    private Label survivalRateData;
-    @FXML
-    private Label speedOfAnimal;
-    @FXML
-    private Label strengthOfAnimal;
-    @FXML
-    private Label wingOfAnimal;
-    @FXML
-    private Label speedOfFit;
-    @FXML
-    private Label strengthOfFit;
-    @FXML
-    private Label wingOfFit;
-    @FXML
-    private Label winLose;
-    @FXML
-    private JFXListView<String> listOfEnvironment;
-    @FXML
-    private JFXListView<String> listOfAnimal;
-    @FXML
-    private JFXListView<String> listOfFit;
-    @FXML
-    private ImageView animalPic;
-    @FXML
-    private ImageView environmentPic;
+    private JFXListView avarageAnimalListView;
+
+    private Environment environment;
+    private Organism firstOrganism;
+    private Organism avarageOrganism;
+    private GameManager gameManager;
 
 
-    //@Override
-    public void initialize(ResourceBundle resources) { //URL Location,
-
+    public void init() //Don't call this before all privates are setted
+    {
+        //animalNameLabel.setText(firstOrganism.getName());
+        timeLabel.setText("" + gameManager.getYearsPassed());
+        //survivalRateLabel("" + gameManager.getWorld().getSurvivalRate());
+        environmentNameLabel.setText(gameManager.getWorld().getEnvironment().toString());
+        environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
+        firstAnimalListView.getItems().setAll(firstOrganism.getFeatures());
+        avarageAnimalListView.getItems().setAll(avarageOrganism.getFeatures());
     }
 
     @FXML
-    void saveAction (ActionEvent event){
-    //saves game
+    protected void onReplayAction(ActionEvent event)
+    {
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Resources/Views/StartStage.fxml"));
+            currentStage.setScene(new Scene(root, currentScene.getWidth(), currentScene.getHeight()));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     @FXML
-    void replayAction (ActionEvent event){
-    //directs to the selection stage
+    protected void onSaveAction(ActionEvent event)
+    {
+        //To Do: add to the history
     }
 
-    @FXML
-    void insertAnimalPic( Image image) {
-        animalPic.setImage(image);
+    public void setValues(Environment environment, Organism firstOrganism, Organism avarageOrganism, GameManager manager)
+    {
+        setEnvironment(environment);
+        setFirstOrganism(firstOrganism);
+        setAvarageOrganism(avarageOrganism);
+        setGameManager(manager);
     }
 
-    @FXML
-    void insertEnvironmentPic( Image image){
-        environmentPic.setImage( image);
+    public void setGameManager(GameManager gameManager) {
+        this.gameManager = gameManager;
     }
 
-    @FXML
-    void updateListOfAnimal( double speed, double strength, boolean wing){
-        speedOfAnimal.setText( "" + speed);
-        strengthOfAnimal.setText( "" + strength);
-        wingOfAnimal.setText( "" + wing);
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
     }
 
-
-    @FXML
-    void updateListOfFit( double speed, double strength, boolean wing){
-        speedOfFit.setText( "" + speed);
-        strengthOfFit.setText( "" + strength);
-        wingOfFit.setText( "" + wing);
+    public void setFirstOrganism(Organism firstOrganism) {
+        this.firstOrganism = firstOrganism;
     }
 
-    @FXML
-    void updateGameData( double time, double survivalRate, boolean win){
-        timeData.setText( "" + time);
-        survivalRateData.setText( "" + survivalRate);
-        if (win)
-            winLose.setText( "You Win!");
-        else
-            winLose.setText( "You Lose!");
-    }
-
-    @FXML
-    void updateListOfEnvironment( ObservableList<String> property){
-        //property =FXCollections.observableArrayList;
-        listOfEnvironment.setItems( property);
-    }
-
-    @FXML
-    void updateListOfAnimal(ObservableList<String> features){
-        listOfAnimal.setItems( features);
-    }
-
-    @FXML
-    void updateListOfFit( ObservableList<String> features){
-        listOfFit.setItems( features);
+    public void setAvarageOrganism(Organism avarageOrganism) {
+        this.avarageOrganism = avarageOrganism;
     }
 }
