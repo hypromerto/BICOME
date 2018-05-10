@@ -86,7 +86,7 @@ public class SelectionController implements Initializable
             selectedList.add(feature);
         }
         else {
-            System.out.println("The featureBase " + selected.toString() + "counldn't add beacuse genotype haven't selected.");
+            System.out.println("The featureBase " + selected.toString() + "couldn't add beacuse genotype haven't selected.");
         }
     }
 

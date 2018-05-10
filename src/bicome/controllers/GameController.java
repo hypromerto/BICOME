@@ -97,8 +97,8 @@ public class GameController implements Initializable{
 
         public MyNode( Tile tile, int x, int y) {
             super( SIZE, SIZE);
-            if(!tile.getColor().toString().contains("0x00000000") )
-                System.out.println(tile.getColor().toString());
+//            if(!tile.getColor().toString().contains("0x00000000") )
+//                System.out.println(tile.getColor().toString());
             setFill(tile.getColor());
             this.tile = tile;
             this.x = x;
