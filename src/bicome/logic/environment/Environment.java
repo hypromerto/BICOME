@@ -148,6 +148,15 @@ public class Environment
          return new Image ("Resources/Images/rainforest.jpg");
       else if ( this.name.equals("Continental Environment ") || this.name.equals("Continental and Scarce Environment "))
          return new Image ("Resources/Images/continental.jpg");
+
+      else if ( this.name.equals("Unsafe Windy Environment ") || this.name.equals("Unsafe Windy and Scarce Environment "))
+         return new Image ("Resources/Images/windy&predator.jpg");
+      else if ( this.name.equals("Unsafe Environment ") || this.name.equals("Unsafe and Scarce Environment "))
+         return new Image ("Resources/Images/predator.jpg");
+      else if ( this.name.equals("Windy Environment ") || this.name.equals("Windy and Scarce Environment "))
+         return new Image ("Resources/Images/windy.jpg");
+      else if ( this.name.equals("Environment ") || this.name.equals("and Scarce Environment "))
+         return new Image ("Resources/Images/plain.jpg");
       throw new AssertionError();
    }
    
