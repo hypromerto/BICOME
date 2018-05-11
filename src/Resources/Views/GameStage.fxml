@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXSlider?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -17,11 +18,10 @@
 
 <BorderPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bicome.controllers.GameController">
             <left>
-                <BorderPane fx:id="animalV" prefHeight="Infinity" prefWidth="120" BorderPane.alignment="CENTER">
+                <BorderPane fx:id="animalV" prefHeight="Infinity" prefWidth="120" style="-fx-background-color: #43A047" BorderPane.alignment="CENTER">
                     <top>
                         <VBox>
-                            <ImageView fx:id="animalPicture" fitHeight="120" fitWidth="120" />
-                            <Label fx:id="animalName" text="Animal  Name">
+                            <Label fx:id="animalName" text="Animal">
                                 <font>
                                     <Font name="Segoe UI Black" size="16.0" />
                                 </font>
@@ -29,7 +29,7 @@
                         </VBox>
                     </top>
                     <center>
-                        <JFXListView fx:id="animalList" prefHeight="Infinity" prefWidth="120" />
+                        <JFXListView fx:id="animalList" prefHeight="Infinity" prefWidth="120" stylesheets="@../Styles/ListViewStyle.css" />
                     </center>
                     <bottom>
                         <VBox alignment="CENTER">
@@ -47,26 +47,22 @@
                             </JFXButton>
                         </VBox>
                     </bottom>
-                    <BorderPane.margin>
-                        <Insets bottom="5" left="5" right="5" top="5" />
-                    </BorderPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
                 </BorderPane>
             </left>
             <right>
-                    <BorderPane prefHeight="Infinity" prefWidth="120">
+                    <BorderPane prefHeight="Infinity" prefWidth="175" style="-fx-background-color: #43A047">
                         <top>
-                            <Label fx:id="environmentName" prefHeight="54.0" prefWidth="122.0" text=" Environment Name" textAlignment="CENTER">
+                            <Label fx:id="environmentName" text=" Environment Name">
                                 <font>
                                     <Font name="Segoe UI Black" size="12.0" />
                                 </font>
                             </Label>
                         </top>
                         <center>
-                            <Label fx:id="environmentConditionsLabel" prefHeight="129.0" prefWidth="99.0">
-               <graphic>
-                  <ImageView fx:id="environmentImage" fitHeight="129.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-
+                            <Label fx:id="environmentConditionsLabel" prefHeight="150.0" prefWidth="150" wrapText="true">
                             </Label>
                         </center>
                         <bottom>
@@ -87,13 +83,16 @@
                                     <font>
                                         <Font name="Segoe UI Black" size="12.0" />
                                     </font>
+                                    <VBox.margin>
+                                        <Insets topRightBottomLeft="5" />
+                                    </VBox.margin>
                                 </Label>
                                 <JFXSlider fx:id="speedSlider" orientation="HORIZONTAL" prefHeight="40" prefWidth="Infinity" value="25" />
                             </VBox>
                         </bottom>
-                     <BorderPane.margin>
-                        <Insets right="5.0" />
-                     </BorderPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
                 </BorderPane>
             </right>
             <center>
@@ -163,12 +162,12 @@
                             <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                         <HBox.margin>
-                            <Insets bottom="5" left="5" right="5" top="5" />
+                            <Insets bottom="5" left="10" right="10" top="5" />
                         </HBox.margin>
                     </GridPane>
             </center>
             <bottom>
-                <HBox alignment="CENTER">
+                <HBox alignment="CENTER" style="-fx-background-color: #43A047">
                     <Label fx:id="timeData" text="time data">
                         <font>
                             <Font name="Segoe UI Black" size="13.0" />
@@ -199,6 +198,9 @@
                             <Insets bottom="5" left="10.0" right="10.0" top="5" />
                         </HBox.margin>
                     </Label>
+         <effect>
+            <DropShadow />
+         </effect>
                 </HBox>
             </bottom>
         </BorderPane>

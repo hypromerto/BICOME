@@ -14,8 +14,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("./Resources/Views/StartStage.fxml"));
         primaryStage.setTitle("B.I.C.O.M.E");
         primaryStage.setScene(new Scene(root, 800, 600));
-        primaryStage.setMinHeight(600);
-        primaryStage.setMinWidth(800);
+        primaryStage.setMinHeight(750);
+        primaryStage.setMinWidth(1000);
 
         primaryStage.setOnCloseRequest(e -> {
             Optional<ButtonType> result = new ExitDialog().showAndWait();

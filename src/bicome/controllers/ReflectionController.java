@@ -72,7 +72,7 @@ public class ReflectionController
     private JFXListView avarageAnimalListView;
 
     @FXML
-    private ImageView animalImage;
+    private Label winLoseLabel;
 
 
     private GameManager gameManager;
@@ -85,9 +85,11 @@ public class ReflectionController
         environmentNameLabel.setText(gameManager.getWorld().getEnvironment().toString());
         environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
         firstAnimalListView.getItems().setAll(gameManager.getWorld().getFirstOrganism().getFeatures());
+        avarageAnimalListView.getItems().setAll(gameManager.getWorld().getSampleOrganism());
         //avarageAnimalListView.getItems().setAll(gameManager.getAverageOrganism().getFeatures());
         enviroImage.setImage( gameManager.getWorld().getEnvironment().getImage());
         //animalImage.setImage( new Image("Resources/Images/AnimalPicture"));
+        winLoseLabel.setText(gameManager.gameIsWon() ? "You Win!" : "You Lose!");
     }
 
     @FXML

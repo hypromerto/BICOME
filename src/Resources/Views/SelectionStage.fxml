@@ -88,7 +88,7 @@
                 </BorderPane>
             </bottom>
          <center>
-            <AnchorPane fx:id="anchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="anchor" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="200.0" layoutY="165.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                   <ImageView fx:id="leftWingDom" fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" visible="false">

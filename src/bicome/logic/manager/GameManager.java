@@ -76,7 +76,7 @@ public class GameManager
          {
 //            System.out.println("game is over");
             turnTimer.stop();
-            hasWon = ( world.getSampleOrganism() == null );
+            hasWon = ( world.getSampleOrganism() != null );
             //inform controller the game is over.
             Platform.runLater( new Runnable() {
                public void run() {

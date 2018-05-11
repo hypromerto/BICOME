@@ -222,6 +222,8 @@ public class GameController implements Initializable{
     public void init()
     {
         environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
+        environmentName.setText(gameManager.getWorld().getEnvironment().toString());
+        System.out.println(gameManager.getWorld().getEnvironment().getConditionsForGUI());
         //Initialize the game grid
 
         gameManager.start();
