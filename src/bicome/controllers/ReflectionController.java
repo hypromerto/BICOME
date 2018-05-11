@@ -80,7 +80,7 @@ public class ReflectionController
     public void init() //Don't call this before all privates are set
     {
         animalNameLabel.setText(gameManager.getWorld().getFirstOrganism().toString());
-        timeLabel.setText("" + gameManager.getYearsPassed());
+        timeLabel.setText(gameManager.getYearsPassed() + " years");
         //survivalRateLabel("" + gameManager.getWorld().getSurvivalRate());
         environmentNameLabel.setText(gameManager.getWorld().getEnvironment().toString());
         environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
@@ -90,6 +90,7 @@ public class ReflectionController
         enviroImage.setImage( gameManager.getWorld().getEnvironment().getImage());
         //animalImage.setImage( new Image("Resources/Images/AnimalPicture"));
         winLoseLabel.setText(gameManager.gameIsWon() ? "You Win!" : "You Lose!");
+        survivalRateLabel.setText("Survival rate: " + gameManager.getWorld().getFinalSurvivalRate());
     }
 
     @FXML
