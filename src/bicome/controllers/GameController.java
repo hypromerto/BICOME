@@ -256,11 +256,15 @@ public class GameController implements Initializable{
 
     public void finishGame()
     {
+        Scene currentScene = anchorPane.getScene();
+        Stage currentStage = (Stage) currentScene.getWindow();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
-            loader.setController(new ReflectionController( gameManager));
-            AnchorPane rootPane = loader.load();
-            PageNavigator.navigate(anchorPane, rootPane);
+            ReflectionController controller = loader.getController();
+            AnchorPane root = loader.load();
+            controller.setGameManager(gameManager);
+            controller.init();
+            currentStage.setScene(new Scene(root, currentScene.getWidth(), currentScene.getHeight()));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,9 +1,12 @@
 package bicome.controllers;
 
+import bicome.animations.ScaleValue;
+import bicome.animations.ViewAnimations;
 import bicome.logic.environment.Environment;
 import bicome.logic.manager.GameManager;
 import bicome.logic.world.Organism;
 import com.jfoenix.controls.*;
+import javafx.animation.ScaleTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +14,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Control;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.scene.image.Image;
 import javafx.collections.FXCollections;
@@ -32,6 +37,8 @@ import javafx.stage.Stage;
 
 public class ReflectionController
 {
+    @FXML
+    private Label anchorPane;
 
     @FXML
     private Label animalNameLabel;
@@ -49,20 +56,18 @@ public class ReflectionController
     private Label environmentConditionsLabel;
 
     @FXML
+    private JFXButton saveButton;
+
+    @FXML
+    private JFXButton replayButton;
+
+    @FXML
     private JFXListView firstAnimalListView;
 
     @FXML
     private JFXListView avarageAnimalListView;
 
     private GameManager gameManager;
-
-    public ReflectionController( GameManager manager)
-    {
-        gameManager = manager;
-        
-        init();
-    }
-
 
     public void init() //Don't call this before all privates are set
     {
@@ -90,8 +95,24 @@ public class ReflectionController
     }
 
     @FXML
+    protected void onMouseEntered(MouseEvent event)
+    {
+        ViewAnimations.scaleControl((Control) event.getSource(), ScaleValue.BIGGER);
+    }
+
+    @FXML
+    protected void onMouseExited(MouseEvent event)
+    {
+        ViewAnimations.scaleControl((Control) event.getSource(), ScaleValue.MEDIUM);
+    }
+
+    @FXML
     protected void onSaveAction(ActionEvent event)
     {
         //To Do: add to the history
+    }
+
+    public void setGameManager(GameManager gameManager) {
+        this.gameManager = gameManager;
     }
 }

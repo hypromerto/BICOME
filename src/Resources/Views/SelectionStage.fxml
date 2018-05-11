@@ -109,7 +109,7 @@
                         <Image url="@../Images/legs_recessive.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="legsDom" fitHeight="81.0" fitWidth="150.0" layoutX="252.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="legsDom" fitHeight="172" fitWidth="150.0" layoutX="252.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@../Images/legs_dominant.png" />
                      </image>
