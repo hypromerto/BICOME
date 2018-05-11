@@ -23,7 +23,7 @@ public class World
    private int         round;             //Round count of the game
    private Organism    firstOrganism;     //One of the first Organisms that were brought into this world
    private double      finalSurvivalRate; //The average final survival chance of the last organisms
-   private Organism    averageOrganism;   //An average organism that is a general sample of the final organisms
+   private Organism    sampleOrganism;   //An average organism that is a general sample of the final organisms
    
    public World(FeatureList features, Environment environment)
    {
@@ -41,7 +41,7 @@ public class World
          }
          
       }
-      
+      finalSurvivalRate = 0;
       placeInitialOrganisms( features );
       firstOrganism = new Organism( features, environment );
    }
@@ -320,7 +320,10 @@ public class World
          return true;
       }
       else
-       return false;
+      {
+         setSampleOrganismAndSurvivalRate();
+         return false;
+      }
    }
    
    /**
@@ -391,5 +394,51 @@ public class World
    public Organism getFirstOrganism()
    {
       return firstOrganism;
+   }
+   
+   /**
+    * Self-explanatory.
+    */
+   private void setSampleOrganismAndSurvivalRate()
+   {
+      boolean foundSample = false;
+      double survivalSum = 0.0;
+      int organismCount = 0;
+      for ( int i = 0; i < tiles.length; i++ )
+      {
+         for ( int j = 0; j < tiles[ i ].length; j++ )
+         {
+            if ( !tiles[i][j].isEmpty() )
+            {
+               if ( !foundSample )
+               {
+                  sampleOrganism = tiles[i][j].getOrganism();
+                  foundSample = true;
+               }
+               survivalSum += tiles[i][j].getOrganism().getSurvivalChance();
+               organismCount++;
+            }
+         }
+      }
+      if ( !foundSample )
+         sampleOrganism = null;
+      else
+      {
+         finalSurvivalRate = survivalSum / organismCount;
+      }
+   }
+   
+   /**
+    * Gets a sample organism from the final state of the world's grid.
+    * @return a sample organism from the final state of the world's grid.
+    */
+   public Organism getSampleOrganism()
+   {
+      return sampleOrganism;
+   }
+   
+   public double getFinalSurvivalRate()
+   {
+      return finalSurvivalRate;
    }
 }
