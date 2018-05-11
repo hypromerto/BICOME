@@ -58,7 +58,7 @@
                   </center>
                   <bottom>
                      <HBox alignment="CENTER">
-                        <JFXButton id="saveButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#saveAction" prefHeight="50" prefWidth="50" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="Button">
+                        <JFXButton id="saveButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onSaveAction" prefHeight="50" prefWidth="50" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="Button">
                            <graphic>
                               <ImageView fitHeight="36" fitWidth="36">
                                  <image>
@@ -69,7 +69,7 @@
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                            </HBox.margin></JFXButton>
-                        <JFXButton id="replayButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#replayAction" prefHeight="50" prefWidth="50" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="Replay">
+                        <JFXButton id="replayButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onReplayAction" prefHeight="50" prefWidth="50" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="Replay">
                            <graphic>
                               <ImageView fitHeight="36" fitWidth="36">
                                  <image>

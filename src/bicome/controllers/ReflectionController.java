@@ -60,7 +60,7 @@ public class ReflectionController
     private GameManager gameManager;
 
 
-    public void init() //Don't call this before all privates are setted
+    public void init() //Don't call this before all privates are set
     {
         //animalNameLabel.setText(firstOrganism.getName());
         timeLabel.setText("" + gameManager.getYearsPassed());

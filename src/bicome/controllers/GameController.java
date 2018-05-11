@@ -96,7 +96,7 @@ public class GameController implements Initializable{
            catch ( ArithmeticException ex )
            {
               speedSlider.setValue( 1 );
-              gameManager.setDurationOfTurns( 1000 );
+              gameManager.setDurationOfTurns( GameManager.INITIAL_DURATION_OF_TURNS );
            }
         });
         speedSlider.setValue(25);
@@ -259,8 +259,13 @@ public class GameController implements Initializable{
 
     public void finishGame()
     {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml" ) );
         try {
-            Parent next = FXMLLoader.load(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
+            Parent next = loader.load();
+//            ReflectionController controller = loader.getController();
+//            controller.setValues( gameManager.getWorld().getEnvironment(), gameManager.getWorld().getFirstOrganism(), null, gameManager );
+//            controller.init();
+//            currentStage.setScene( new Scene(next,  currentScene.getWidth(), currentScene.getHeight()) );
         } catch (IOException e) {
             e.printStackTrace();
         }

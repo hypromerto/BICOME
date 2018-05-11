@@ -21,6 +21,7 @@ public class World
    private Tile[][]    offspringTiles; //The multi-array that is used to hold the new-borns
    private Environment environment;    //The environment of the world
    private int         round;          //Round count of the game
+   private Organism    firstOrganism;  //One of the first Organisms that were brought into this world
    
    public World(FeatureList features, Environment environment)
    {
@@ -40,6 +41,7 @@ public class World
       }
       
       placeInitialOrganisms( features );
+      firstOrganism = new Organism( features, environment );
    }
    
    /**
@@ -355,17 +357,34 @@ public class World
    /**
     * Gets the environment of the world
     * 
-    * @return  environment    the environment of the world
+    * @return the environment of the world
     */
    public Environment getEnvironment()
    {
       return environment;
    }
    
+   /**
+    * Gets the current round number
+    * @return the current turn number
+    */
    public int getRound()
    {
     return round;
    }
 
+   /**
+    * Gets the size of the grid of the game
+    * @return the size of the grid of the game
+    */
    public int getSize() { return SIZE; }
+   
+   /**
+    * Gets a copy of the first Organisms that were brought into this world
+    * @return a copy of the first Organisms that were brought into this world
+    */
+   public Organism getFirstOrganism()
+   {
+      return firstOrganism;
+   }
 }
