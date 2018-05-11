@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.layout.Pane?>
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bicome.controllers.GameController">
+<BorderPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bicome.controllers.GameController">
             <left>
                 <BorderPane fx:id="animalV" prefHeight="Infinity" prefWidth="120" BorderPane.alignment="CENTER">
                     <top>

@@ -27,6 +27,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -43,7 +44,7 @@ public class GameController implements Initializable{
 
 
     @FXML
-    private AnchorPane anchorPane;
+    private BorderPane rootPane;
     @FXML
     private ImageView imageOfAnimal;
     @FXML
@@ -256,12 +257,12 @@ public class GameController implements Initializable{
 
     public void finishGame()
     {
-        Scene currentScene = anchorPane.getScene();
+        Scene currentScene = rootPane.getScene();
         Stage currentStage = (Stage) currentScene.getWindow();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
-            ReflectionController controller = loader.getController();
             AnchorPane root = loader.load();
+            ReflectionController controller = loader.getController();
             controller.setGameManager(gameManager);
             controller.init();
             currentStage.setScene(new Scene(root, currentScene.getWidth(), currentScene.getHeight()));
