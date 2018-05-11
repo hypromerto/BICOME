@@ -106,12 +106,12 @@
                   </ImageView>
                   <ImageView fx:id="legsRec" fitHeight="172.0" fitWidth="113.0" layoutX="244.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
-                        <Image url="@../Images/legs_dominant.png" />
+                        <Image url="@../Images/legs_recessive.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="legsDom" fitHeight="81.0" fitWidth="150.0" layoutX="252.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
-                        <Image url="@../Images/legs_recessive.png" />
+                        <Image url="@../Images/legs_dominant.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="leftMuscleDom" fitHeight="150.0" fitWidth="200.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true" visible="false">
@@ -161,12 +161,12 @@
                   </ImageView>
                   <ImageView fx:id="humpDom" fitHeight="174.0" fitWidth="223.0" layoutX="181.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
-                        <Image url="@../Images/hump_recessive.png" />
+                        <Image url="@../Images/hump_dominant.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="humpRec" fitHeight="150.0" fitWidth="200.0" layoutX="177.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
-                        <Image url="@../Images/hump_dominant.png" />
+                        <Image url="@../Images/hump_recessive.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="furDom" fitHeight="150.0" fitWidth="200.0" layoutX="275.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" visible="false">

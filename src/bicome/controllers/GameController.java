@@ -1,24 +1,22 @@
 package bicome.controllers;
 
 import bicome.logic.environment.Environment;
-import bicome.logic.environment.EnvironmentalCondition;
 import bicome.logic.feature.Feature;
 import bicome.logic.feature.FeatureList;
 import bicome.logic.manager.GameManager;
 import bicome.logic.world.Organism;
 import bicome.logic.world.Tile;
 import bicome.logic.world.World;
+import bicome.utils.PageNavigator;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
-import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,7 +27,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -259,13 +256,11 @@ public class GameController implements Initializable{
 
     public void finishGame()
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml" ) );
         try {
-            Parent next = loader.load();
-//            ReflectionController controller = loader.getController();
-//            controller.setValues( gameManager.getWorld().getEnvironment(), gameManager.getWorld().getFirstOrganism(), null, gameManager );
-//            controller.init();
-//            currentStage.setScene( new Scene(next,  currentScene.getWidth(), currentScene.getHeight()) );
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
+            loader.setController(new ReflectionController( gameManager));
+            AnchorPane rootPane = loader.load();
+            PageNavigator.navigate(anchorPane, rootPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
