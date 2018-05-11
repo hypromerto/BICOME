@@ -440,4 +440,8 @@ public class World
    {
       return finalSurvivalRate;
    }
+
+   public static int getSIZE() {
+      return SIZE;
+   }
 }

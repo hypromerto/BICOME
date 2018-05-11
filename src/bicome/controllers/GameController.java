@@ -116,41 +116,16 @@ public class GameController implements Initializable{
            }
         });
         speedSlider.setValue(25);
-
     }
 
     public static class MyNode extends Rectangle {
-        private static final int SIZE = 15;
-        private final int x, y;
+        //private static final int SIZE = 15;
         private final Tile tile;
 
-        public MyNode( Tile tile, int x, int y) {
-            super( SIZE, SIZE);
-//            if(!tile.getColor().toString().contains("0x00000000") )
-//                System.out.println(tile.getColor().toString());
+        public MyNode(Tile tile, double w, double h) {
+            super(w, h);
             setFill(tile.getColor());
             this.tile = tile;
-            this.x = x;
-            this.y = y;
-
-            /*try {
-                //Set the background color of the button
-                setStyle("-fx-background-color: #" + tile.getColor().toString().substring(2, 8));
-            }
-            catch (NullPointerException e) {
-                System.out.println("color is null");
-                setStyle("-fx-background-color: #ffffff");
-            }*/
-        }
-
-        public int getRow()
-        {
-            return x;
-        }
-
-        public int getCol()
-        {
-            return y;
         }
 
         public Tile getTile() {
@@ -240,37 +215,20 @@ public class GameController implements Initializable{
         updateTime(time);
         //updateSurvivalRate(rateOfSurvival);
 
-        World world = gameManager.getWorld();
-        Tile[][] tiles = world.getGrid();
-
-        /*for(Tile[] arr : tiles) {
-            for(Tile tile : arr) {
-                System.out.print(tile.getOrganism() != null ? 1 : 0);
-            }
-            System.out.println();
-        } */ //Test for tiles
-
-        grid.getChildren().retainAll(grid.getChildren().get(0)); //retainAll is for the grid lines
-        for(int i = 0; i < 30; ++i) {
-            for(int j = 0; j  < 30; ++j) {
-                MyNode node = new MyNode(tiles[i][j], i, j);
-                grid.add(node , j, i);
-            }
-        }
+        drawGrid();
     }
 
     public void init()
     {
         environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
         //Initialize the game grid
-        Tile[][] tiles = gameManager.getWorld().getGrid();
-        for(int i = 0; i < 30; ++i) {
-            for(int j = 0; j  < 30; ++j) {
-                grid.add(new MyNode(tiles[i][j], i, j), j, i);
-            }
-        }
 
         gameManager.start();
+        drawGrid();
+
+
+        rootPane.widthProperty().addListener(observable -> drawGrid());
+        rootPane.heightProperty().addListener(observable -> drawGrid());
     }
 
     public void setManager(Environment env, FeatureList list)
@@ -300,5 +258,28 @@ public class GameController implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void drawGrid()
+    {
+        World world = gameManager.getWorld();
+        Tile[][] tiles = world.getGrid();
+        int size = world.getSize();
+
+        grid.getChildren().retainAll(grid.getChildren().get(0)); //retainAll is for the grid lines
+        System.out.println(size);
+        double width = grid.getWidth() / size;
+        double height = grid.getHeight() / size;
+        for(int i = 0; i < size; ++i) {
+            for(int j = 0; j  < size; ++j) {
+                MyNode node = new MyNode(tiles[i][j], width, height);
+                grid.add(node , i, j);
+            }
+        }
+    }
+
+    private void onResize()
+    {
+        drawGrid();
     }
 }

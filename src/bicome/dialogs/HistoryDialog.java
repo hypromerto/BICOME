@@ -23,35 +23,5 @@ import java.io.IOException;
 
 public class HistoryDialog extends JFXDialog
 {
-    private StackPane pane;
 
-    public HistoryDialog(StackPane pane)
-    {
-        super();
-
-        this.pane = pane;
-    }
-
-    private final JFXDialogLayout layout = new JFXDialogLayout(){{
-       setHeading(new Label("Past games") {{
-           setTextFill(Paint.valueOf("000000"));
-       }});
-       setBody(
-
-       );
-    }};
-
-    private class HistoryPane extends VBox
-    {
-        public HistoryPane(String winLose, String survivalRate, String years, String firstAnimalProps, String lastAnimalProps, String EnvConditions)
-        {
-            super(
-                    new Label(winLose),
-                    new Label("Survival rate: " + survivalRate),
-                    new Label(years + " years"),
-                    new Label(lastAnimalProps),
-                    new Label(EnvConditions)
-                    );
-        }
-    }
 }
