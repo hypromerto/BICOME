@@ -2,6 +2,7 @@ package bicome.controllers;
 
 import bicome.animations.ViewAnimations;
 import bicome.animations.ScaleValue;
+import bicome.dialogs.HistoryDialog;
 import com.jfoenix.controls.*;
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
@@ -13,7 +14,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -121,7 +121,8 @@ public class StartController implements Initializable
     @FXML
     protected void onHistoryAction(ActionEvent event)
     {
-       
+        HistoryDialog dialog = new HistoryDialog();
+        dialog.show(rootPane);
     }
 
     //This fixes gets the focus to the imageView Look https://stackoverflow.com/questions/12744542/requestfocus-in-textfield-doesnt-work

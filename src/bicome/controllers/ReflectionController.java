@@ -2,6 +2,7 @@ package bicome.controllers;
 
 import bicome.animations.ScaleValue;
 import bicome.animations.ViewAnimations;
+import bicome.database.Report;
 import bicome.logic.environment.Environment;
 import bicome.logic.manager.GameManager;
 import bicome.logic.world.Organism;
@@ -118,7 +119,8 @@ public class ReflectionController
     @FXML
     protected void onSaveAction(ActionEvent event)
     {
-        //To Do: add to the history
+        Report report = new Report(gameManager);
+        report.createReport();
     }
 
     public void setGameManager(GameManager gameManager) {
