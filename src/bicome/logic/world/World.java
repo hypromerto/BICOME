@@ -17,11 +17,13 @@ public class World
    private static final int    THREE_NEIGHBOUR = 3;    //Number of neighbours surrounding the center organism
    private static final int    ROUND_LIMIT     = 100;   //The total amount of possible rounds of the game
    
-   private Tile[][]    tiles;          //The simulation multi-array
-   private Tile[][]    offspringTiles; //The multi-array that is used to hold the new-borns
-   private Environment environment;    //The environment of the world
-   private int         round;          //Round count of the game
-   private Organism    firstOrganism;  //One of the first Organisms that were brought into this world
+   private Tile[][]    tiles;             //The simulation multi-array
+   private Tile[][]    offspringTiles;    //The multi-array that is used to hold the new-borns
+   private Environment environment;       //The environment of the world
+   private int         round;             //Round count of the game
+   private Organism    firstOrganism;     //One of the first Organisms that were brought into this world
+   private double      finalSurvivalRate; //The average final survival chance of the last organisms
+   private Organism    averageOrganism;   //An average organism that is a general sample of the final organisms
    
    public World(FeatureList features, Environment environment)
    {
@@ -339,16 +341,16 @@ public class World
    public boolean isGameOver()
    {
     
-   if ( round >= ROUND_LIMIT )
-    return true;
-   
+      if ( round >= ROUND_LIMIT )
+         return true;
+      
       for ( int i = 0; i < SIZE; i++ )
       {
-       for ( int j = 0; j < SIZE; j++ )
-       {
-        if ( !tiles[i][j].isEmpty() )
-         return false;
-       }
+         for ( int j = 0; j < SIZE; j++ )
+         {
+            if ( !tiles[i][j].isEmpty() )
+               return false;
+         }
       }
       
       return true;  //No organisms left
@@ -377,7 +379,10 @@ public class World
     * Gets the size of the grid of the game
     * @return the size of the grid of the game
     */
-   public int getSize() { return SIZE; }
+   public int getSize() 
+   {
+      return SIZE; 
+   }
    
    /**
     * Gets a copy of the first Organisms that were brought into this world

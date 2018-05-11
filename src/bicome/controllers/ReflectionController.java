@@ -59,20 +59,20 @@ public class ReflectionController
     public ReflectionController( GameManager manager)
     {
         gameManager = manager;
-
+        
         init();
     }
 
 
     public void init() //Don't call this before all privates are set
     {
-        //animalNameLabel.setText(gameManager.getFirstOrganism().getName());
+        animalNameLabel.setText(gameManager.getWorld().getFirstOrganism().toString());
         timeLabel.setText("" + gameManager.getYearsPassed());
         //survivalRateLabel("" + gameManager.getWorld().getSurvivalRate());
         environmentNameLabel.setText(gameManager.getWorld().getEnvironment().toString());
         environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
-        firstAnimalListView.getItems().setAll(gameManager.getFirstOrganism().getFeatures());
-        avarageAnimalListView.getItems().setAll(gameManager.getAvarageOrganism().getFeatures());
+        firstAnimalListView.getItems().setAll(gameManager.getWorld().getFirstOrganism().getFeatures());
+        //avarageAnimalListView.getItems().setAll(gameManager.getAverageOrganism().getFeatures());
     }
 
     @FXML
