@@ -1,68 +1,57 @@
 package bicome.dialogs;
 
+import bicome.controllers.ReflectionController;
 import bicome.logic.environment.Environment;
 import bicome.logic.manager.GameManager;
 import bicome.logic.world.Organism;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
-import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.*;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class HistoryDialog extends JFXDialog
 {
-    public HistoryDialog()
+    private StackPane pane;
+
+    public HistoryDialog(StackPane pane)
     {
         super();
-    }
 
-    private final JFXListView historyListView = new JFXListView(){{
-        //getItems().addAll(); add the past games
-    }};
+        this.pane = pane;
+    }
 
     private final JFXDialogLayout layout = new JFXDialogLayout(){{
        setHeading(new Label("Past games") {{
            setTextFill(Paint.valueOf("000000"));
        }});
-       setBody(new ScrollPane(historyListView) {{
-           setStyle("-fx-background-color: #66bb6a");
-       }});
+       setBody(
+
+       );
     }};
 
-    private class HistoryDialogCell extends ListCell<GameManager>
+    private class HistoryPane extends VBox
     {
-        @Override
-        public void updateItem(GameManager manager, boolean empty)
+        public HistoryPane(String winLose, String survivalRate, String years, String firstAnimalProps, String lastAnimalProps, String EnvConditions)
         {
-            super.updateItem(manager, empty);
-            if(manager != null)
-            {
-                //boolean won;
-                Environment environment = manager.getWorld().getEnvironment();
-                Organism firstOrganism = manager.getWorld().getFirstOrganism();
-                //Organism lastOrganism;
-                setContent(new HBox(
-                        new Label(/*won ? "Win" : "Lose"*/),
-                        new Label(environment.toString()),
-                        new JFXButton("Expand") {{
-                            setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-                            //setGraphic();
-                            setOnAction(e -> {
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
-                                
-                            });
-                        }}
-                ));
-            }
+            super(
+                    new Label(winLose),
+                    new Label("Survival rate: " + survivalRate),
+                    new Label(years + " years"),
+                    new Label(lastAnimalProps),
+                    new Label(EnvConditions)
+                    );
         }
     }
 }
