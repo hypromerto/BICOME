@@ -37,7 +37,7 @@
                      <VBox alignment="CENTER">
                         <Label fx:id="animalNameLabel" text="Animal Name">
                            <font>
-                              <Font name="Segoe UI Black" size="12.0" />
+                              <Font name="Segoe UI Black" size="16.0" />
                            </font>
                         </Label>
                      </VBox>
@@ -49,7 +49,7 @@
                               <Font name="Segoe UI Black" size="12.0" />
                            </font>
                         </Label>
-                        <Label fx:id="survivalRateLabel" text="76% survival rate">
+                        <Label fx:id="survivalRateLabel" textAlignment="LEFT" text="76% survival rate">
                            <font>
                               <Font name="Segoe UI Black" size="12.0" />
                            </font>
@@ -68,7 +68,8 @@
                            </graphic>
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
-                           </HBox.margin></JFXButton>
+                           </HBox.margin>
+                        </JFXButton>
                         <JFXButton fx:id="replayButton" buttonType="RAISED" onAction="#onReplayAction" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="50" prefWidth="50" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="Replay">
                            <graphic>
                               <ImageView fitHeight="36" fitWidth="36">
@@ -93,7 +94,7 @@
                <VBox alignment="TOP_CENTER">
                   <Label fx:id="environmentNameLabel" text="Environment Name">
                      <font>
-                        <Font name="Segoe UI Black" size="12.0" />
+                        <Font name="Segoe UI Black" size="16.0" />
                      </font>
                   </Label>
                   <Label fx:id="environmentConditionsLabel" />
