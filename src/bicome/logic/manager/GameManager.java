@@ -30,6 +30,7 @@ public class GameManager
    private World world;
    private GameController controller;
    private FeatureList features;
+   private boolean hasWon;
    
    //constructor
    /**
@@ -75,6 +76,7 @@ public class GameManager
          {
 //            System.out.println("game is over");
             turnTimer.stop();
+            hasWon = ( world.getSampleOrganism() == null );
             //inform controller the game is over.
             Platform.runLater( new Runnable() {
                public void run() {
@@ -152,9 +154,25 @@ public class GameManager
    {
       return numOfTurns;
    }
-
+   
+   /**
+    * Gets a sample organism from the final state of the world's grid.
+    * @return a sample organism from the final state of the world's grid.
+    */
    public Organism getAvarageOrganism()
    {
-      return  null;
+      if ( !hasWon )
+         return null;
+      return world.getSampleOrganism();
+   }
+   
+   /**
+    * returns if the game is won or not
+    * @return if the game is won or not
+    */
+   public boolean gameIsWon()
+   {
+      assert world.isGameOver();
+      return hasWon;
    }
 }
