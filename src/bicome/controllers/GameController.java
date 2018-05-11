@@ -258,7 +258,7 @@ public class GameController implements Initializable{
     {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
-            loader.setController(new ReflectionController(gameManager.getWorld().getEnvironment(), gameManager));
+            loader.setController(new ReflectionController( gameManager));
             AnchorPane rootPane = loader.load();
             PageNavigator.navigate(anchorPane, rootPane);
         } catch (IOException e) {
