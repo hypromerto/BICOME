@@ -1,5 +1,6 @@
 package bicome.controllers;
 
+import bicome.database.Report;
 import bicome.logic.environment.Environment;
 import bicome.logic.feature.Feature;
 import bicome.logic.feature.FeatureList;
@@ -262,6 +263,13 @@ public class GameController implements Initializable{
     {
         Scene currentScene = rootPane.getScene();
         Stage currentStage = (Stage) currentScene.getWindow();
+        Environment environment = gameManager.getWorld().getEnvironment();
+        FeatureList list = gameManager.getWorld().getFirstOrganism().getFeatures();
+        Report report = new Report(environment, list);
+        report.connect();
+        report.createReportTable();
+        report.createAnimalTable(list);
+        report.createEnvironmentTable(environment);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
             AnchorPane root = loader.load();

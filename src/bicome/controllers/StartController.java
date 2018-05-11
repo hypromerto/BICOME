@@ -115,6 +115,12 @@ public class StartController implements Initializable
         transition.play();
     }
 
+    @FXML
+    protected void onHistoryAction(ActionEvent event)
+    {
+
+    }
+
     //This fixes gets the focus to the imageView Look https://stackoverflow.com/questions/12744542/requestfocus-in-textfield-doesnt-work
     private void repeatFocus(Node node)
     {
