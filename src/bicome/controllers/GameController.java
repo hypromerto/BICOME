@@ -166,6 +166,7 @@ public class GameController implements Initializable{
             gameManager.start();
             button.setText("playing");
             imageView.setImage(new Image("/Resources/Images/pauseWhite.png"));
+            drawGrid();
         }
     }
 
