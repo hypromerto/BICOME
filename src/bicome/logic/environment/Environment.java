@@ -3,9 +3,14 @@ package bicome.logic.environment;
  * @author Ege Balcioglu, Ismail Ilter Sezan
  * @version 27.4.2018
  */
+import java.net.URL;
 import java.util.*;
 import bicome.logic.feature.*;
-public class Environment 
+import javafx.scene.image.Image;
+
+import javax.annotation.Resources;
+
+public class Environment
 {
    private static final int MAXIMUM_NUMBER_OF_CONDITIONS = 3;
    // TreeSet utilized for faster calls of add() method
@@ -104,6 +109,46 @@ public class Environment
       }
       
          name = name + "Environment ";
+   }
+
+   public Image getImage() {
+
+      if ( this.name.equals("Unsafe Windy Desert Environment ") || this.name.equals("Unsafe Windy Desert and Scarce Environment "))
+         return new Image ("Resources/Images/desert&wind&predator.jpg");
+      else if ( this.name.equals("Unsafe Windy Pole Environment ") || this.name.equals("Unsafe Windy Pole and Scarce Environment "))
+         return new Image ("Resources/Images/pole&wind&predator.jpg");
+      else if ( this.name.equals("Unsafe Windy Tropical Rainforest Environment ") || this.name.equals("Unsafe Windy Rainforest and Scarce Environment "))
+         return new Image ("Resources/Images/rainforest&wind&predator.jpg");
+      else if ( this.name.equals("Unsafe Windy Continental Environment ") || this.name.equals("Unsafe Windy Continental and Scarce Environment "))
+         return new Image ("Resources/Images/condinental&wind&predator.jpg");
+
+      else if ( this.name.equals("Unsafe Desert Environment ") || this.name.equals("Unsafe Desert and Scarce Environment "))
+         return new Image ("Resources/Images/desert&predator.jpg");
+      else if ( this.name.equals("Unsafe Pole Environment ") || this.name.equals("Unsafe Pole and Scarce Environment "))
+          return new Image ("Resources/Images/pole&predator.jpg");
+      else if ( this.name.equals("Unsafe Tropical Rainforest Environment ") || this.name.equals("Unsafe Tropical Rainforest and Scarce Environment "))
+          return new Image ("Resources/Images/rainforest&predator.jpg");
+      else if ( this.name.equals("Unsafe Continental Environment ") || this.name.equals("Unsafe Continental and Scarce Environment "))
+         return new Image ("Resources/Images/continental&predator.jpg");
+
+      else if ( this.name.equals("Windy Desert Environment ") || this.name.equals("Windy Desert and Scarce Environment "))
+         return new Image ("Resources/Images/desert&wind.jpg");
+      else if ( this.name.equals("Windy Pole Environment ") || this.name.equals("Windy Pole and Scarce Environment "))
+         return new Image ("Resources/Images/pole&wind.jpg");
+      else if ( this.name.equals("Windy Tropical Rainforest Environment ") || this.name.equals("Windy Tropical Rainforest and Scarce Environment "))
+         return new Image ("Resources/Images/rainforest&wind.jpg");
+      else if ( this.name.equals("Windy Continental Environment ") || this.name.equals("Windy Continental and Scarce Environment "))
+         return new Image ("Resources/Images/continental&wind.jpg");
+
+      else if ( this.name.equals("Desert Environment ") || this.name.equals("Desert and Scarce Environment "))
+         return new Image ("Resources/Images/desert&wind.jpg");
+      else if ( this.name.equals("Pole Environment ") || this.name.equals("Pole and Scarce Environment "))
+         return new Image ("Resources/Images/pole.jpg");
+      else if ( this.name.equals("Tropical Rainforest Environment ") || this.name.equals("Tropical Rainforest and Scarce Environment "))
+         return new Image ("Resources/Images/rainforest.jpg");
+      else if ( this.name.equals("Continental Environment ") || this.name.equals("Continental and Scarce Environment "))
+         return new Image ("Resources/Images/continental.jpg");
+      throw new AssertionError();
    }
    
    /**

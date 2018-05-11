@@ -8,11 +8,13 @@ import com.jfoenix.controls.JFXDialogLayout;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
@@ -26,14 +28,17 @@ public class EnvironmentDialog extends JFXDialog
         environment = env;
         setTransitionType(DialogTransition.CENTER);
         setDialogContainer(dialogContainer);
-        setContent(getLayout());
+        setContent(getLayout( env.getImage()));
     }
 
-    private JFXDialogLayout getLayout()
+    private JFXDialogLayout getLayout( Image img)
     {
-        ImageView imageView = new ImageView(/*This will return the image of the Environment*/);
+
+        ImageView imageView = new ImageView(img);
         Label envNameLabel = new Label("Name: " + environment.toString()) {{
-            setFont(defaultFont);
+            setFont(Font.font("Segoe UI", FontWeight.BOLD, 15));
+            //setFont(FontWeight.BOLD);
+            setTextFill(Paint.valueOf("#000000"));
             //setTextFill(Paint.valueOf("#ffffff"));
         }};
         Label envConditionsLabel = new Label("Conditions:\n" + environment.getConditionsForGUI()) {{
@@ -42,9 +47,9 @@ public class EnvironmentDialog extends JFXDialog
         }};
         JFXDialogLayout layout = new JFXDialogLayout(){{
             setStyle("-fx-background-color: #66bb6a");
-            setHeading( imageView,
-                        envNameLabel);
-            setBody(new VBox(envConditionsLabel) {{
+            setHeading( imageView);
+                    //envNameLabel);
+            setBody(new VBox( 5, envNameLabel, envConditionsLabel) {{
                                 //Set margin of the dialog
                                 for(Node node : this.getChildren()) {
                                     setMargin(node, defaultInsets);
@@ -52,6 +57,7 @@ public class EnvironmentDialog extends JFXDialog
                     }}
             );
         }};
+        //VBox vbox = new VBox(int 5, imageView, envNameLabel, envConditionsLabel);
 
         return layout;
     }

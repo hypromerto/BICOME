@@ -27,7 +27,14 @@ public class Feature
       if ( this.genotype == null )
          this.genotype = Genotype.NONE;
       this.base = base;
-      multipliers = base.getMultipliers( this.genotype );
+      try {
+         multipliers = base.getMultipliers(this.genotype);
+      }
+      catch ( NullPointerException e )
+      {
+         System.out.println( base );
+         e.printStackTrace();
+      }
    }
    
    // methods

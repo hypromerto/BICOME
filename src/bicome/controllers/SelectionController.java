@@ -1,6 +1,8 @@
 package bicome.controllers;
 
 import bicome.animations.ScaleValue;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import bicome.animations.ViewAnimations;
 import bicome.dialogs.EnvironmentDialog;
@@ -25,10 +27,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -36,11 +42,15 @@ import java.util.ResourceBundle;
 
 public class SelectionController implements Initializable
 {
+
     @FXML
     private StackPane rootPane;
 
     @FXML
     JFXListView<Feature> selectedFeaturesListView;
+
+    @FXML
+    AnchorPane anchor;
 
     @FXML
     JFXListView<FeatureBase> unSelectedFeaturesListView;
@@ -177,10 +187,11 @@ public class SelectionController implements Initializable
             GameController controller = loader.getController();
             controller.setManager( environment, list);
             controller.init();
+            saveAnimalImage();
             //Yes this is ugly but there is no other way (same with line: 144)
             ((Stage) ((Node) event.getSource()).getScene().getWindow()).setScene(new Scene(borderPane, rootPane.getWidth(), rootPane.getHeight()));
         } catch (IOException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             System.out.println("An error occured while loading the GameStage: " + e.getMessage());
         }
     }
@@ -253,5 +264,11 @@ public class SelectionController implements Initializable
             rightMuscleRec.setVisible(selected);
             leftMuscleRec.setVisible(selected);
         }
+    }
+
+    @FXML
+    public void saveAnimalImage() {
+        WritableImage image = anchor.snapshot(new SnapshotParameters(), null);
+        File file = new File("Resources/Images/AnimalPicture");
     }
 }

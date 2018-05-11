@@ -41,10 +41,17 @@
             </left>
             <right>
                 <VBox alignment="TOP_RIGHT">
-                    <JFXButton fx:id="environmentButton" buttonType="RAISED" style="-fx-background-color: #4caf50; -fx-background-radius: 25" prefHeight="50" prefWidth="50" contentDisplay="GRAPHIC_ONLY" onAction="#onEnvironmentAction" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited">
+                    <JFXButton fx:id="environmentButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" onAction="#onEnvironmentAction" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="50" prefWidth="50" style="-fx-background-color: #4caf50; -fx-background-radius: 25">
                         <VBox.margin>
                             <Insets topRightBottomLeft="10" />
                         </VBox.margin>
+                  <graphic>
+                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/mountains-icon.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
                     </JFXButton>
                 </VBox>
             </right>

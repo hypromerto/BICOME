@@ -46,7 +46,9 @@ public class GameController implements Initializable{
     @FXML
     private BorderPane rootPane;
     @FXML
-    private ImageView imageOfAnimal;
+    private ImageView animalPicture;
+    @FXML
+    private ImageView environmentImage;
     @FXML
     private ImageView backgroundPicture;
     @FXML
@@ -84,6 +86,7 @@ public class GameController implements Initializable{
         animalList.setItems(featuresList);
         // 25 -> 1x
         updateTime(0);
+        //environmentImage.setImage( gameManager.getWorld().getEnvironment().getImage());
 
         speedSlider.valueProperty().addListener( e -> {
            try {
@@ -98,6 +101,7 @@ public class GameController implements Initializable{
            }
         });
         speedSlider.setValue(25);
+
     }
 
     public static class MyNode extends Rectangle {
@@ -208,7 +212,7 @@ public class GameController implements Initializable{
 
     @FXML
     private void setAnimalPic( Image image) {
-        imageOfAnimal.setImage(image);
+        animalPicture.setImage(image);
     }
 
     public void updateGameStage( long time)

@@ -5,10 +5,8 @@
 <?import com.jfoenix.controls.JFXSlider?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -17,13 +15,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.layout.Pane?>
 <BorderPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bicome.controllers.GameController">
             <left>
                 <BorderPane fx:id="animalV" prefHeight="Infinity" prefWidth="120" BorderPane.alignment="CENTER">
                     <top>
                         <VBox>
-                            <ImageView fitWidth="120" fitHeight="120" />
+                            <ImageView fx:id="animalPicture" fitHeight="120" fitWidth="120" />
                             <Label fx:id="animalName" text="Animal  Name">
                                 <font>
                                     <Font name="Segoe UI Black" size="14.0" />
@@ -36,7 +33,7 @@
                     </center>
                     <bottom>
                         <VBox alignment="CENTER">
-                            <JFXButton fx:id="homeButton" contentDisplay="GRAPHIC_ONLY" alignment="CENTER" buttonType="RAISED" mnemonicParsing="false" onAction="#goHome" prefHeight="50" prefWidth="50" style="-fx-background-radius: 25; -fx-background-color: #388e3c;" text=".">
+                            <JFXButton fx:id="homeButton" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#goHome" prefHeight="50" prefWidth="50" style="-fx-background-radius: 25; -fx-background-color: #388e3c;" text=".">
                                 <graphic>
                                     <ImageView fx:id="homeIcon" fitHeight="36" fitWidth="36" pickOnBounds="true" preserveRatio="true">
                                         <image>
@@ -45,13 +42,13 @@
                                     </ImageView>
                                 </graphic>
                                 <VBox.margin>
-                                    <Insets top="5" bottom="5" />
+                                    <Insets bottom="5" top="5" />
                                 </VBox.margin>
                             </JFXButton>
                         </VBox>
                     </bottom>
                     <BorderPane.margin>
-                        <Insets right="5" left="5" top="5" bottom="5" />
+                        <Insets bottom="5" left="5" right="5" top="5" />
                     </BorderPane.margin>
                 </BorderPane>
             </left>
@@ -65,7 +62,12 @@
                             </Label>
                         </top>
                         <center>
-                            <Label fx:id="environmentConditionsLabel" prefWidth="150" prefHeight="Infinity" />
+                            <Label fx:id="environmentConditionsLabel" prefHeight="129.0" prefWidth="99.0">
+               <graphic>
+                  <ImageView fx:id="environmentImage" fitHeight="129.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+
+                            </Label>
                         </center>
                         <bottom>
                             <VBox>
