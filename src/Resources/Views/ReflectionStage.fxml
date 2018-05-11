@@ -107,7 +107,6 @@
                   
                </Separator>
                <VBox alignment="TOP_CENTER">
-                  <ImageView fx:id="animalImage" fitHeight="150.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your Primary Animal">
                      <font>
                         <Font name="Segoe UI Black" size="12.0" />

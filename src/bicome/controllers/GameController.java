@@ -13,6 +13,7 @@ import bicome.utils.PageNavigator;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -224,11 +225,11 @@ public class GameController implements Initializable{
         //Initialize the game grid
 
         gameManager.start();
-        drawGrid();
 
-
+        //Resizes rectangles
         rootPane.widthProperty().addListener(observable -> drawGrid());
         rootPane.heightProperty().addListener(observable -> drawGrid());
+        Platform.runLater(() -> drawGrid());
     }
 
     public void setManager(Environment env, FeatureList list)
@@ -267,7 +268,6 @@ public class GameController implements Initializable{
         int size = world.getSize();
 
         grid.getChildren().retainAll(grid.getChildren().get(0)); //retainAll is for the grid lines
-        System.out.println(size);
         double width = grid.getWidth() / size;
         double height = grid.getHeight() / size;
         for(int i = 0; i < size; ++i) {
