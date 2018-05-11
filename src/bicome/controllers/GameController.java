@@ -1,6 +1,7 @@
 package bicome.controllers;
 
 import bicome.database.Report;
+import bicome.dialogs.ReturnHomeDialog;
 import bicome.logic.environment.Environment;
 import bicome.logic.feature.Feature;
 import bicome.logic.feature.FeatureList;
@@ -23,6 +24,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -160,7 +162,10 @@ public class GameController implements Initializable{
     private void goHome(ActionEvent event) {
         Scene currentScene = ((Node) event.getSource()).getScene();
         Stage currentStage = (Stage) currentScene.getWindow();
-
+        ReturnHomeDialog dialog = new ReturnHomeDialog();
+        Optional<ButtonType> result = dialog.showAndWait();
+        if(!result.isPresent() || result.get().equals(ButtonType.CANCEL))
+            return;
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/Resources/Views/StartStage.fxml"));
             currentStage.setScene(new Scene(root, currentScene.getWidth(), currentScene.getHeight()));
@@ -202,11 +207,11 @@ public class GameController implements Initializable{
         System.out.println(grid.getRowConstraints().size());
         int size = grid.getRowConstraints().size();
         Tile[][] tiles = gameManager.getWorld().getGrid();
-        int row = (int) Math.floor(event.getY() / (grid.getWidth() / size));
+        int row = (int) Math.floor(event.getY() / (grid.getHeight() / size));
         int col = (int) Math.floor(event.getX() / (grid.getWidth() / size));
+        System.out.println(row + "\n" + col);
         try {
             Organism selectedOrganism = tiles[row][col].getOrganism();
-
             animalList.getItems().clear();
             animalList.getItems().addAll(selectedOrganism.getFeatures());
         }
@@ -280,11 +285,11 @@ public class GameController implements Initializable{
         Stage currentStage = (Stage) currentScene.getWindow();
         Environment environment = gameManager.getWorld().getEnvironment();
         FeatureList list = gameManager.getWorld().getFirstOrganism().getFeatures();
-        Report report = new Report(environment, list);
+        /*Report report = new Report(environment, list);
         report.connect();
         //report.createReportTable();
         //report.createAnimalTable(list);
-        //report.createEnvironmentTable(environment);
+        //report.createEnvironmentTable(environment); */
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
             AnchorPane root = loader.load();
