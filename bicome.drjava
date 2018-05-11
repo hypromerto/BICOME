@@ -3,169 +3,173 @@
   <project autorefresh="false" build="bin/" main="Main" root="src/" work="src/">
     <createjar file=""/>
     <source>
-      <file active="true" name="bicome/controllers/GameController.java" package="bicome.controllers" timestamp="11-May-2018 10:55:22">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+      <file active="true" name="bicome/utils/PageNavigator.java" package="bicome.utils" timestamp="11-May-2018 10:55:22">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/controllers/SelectionController.java" package="bicome.controllers" timestamp="11-May-2018 10:55:22">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/controllers/StartController.java" package="bicome.controllers" timestamp="11-May-2018 00:16:28">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/environment/EnvironmentalCondition.java" package="bicome.logic.environment" timestamp="11-May-2018 00:09:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/environment/Environment.java" package="bicome.logic.environment" timestamp="11-May-2018 00:03:20">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="Main.java" package="" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="SelectionMain.java" package="" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/animations/ScaleValue.java" package="bicome.animations" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/animations/ViewAnimations.java" package="bicome.animations" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/dialogs/EnvironmentDialog.java" package="bicome.dialogs" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/dialogs/FeatureDialog.java" package="bicome.dialogs" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/dialogs/PageLoadErrorDialog.java" package="bicome.dialogs" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/FeatureListTest.java" package="bicome.logic" timestamp="10-May-2018 20:55:58">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/attribute/Attribute.java" package="bicome.logic.attribute" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/attribute/FlightEase.java" package="bicome.logic.attribute" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/attribute/NutritionStockpiling.java" package="bicome.logic.attribute" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/attribute/Power.java" package="bicome.logic.attribute" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/attribute/Speed.java" package="bicome.logic.attribute" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/attribute/WaterStockpiling.java" package="bicome.logic.attribute" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/environment/ColdTemperature.java" package="bicome.logic.environment" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/environment/HighPredatorDensity.java" package="bicome.logic.environment" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/environment/HotTemperature.java" package="bicome.logic.environment" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/environment/Humid.java" package="bicome.logic.environment" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/environment/LowPreyDensity.java" package="bicome.logic.environment" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/environment/Windy.java" package="bicome.logic.environment" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/feature/Feature.java" package="bicome.logic.feature" timestamp="10-May-2018 20:50:00">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/feature/FeatureBase.java" package="bicome.logic.feature" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/feature/FeatureList.java" package="bicome.logic.feature" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/feature/FoodStorageOrgan.java" package="bicome.logic.feature" timestamp="10-May-2018 23:09:04">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/feature/Fur.java" package="bicome.logic.feature" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/feature/Hump.java" package="bicome.logic.feature" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/feature/Leg.java" package="bicome.logic.feature" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/feature/Muscles.java" package="bicome.logic.feature" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/feature/Wing.java" package="bicome.logic.feature" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/genotype/Genotype.java" package="bicome.logic.genotype" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/world/Organism.java" package="bicome.logic.world" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/world/Tile.java" package="bicome.logic.world" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/utils/FeaturePopulator.java" package="bicome.utils" timestamp="10-May-2018 20:48:42">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/world/World.java" package="bicome.logic.world" timestamp="11-May-2018 02:47:33">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/controllers/ReflectionController.java" package="bicome.controllers" timestamp="11-May-2018 10:55:22">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
       <file name="bicome/logic/manager/GameManager.java" package="bicome.logic.manager" timestamp="11-May-2018 10:55:22">
-        <select from="8092" to="8092"/>
-        <scroll column="4215" row="0"/>
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="bicome/controllers/GameController.java" package="bicome.controllers" timestamp="11-May-2018 10:56:47">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
       </file>
     </source>
     <included/>
