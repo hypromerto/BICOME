@@ -161,8 +161,7 @@ public class World
                   if ( percentage < tiles[i][j].getOrganism().getSurvivalChance() ) //Crucial decision for game rules here, might change
                   {
                    
-                   //if ( !( aliveNeighbours.size() < TWO_NEIGHBOUR || aliveNeighbours.size() > THREE_NEIGHBOUR ) )
-                    if ( aliveNeighbours.size() >= 1 && aliveNeighbours.size() <= 3 )
+                    if ( aliveNeighbours.size() >= ONE_NEIGHBOUR && aliveNeighbours.size() <= THREE_NEIGHBOUR )
                      {
                          //if  suitable amount of alive neighbors, reproduce after calculating reproduction chance
                          
@@ -172,6 +171,8 @@ public class World
                               // System.out.println("Row: " + i + " Col : " + j + " Empty neighbours: " + emptyNeighbours.size());
 //                            System.out.println("Row: " + i + " Col : " + j + " Alive neighbours: " + aliveNeighbours.size());
 //                            System.out.println("Row: " + i + " Col : " + j + " Selected tiles " + selectedTiles);
+                        	 
+                        	 /*
                           
                          if ( aliveNeighbours.size() == ONE_NEIGHBOUR && Math.random() > REPR_THRESHOLD)
                          {
@@ -181,7 +182,7 @@ public class World
                                 
                                 offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism( tiles[i][j].getOrganism().reproduce( aliveNeighbours.
                                 get( 0 ).getOrganism() ) );
-                         }
+                         } */
 
                             if ( aliveNeighbours.size() == TWO_NEIGHBOUR && TWO_NEIGHBOUR * Math.random() > REPR_THRESHOLD )//Reproduction chance can be changed
                             {  
@@ -194,8 +195,7 @@ public class World
 //                               System.out.println("Row: " + i + " Col : " + j + " Mate Location: " + "Row: " +
 //                               aliveNeighbours.get( mateSelectTwo).getRow() + " Col: "  + aliveNeighbours.get( mateSelectTwo).getCol());
 
-                               //if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectTwo ).getOrganism().canReproduce() )
-                               //{    
+                              
                                   Tile offspring;
                                   
                                   offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) ); //Selecting a tile for the offspring
@@ -210,7 +210,7 @@ public class World
                                   
 //                                  System.out.println(offspringTiles[offspring.getRow()][offspring.getCol()].getOrganism());
                                   
-                               //}  
+                                 
                                
                             }
                             else if ( aliveNeighbours.size() == THREE_NEIGHBOUR && THREE_NEIGHBOUR * Math.random() > REPR_THRESHOLD )
@@ -219,8 +219,7 @@ public class World
                                
                                mateSelectThree = (int) (Math.random() * 3); //Choosing a partner from three alive neighbour
             
-                               //if ( tiles[i][j].getOrganism().canReproduce() && aliveNeighbours.get( mateSelectThree ).getOrganism().canReproduce() )
-                               //{
+                               
                                 Tile offspring;
                                 
                                 offspring = emptyNeighbours.get( (int) (Math.random() * emptyNeighbours.size() ) );
@@ -228,7 +227,7 @@ public class World
                                 offspringTiles[offspring.getRow()][offspring.getCol()].placeOrganism(tiles[i][j].getOrganism().reproduce( aliveNeighbours.
                                 get( mateSelectThree ).getOrganism() ) );    
                                 
-                               //}     
+                                  
                             } 
                             
                             
@@ -271,8 +270,7 @@ public class World
             {
                if ( !tiles[i][j].isEmpty() )
                {
-                 // if ( !tiles[i][j].getOrganism().canReproduce() ) //incrementing the organisms with cooldown active
-                   //  tiles[i][j].getOrganism().increaseCooldown();
+                 
                   
                   tiles[i][j].getOrganism().age();
                                     
@@ -404,6 +402,7 @@ public class World
       boolean foundSample = false;
       double survivalSum = 0.0;
       int organismCount = 0;
+      
       for ( int i = 0; i < tiles.length; i++ )
       {
          for ( int j = 0; j < tiles[ i ].length; j++ )
