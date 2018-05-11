@@ -112,7 +112,7 @@ public class SelectionController implements Initializable
                     selectedList.remove(f);
                     selectedList.add(feature);
                     constructAnimal(feature,true);
-                    break;
+                    return; //break may not be allowed
                 }
             }
         }
@@ -131,7 +131,7 @@ public class SelectionController implements Initializable
             return;
         FeatureBase base = selected.getBase();
 
-        //Remove the feature and add the NONE version of it0
+        //Remove the feature and add the NONE version of it
         selectedList.remove(selected);
         selectedList.add(new Feature(base, Genotype.NONE));
         unSelectedList.add(base);
@@ -177,6 +177,7 @@ public class SelectionController implements Initializable
             GameController controller = loader.getController();
             controller.setManager( environment, list);
             controller.init();
+            //Yes this is ugly but there is no other way (same with line: 144)
             ((Stage) ((Node) event.getSource()).getScene().getWindow()).setScene(new Scene(borderPane, rootPane.getWidth(), rootPane.getHeight()));
         } catch (IOException e) {
             //e.printStackTrace();

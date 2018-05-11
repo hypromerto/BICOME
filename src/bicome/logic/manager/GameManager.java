@@ -150,4 +150,16 @@ public class GameManager
    {
       return numOfTurns;
    }
+
+   public Organism getFirstOrganism()
+   {
+      //TO DO: return the first ever created organism
+      return null;
+   }
+
+   public Organism getAvarageOrganism()
+   {
+      //TO DO: return the avarage of the last turns' organisms
+      return  null;
+   }
 }

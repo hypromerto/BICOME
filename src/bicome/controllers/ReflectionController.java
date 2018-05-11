@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 
 
 public class ReflectionController
-{ //implements Initializable {
+{
 
     @FXML
     private Label animalNameLabel;
@@ -54,21 +54,25 @@ public class ReflectionController
     @FXML
     private JFXListView avarageAnimalListView;
 
-    private Environment environment;
-    private Organism firstOrganism;
-    private Organism avarageOrganism;
     private GameManager gameManager;
+
+    public ReflectionController( GameManager manager)
+    {
+        gameManager = manager;
+
+        init();
+    }
 
 
     public void init() //Don't call this before all privates are setted
     {
-        //animalNameLabel.setText(firstOrganism.getName());
+        //animalNameLabel.setText(gameManager.getFirstOrganism().getName());
         timeLabel.setText("" + gameManager.getYearsPassed());
         //survivalRateLabel("" + gameManager.getWorld().getSurvivalRate());
         environmentNameLabel.setText(gameManager.getWorld().getEnvironment().toString());
         environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
-        firstAnimalListView.getItems().setAll(firstOrganism.getFeatures());
-        avarageAnimalListView.getItems().setAll(avarageOrganism.getFeatures());
+        firstAnimalListView.getItems().setAll(gameManager.getFirstOrganism().getFeatures());
+        avarageAnimalListView.getItems().setAll(gameManager.getAvarageOrganism().getFeatures());
     }
 
     @FXML
@@ -89,29 +93,5 @@ public class ReflectionController
     protected void onSaveAction(ActionEvent event)
     {
         //To Do: add to the history
-    }
-
-    public void setValues(Environment environment, Organism firstOrganism, Organism avarageOrganism, GameManager manager)
-    {
-        setEnvironment(environment);
-        setFirstOrganism(firstOrganism);
-        setAvarageOrganism(avarageOrganism);
-        setGameManager(manager);
-    }
-
-    public void setGameManager(GameManager gameManager) {
-        this.gameManager = gameManager;
-    }
-
-    public void setEnvironment(Environment environment) {
-        this.environment = environment;
-    }
-
-    public void setFirstOrganism(Organism firstOrganism) {
-        this.firstOrganism = firstOrganism;
-    }
-
-    public void setAvarageOrganism(Organism avarageOrganism) {
-        this.avarageOrganism = avarageOrganism;
     }
 }
