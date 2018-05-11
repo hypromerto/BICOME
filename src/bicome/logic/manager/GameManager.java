@@ -43,7 +43,7 @@ public class GameManager
       durationOfTurns = INITIAL_DURATION_OF_TURNS; // in millisecond
       this.world = world;
       this.controller = controller;
-      turnTimer = new Timer( durationOfTurns * UP_TIME, new TimeListener() );  
+      turnTimer = new Timer( durationOfTurns * UP_TIME, new TimeListener() );
    }
    
    /**
