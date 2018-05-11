@@ -18,7 +18,7 @@
 
 <BorderPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bicome.controllers.GameController">
             <left>
-                <BorderPane fx:id="animalV" prefHeight="Infinity" prefWidth="120" style="-fx-background-color: #43A047" BorderPane.alignment="CENTER">
+                <BorderPane fx:id="animalV" prefHeight="Infinity" prefWidth="180" style="-fx-background-color: #43A047" BorderPane.alignment="CENTER">
                     <top>
                         <VBox>
                             <Label fx:id="animalName" text="Animal">
@@ -42,7 +42,7 @@
                                     </ImageView>
                                 </graphic>
                                 <VBox.margin>
-                                    <Insets bottom="5" top="5" />
+                                    <Insets topRightBottomLeft="10" />
                                 </VBox.margin>
                             </JFXButton>
                         </VBox>
@@ -66,7 +66,7 @@
                             </Label>
                         </center>
                         <bottom>
-                            <VBox>
+                            <VBox alignment="CENTER">
                                 <JFXButton fx:id="pauseButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#pauseAndPlayGame" prefHeight="35.0" prefWidth="37.0" style="-fx-background-color: #388e3c; -fx-background-radius: 25;" text="playing">
                                     <graphic>
                                         <ImageView fx:id="pauseicon" fitHeight="36" fitWidth="36" pickOnBounds="true" preserveRatio="true">
