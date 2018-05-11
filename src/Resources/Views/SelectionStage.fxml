@@ -20,11 +20,11 @@
                     <top>
                         <VBox fx:id="FeaturesPanel" alignment="TOP_LEFT" prefWidth="200" style="-fx-background-color: #43A047">
                             <Label text="Selected Features: " textFill="white" />
-                            <JFXListView fx:id="selectedFeaturesListView" onMouseClicked="#onFeatureUnSelected" prefHeight="250" style="-fx-background-color: #43A047">
+                            <JFXListView fx:id="selectedFeaturesListView" onMouseClicked="#onFeatureUnSelected" prefHeight="250" style="-fx-background-color: #43A047" stylesheets="@../Styles/ListViewStyle.css">
 
                             </JFXListView>
                             <Label text="Select Features: " textFill="white" />
-                            <JFXListView fx:id="unSelectedFeaturesListView" onMouseClicked="#onFeatureSelected" prefHeight="250" style="-fx-background-color: #43A047">
+                            <JFXListView fx:id="unSelectedFeaturesListView" onMouseClicked="#onFeatureSelected" prefHeight="250" style="-fx-background-color: #43A047" stylesheets="@../Styles/ListViewStyle.css">
 
                             </JFXListView>
                             <BorderPane.margin>
@@ -41,6 +41,7 @@
             </left>
             <right>
                 <VBox alignment="TOP_RIGHT">
+                <VBox alignment="TOP_RIGHT" prefWidth="150">
                     <JFXButton fx:id="environmentButton" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" onAction="#onEnvironmentAction" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="50" prefWidth="50" style="-fx-background-color: #4caf50; -fx-background-radius: 25">
                         <VBox.margin>
                             <Insets topRightBottomLeft="10" />
