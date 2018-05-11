@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -45,32 +46,37 @@ public class GameController implements Initializable{
 
     @FXML
     private BorderPane rootPane;
-    @FXML
-    private ImageView imageOfAnimal;
-    @FXML
-    private ImageView backgroundPicture;
-    @FXML
-    private Label animalName;
+
     @FXML
     private Label environmentName;
+
     @FXML
     private Label timeData;
+
     @FXML
     private Label survivalRate;
+
     @FXML
     private JFXButton homeButton;
+
     @FXML
     private JFXButton pauseButton;
+
     @FXML
     private JFXButton speedButton;
+
     @FXML
     private Label environmentConditionsLabel;
+
     @FXML
     private JFXListView animalList;
+
     @FXML
     private Label speedLabel;
+
     @FXML
     private JFXSlider speedSlider;
+
     @FXML
     private GridPane grid;
 
@@ -182,17 +188,19 @@ public class GameController implements Initializable{
     @FXML
     protected void onGridClicked(MouseEvent event)
     {
-        for(Node node : grid.getChildren()) {
-            if(node instanceof MyNode) {
-                if(node.getBoundsInParent().contains(event.getSceneX(), event.getSceneY())) {
-                    if(node == null)
-                        return;
-                    MyNode currentNode = (MyNode) node;
-                    animalList.getItems().clear();
-                    animalList.getItems().addAll(currentNode.getTile().getOrganism().getFeatures());
-                    //Set the name of the animal and the image
-                }
-            }
+        System.out.println(grid.getRowConstraints().size());
+        int size = grid.getRowConstraints().size();
+        Tile[][] tiles = gameManager.getWorld().getGrid();
+        int row = (int) Math.floor(event.getY() / (grid.getWidth() / size));
+        int col = (int) Math.floor(event.getX() / (grid.getWidth() / size));
+        try {
+            Organism selectedOrganism = tiles[row][col].getOrganism();
+
+            animalList.getItems().clear();
+            animalList.getItems().addAll(selectedOrganism.getFeatures());
+        }
+        catch (NullPointerException e) {
+            System.out.println("The cell is null");
         }
     }
 
@@ -204,11 +212,6 @@ public class GameController implements Initializable{
     @FXML
     private void updateSurvivalRate( int rateOfSurvival ) {
         survivalRate.setText( rateOfSurvival + "%" );
-    }
-
-    @FXML
-    private void setAnimalPic( Image image) {
-        imageOfAnimal.setImage(image);
     }
 
     public void updateGameStage( long time)
