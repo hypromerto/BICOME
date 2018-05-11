@@ -2,6 +2,8 @@ package bicome.logic.manager;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.Serializable;
+
 import javafx.application.*;
 import bicome.controllers.*;
 import bicome.logic.*;
