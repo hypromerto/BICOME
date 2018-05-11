@@ -275,7 +275,7 @@ public class GameController implements Initializable{
         for(int i = 0; i < size; ++i) {
             for(int j = 0; j  < size; ++j) {
                 MyNode node = new MyNode(tiles[i][j], width, height);
-                grid.add(node , i, j);
+                grid.add(node , j, i);
             }
         }
     }
