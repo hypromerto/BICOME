@@ -187,7 +187,7 @@ public class SelectionController implements Initializable
             GameController controller = loader.getController();
             controller.setManager( environment, list);
             controller.init();
-            saveAnimalImage();
+            //saveAnimalImage();
             //Yes this is ugly but there is no other way (same with line: 144)
             ((Stage) ((Node) event.getSource()).getScene().getWindow()).setScene(new Scene(borderPane, rootPane.getWidth(), rootPane.getHeight()));
         } catch (IOException e) {
@@ -266,9 +266,10 @@ public class SelectionController implements Initializable
         }
     }
 
-    @FXML
+    /*@FXML
     public void saveAnimalImage() {
         WritableImage image = anchor.snapshot(new SnapshotParameters(), null);
         File file = new File("Resources/Images/AnimalPicture");
     }
+    */
 }

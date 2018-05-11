@@ -86,7 +86,7 @@ public class ReflectionController
         firstAnimalListView.getItems().setAll(gameManager.getWorld().getFirstOrganism().getFeatures());
         //avarageAnimalListView.getItems().setAll(gameManager.getAverageOrganism().getFeatures());
         enviroImage.setImage( gameManager.getWorld().getEnvironment().getImage());
-        animalImage.setImage( new Image("Resources/Images/AnimalPicture"));
+        //animalImage.setImage( new Image("Resources/Images/AnimalPicture"));
     }
 
     @FXML

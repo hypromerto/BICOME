@@ -87,7 +87,8 @@ public class StartController implements Initializable
             currentStage.setScene( new Scene(root,  currentScene.getWidth(), currentScene.getHeight()) );
         }
         catch (IOException e) {
-           System.out.println("Couldn't open SelectionStage");
+           System.out.println("Couldn't open SelectionStage " + e.getMessage());
+           e.printStackTrace();
         }
     }
 
@@ -118,7 +119,7 @@ public class StartController implements Initializable
     @FXML
     protected void onHistoryAction(ActionEvent event)
     {
-
+       
     }
 
     //This fixes gets the focus to the imageView Look https://stackoverflow.com/questions/12744542/requestfocus-in-textfield-doesnt-work

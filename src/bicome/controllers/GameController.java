@@ -282,9 +282,9 @@ public class GameController implements Initializable{
         FeatureList list = gameManager.getWorld().getFirstOrganism().getFeatures();
         Report report = new Report(environment, list);
         report.connect();
-        report.createReportTable();
-        report.createAnimalTable(list);
-        report.createEnvironmentTable(environment);
+        //report.createReportTable();
+        //report.createAnimalTable(list);
+        //report.createEnvironmentTable(environment);
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Resources/Views/ReflectionStage.fxml"));
             AnchorPane root = loader.load();
