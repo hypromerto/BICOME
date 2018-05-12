@@ -1,0 +1,1 @@
+Game 1 Date: 12/05/2018 11:09:08       HighPredatorDensity LowPreyDensity Windy 100 years passed, survival rate: 94.95742446980243 Result: won

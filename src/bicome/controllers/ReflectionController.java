@@ -85,11 +85,21 @@ public class ReflectionController
         environmentNameLabel.setText(gameManager.getWorld().getEnvironment().toString());
         environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
         firstAnimalListView.getItems().setAll(gameManager.getWorld().getFirstOrganism().getFeatures());
-        avarageAnimalListView.getItems().setAll(gameManager.getWorld().getSampleOrganism());
-        //avarageAnimalListView.getItems().setAll(gameManager.getAverageOrganism().getFeatures());
+        //avarageAnimalListView.getItems().setAll(gameManager.getWorld().getSampleOrganism());
+        try
+        {
+           avarageAnimalListView.getItems().setAll(gameManager.getWorld().getSampleOrganism().getFeatures());
+        }
+        catch ( NullPointerException e )
+        {
+           avarageAnimalListView.getItems().setAll("There's nothing to look at!");
+        }
         enviroImage.setImage( gameManager.getWorld().getEnvironment().getImage());
         //animalImage.setImage( new Image("Resources/Images/AnimalPicture"));
-        winLoseLabel.setText(gameManager.gameIsWon() ? "You Win!" : "You Lose!");
+        if ( gameManager.gameIsWon() )
+           winLoseLabel.setText("You Win!");
+        else
+           winLoseLabel.setText("You Lose!");
         survivalRateLabel.setText("Survival rate: " + gameManager.getWorld().getFinalSurvivalRate());
     }
 
