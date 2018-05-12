@@ -53,8 +53,8 @@ public class StartController implements Initializable
         dialogLayout.setHeading(new Label("How to play?"));
         //TO DO: write the help message
         dialogLayout.setBody(new Label("Create your own species by selecting feature from the list! You can determine the phenotypes of the features by choosing their genotypes." +
-                "Don't forget to take the environmental factors into account because you will be observing the survival of the animal you have" +
-                "ccreated and its offsprings!  "));
+                " Don't forget to take the environmental factors into account because you will be observing the survival of the animal you have" +
+                " created and its offsprings!\n\nGlossary:\nHo-D -> Homozygote Dominant\nHe-D -> Heterozygote Dominant\nHo-R -> Homozygote Recessive"));
         dialogLayout.setStyle("-fx-background-color: #B2EBF2");
 
         //cancel button for dialog

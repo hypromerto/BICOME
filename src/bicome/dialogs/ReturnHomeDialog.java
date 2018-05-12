@@ -21,6 +21,6 @@ public class ReturnHomeDialog extends Alert
     public ReturnHomeDialog()
     {
         super(AlertType.CONFIRMATION);
-        setHeaderText("Are you sure to abort the game?");
+        setHeaderText("Are you sure you want to quit? abort the game?");
     }
 }

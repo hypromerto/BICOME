@@ -14,6 +14,6 @@ public class ExitDialog extends Alert
     public ExitDialog()
     {
         super(AlertType.CONFIRMATION);
-        setHeaderText("Are you to quit? Any unfinished game will be lost.");
+        setHeaderText("Are you sure you want to quit? Any unfinished game will be lost.");
     }
 }

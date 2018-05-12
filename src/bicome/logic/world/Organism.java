@@ -208,7 +208,7 @@ public class Organism
       result = new StringBuffer( "" );
       for ( Attribute a : attributes )
       {
-         result.append( a.getType() );
+         result.append( a.getName() );
          result.append( ": " ); 
          result.append( a.getValue() );
          result.append( "\n" );
