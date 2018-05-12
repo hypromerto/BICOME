@@ -10,11 +10,10 @@ import bicome.logic.feature.*;
 import bicome.logic.attribute.*;
 import bicome.logic.environment.*;
 import bicome.logic.genotype.Genotype;
+
 public class Organism 
 {
-//   private int cooldown;
    private double survivalChance;
-//   private boolean pregnant;
    private int age;
    private FeatureList features;
    private Environment habitat;
@@ -28,10 +27,7 @@ public class Organism
     */
    public Organism( FeatureList features, Environment worldEnvironment )
    {
-      // stub
-//      cooldown = 0;
       age = 0;
-//      pregnant = false;
       this.features = features;
       attributes = new Attribute[ 5 ];
       attributes[ 0 ] = new Power();
@@ -55,30 +51,6 @@ public class Organism
       survivalChance--;
    }
    
-   /*
-   public void increaseCooldown()
-   {
-      if ( cooldown % 3 == 0 && cooldown != 0 )
-      {
-         cooldown = 0;
-         setReproductionCooldown( false );
-      }
-      else
-         cooldown++;
-   }
-   
-   
-   public void setReproductionCooldown( boolean state )
-   {
-      pregnant = state;
-   }
-   
-   public boolean canReproduce()
-   {
-      return !pregnant;      
-   }
-   */
-   
    /**
     * Makes this Organism mate with a partner and returns the offspring.
     * @param other this organism's mating partner
@@ -88,9 +60,6 @@ public class Organism
    {
       Organism offspring;
       FeatureList newFeatures;
-      
-      //this.setReproductionCooldown( true );
-      //other.setReproductionCooldown( true );
       
       if ( this.features == null || other.features == null )
       {
@@ -110,12 +79,7 @@ public class Organism
       
       offspring = new Organism( newFeatures, habitat );
       
-      //offspring.setReproductionCooldown( true );  //This might be not needed, may even be bad for the algorithm
-      //On a second thought i am sure that this line would break the game by making it a lot harder as if it is
-      //not hard enough.
-      
       return offspring;
-      
    }
    
    /**
@@ -219,10 +183,6 @@ public class Organism
       result.append( "Survival Chance: " );
       result.append( survivalChance ); 
       result.append( "%\n" );
-      //result.append( "This organism can" );
-      //if ( pregnant )
-         //result.append( "not" );
-      //result.append( " reproduce right now.\n" );
       result.append( "Features:\n" );
       result.append( features );
       return result.toString();

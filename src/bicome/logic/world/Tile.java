@@ -1,11 +1,15 @@
 package bicome.logic.world;
 
 /**
+ * Represents a single Tile. Has methods to place an organism or remove it from the tile (killing it), which
+ * also changes the color of the Tile according to which one of them have happened. As it has row and column numbers
+ * as it's property, it knows it's location in a grid that it may be used. Can be selected.
  * 
  * @author  Mert Aslan
  * @version 28.04.2018
  */
 import javafx.scene.paint.Color;
+
 public class Tile 
 {
    private Color    color;    //Color of the tile
