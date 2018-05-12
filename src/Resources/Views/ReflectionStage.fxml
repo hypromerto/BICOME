@@ -33,15 +33,6 @@
          <center>
             <HBox alignment="TOP_CENTER">
                <BorderPane>
-                  <top>
-                     <VBox alignment="CENTER">
-                        <Label fx:id="animalNameLabel" text="Animal Name">
-                           <font>
-                              <Font name="Segoe UI Black" size="16.0" />
-                           </font>
-                        </Label>
-                     </VBox>
-                  </top>
                   <center>
                      <VBox alignment="CENTER">
                         <Label fx:id="timeLabel" text="0 years">

@@ -39,13 +39,7 @@ import javafx.stage.Stage;
 public class ReflectionController
 {
     @FXML
-    private Label anchorPane;
-
-    @FXML
     private ImageView enviroImage;
-
-    @FXML
-    private Label animalNameLabel;
 
     @FXML
     private Label timeLabel;
@@ -79,7 +73,6 @@ public class ReflectionController
 
     public void init() //Don't call this before all privates are set
     {
-        animalNameLabel.setText(gameManager.getWorld().getFirstOrganism().toString());
         timeLabel.setText(gameManager.getYearsPassed() + " years");
         //survivalRateLabel("" + gameManager.getWorld().getSurvivalRate());
         environmentNameLabel.setText(gameManager.getWorld().getEnvironment().toString());
