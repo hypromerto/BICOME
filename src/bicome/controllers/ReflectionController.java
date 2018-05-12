@@ -68,6 +68,12 @@ public class ReflectionController
     @FXML
     private Label winLoseLabel;
 
+    @FXML
+    private Label firstPropertyLabel;
+
+    @FXML
+    private Label avaragePropertyLabel;
+
 
     private GameManager gameManager;
 
@@ -77,15 +83,17 @@ public class ReflectionController
         //survivalRateLabel("" + gameManager.getWorld().getSurvivalRate());
         environmentNameLabel.setText(gameManager.getWorld().getEnvironment().toString());
         environmentConditionsLabel.setText(gameManager.getWorld().getEnvironment().getConditionsForGUI());
-        firstAnimalListView.getItems().setAll(gameManager.getWorld().getFirstOrganism().getFeatures());
-        //avarageAnimalListView.getItems().setAll(gameManager.getWorld().getSampleOrganism());
+        //firstAnimalListView.getItems().setAll(gameManager.getWorld().getFirstOrganism().getFeatures());
+        firstPropertyLabel.setText(gameManager.getWorld().getFirstOrganism().toString());
         try
         {
-           avarageAnimalListView.getItems().setAll(gameManager.getWorld().getSampleOrganism().getFeatures());
+           //avarageAnimalListView.getItems().setAll(gameManager.getWorld().getSampleOrganism().getFeatures());
+            avaragePropertyLabel.setText(gameManager.getWorld().getSampleOrganism().toString());
         }
         catch ( NullPointerException e )
         {
-           avarageAnimalListView.getItems().setAll("There's nothing to look at!");
+           //avarageAnimalListView.getItems().setAll("There's nothing to look at!");
+            avaragePropertyLabel.setText("There's nothing to look at!");
         }
         enviroImage.setImage( gameManager.getWorld().getEnvironment().getImage());
         //animalImage.setImage( new Image("Resources/Images/AnimalPicture"));
